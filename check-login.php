@@ -1,22 +1,11 @@
 <?php
-    include'./connection.php';
-	$username = $_POST["username"];
-    $password = MD5($_POST["password"]);
+    include'./auth/auth.php';
+    include'./class/userClass.php';
 
-
-    $result = $conn->query("SELECT studentID FROM studentInfo WHERE studentID = '$username' AND password = '$password' "); 
-    // $stmt->execute();
-
-
-    if ($result->fetchColumn() > 0)
-    {
-        $res[] = 1;
-    }
-    else 
-    {
-        $res[] = 0;
-    }
-    echo json_encode($res);
+	$userClass = new userClass();
+    $login = $userClass->login($_POST['username'],$_POST['password']);
+    
+    echo json_encode($login);
 
 	
     // $sql = "INSERT INTO `bookLend`(`studentID`, `bookID`, `dueDate`) VALUES ('$studentID','$bookID',adddate(now(),7));" ;

@@ -99,27 +99,22 @@
               password:password
             },
             success: function(resp){
-                
+                console.log(resp);
                 var data = JSON.parse(resp)
                 console.log(data);
-                if(data[0] == "Connected successfully")
+                if(data)
                 {
-                  if(data[1] == 1)
-                  {
-                     swal('Success','','success').then((value) => {
-                        window.location = '../welcome/?test=5'
-                      })
-                  }
-                  else
-                  {
-                    swal('Invalid','Invalid username of password','error')
-                  }
-                 
+                  if ($_SESSION['user'] == "Student")
+                      window.location = '../welcome/?test=5';
+                  if ($_SESSION['user'] == "Lecturer") 
+                      window.location = '../welcome/?test=5';
                 }
                 else
                 {
-                  swal('Error',data[1],'error')
+                  swal('Invalid','Invalid username of password','error')
                 }
+                 
+                
             }
           })
       }
@@ -127,74 +122,6 @@
     });
 
 
-
-   //  function login(){
-   //    console.log("hello");
-   //    var username = document.getElementById("username");
-   //    var password = document.getElementById("password");
-   //        // console.log("hello");
-   //        $.ajax({
-   //          url : "check-login.php",
-   //          type: "post",
-   //          data :{
-   //            username:username,
-   //            password:password
-   //          },
-   //          success: function(resp){
-   //              console.log("hello2");
-   //            var data = JSON.parse(resp)
-   //            console.log(data);
-   //            // if(data[0] == 1){
-   //            //   swal('Success','','success').then((value) => {
-   //            //     window.location = '../welcome/?test=5'
-   //            //   })
-   //            // }else{
-   //            //   swal('Error',data[1],'error')
-   //            // }
-   //          }
-   //        });
-        
-
-   // }
-
-
-
-   // function login(){
-   //    console.log("hello");
-   //    var username = document.getElementById("username");
-   //    var password = document.getElementById("password");
-   //    swal({
-   //     title: "Fee "+fee+" Baht",
-   //     text: "Do you want Return "+ bookName +" ?",
-   //     icon: "info",
-   //     buttons: true,
-   //     dangerMode: false,
-   //   }).then((resp) => {
-   //    if (resp) {
-   //        // console.log("hello");
-   //        $.ajax({
-   //          url : "../ajax/book_return_request.php",
-   //          type: "post",
-   //          data :{
-   //            bookID:bookID,
-   //            studentID:studentID,
-   //            lendDate:lendDate
-   //          },
-   //          success: function(resp){
-   //            var data = JSON.parse(resp)
-   //            console.log(data);
-   //            if(data[0] == 1){
-   //              swal('Success','','success').then((value) => {
-   //                window.location = '../welcome/?test=5'
-   //              })
-   //            }else{
-   //              swal('Error',data[1],'error')
-   //            }
-   //          }
-   //        })
-   //      }
-   //    })
-   // }
 
     </script>
 
