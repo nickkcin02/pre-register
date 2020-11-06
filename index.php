@@ -13,7 +13,8 @@
   <link rel="stylesheet" type="text/css" href="../css/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <title>Koffie House </title>
+  <link rel="icon" href="img/u.png">
+  <title>PraYU</title>
   <link rel="icon" type = "pic"href="../pic/icon.ico">
   <style>
     body {
