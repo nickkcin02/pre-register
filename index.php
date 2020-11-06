@@ -98,6 +98,28 @@
       font-size: 12px;
       font-weight: bold;
     }
+    #signin {
+      width: 40%;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      background-color: #233975;
+      border: none;
+      transition-duration: 0.3s;
+      cursor: pointer;
+    }
+    #signin:hover {
+      background-color: #152245;
+    }
+    #okay {
+      width: 15%;
+      border-radius: 20px;
+      margin-top: 2%;
+      border: none;
+    }
+    #okay:hover {
+      background-color: #152245;
+    }
   </style>
 </head>
 <body>
@@ -122,7 +144,7 @@
       </div>
     </form>
     <div align="center">
-      <button type = "btn" class="btn btn-primary btn-lg" style="width: 40%; border-radius: 20px; font-size: 12px; font-weight: bold; background-color: #233975;" id="button">SIGN IN</button>
+      <button type = "btn" class="btn btn-primary btn-lg" id="signin">SIGN IN</button>
     </div>
   </div>
   <div id="myModal" class="modal">
@@ -132,7 +154,7 @@
       <center><img src="/img/cross.png" style="margin-top: 5%; margin-bottom: 5%">
         <h2 style="color: white;">Invalid</h2>
         <p style="color: white;">Please Enter your ID and password again.</p>
-      <button class="btn btn-primary btn-lg" id="okay" style="width: 15%; border-radius: 20px; margin-top: 2%;">Okay</button>
+      <button class="btn btn-primary btn-lg" id="okay">Okay</button>
       </center>
     </div>
 
@@ -198,10 +220,11 @@
               btn.onclick = function() {
                 dis = 1;
                 modal.style.display = "none";
-                document.getElementById("username").value = "";
-                document.getElementById("password").value = "";
+                
               }
             }
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
 
 
 
