@@ -16,8 +16,8 @@
     <link rel="icon" type = "pic"href="../pic/icon.ico">
     <style>
         #Login_BG{
-            background: rgb(9,9,121);
-            background: linear-gradient(0deg, rgba(9,9,121,1) 20%, rgba(2,0,36,1) 100%, rgba(0,212,255,1) 100%);
+            /*background: rgb(36,55,117);*/
+            background: linear-gradient(0deg, rgba(36,55,117) 20%, rgba(18,28,59) 100%);
             background-repeat: no-repeat;
             position:absolute;
             top:0px;
@@ -28,9 +28,10 @@
 
         #Container_BG{
             background: rgb(255,255,255);
-            border-radius:10px;
-            padding: 20px; 
+            border-radius: 40px;
+            padding: 50px; 
             margin-right: 40px;
+            margin-top: 200px;
             float: right;
 
         }   
@@ -42,6 +43,7 @@
     <div id="Login_BG">
 
          <div class="col-sm-4" id="Container_BG">
+          <center><img src="img/prayuthlg.png" align="center"></center>
             <form method="post">
              <div class="form-group" >
               <i class="fa fa-user"></i>
