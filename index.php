@@ -78,16 +78,14 @@
        <div class="form-group" >
         <label for="username" style="font-size: 12px; font-weight: bold;">Lecturer ID or Student ID</label>
         <input type="text" class="form-control" id="username" aria-describedby="emailHelp" name="username" placeholder="ID" style="border-radius: 20px">
-        <small id="usernameHelp" class="form-text text-muted"></small>
       </div>
       <div class="form-group">
         <label for="password" style="font-size: 12px; font-weight: bold;">Password</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password" >
-        <small id="passwordHelp" class="form-text text-muted"></small>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
       </div>
     </form>
     <div align="center">
-      <button type = "btn" class="btn btn-primary btn-lg" style="width: 40%; border-radius: 20px; font-size: 12px; font-weight: bold;" id="button">SIGN IN</button>
+      <button type = "btn" class="btn btn-primary btn-lg" style="width: 40%; border-radius: 20px; font-size: 12px; font-weight: bold; background-color: #233975;" id="button">SIGN IN</button>
     </div>
   </div>
 
@@ -102,18 +100,18 @@
       var password = document.getElementById("password").value;
       var check = 1;
       if (username == "" || username == null) {
-        document.getElementById("usernameHelp").innerHTML = "Please enter username!";
+        document.getElementById("username").style.border = "2px solid #C61038";
         check = 0;
       }
       else {
-        document.getElementById("usernameHelp").innerHTML = "";
+        document.getElementById("username").innerHTML = "";
       }
       if (password == "" || password == null) {
-        document.getElementById("passwordHelp").innerHTML = "Please enter password!";
+        document.getElementById("password").style.border = "2px solid #C61038";
         check = 0;
       }
       else {
-        document.getElementById("passwordHelp").innerHTML = "";
+        document.getElementById("password").innerHTML = "";
       }
 
       console.log(password)
