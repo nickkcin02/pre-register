@@ -18,10 +18,11 @@
 
 			if($count){
 				$data = $stmt->fetch(PDO::FETCH_OBJ);
+				session_start();
 				$_SESSION['user'] = $data->userRole;
-				return true;
+				return $data->userRole;
 			}else{
-				return false;
+				return "Error";
 			}
 		}
 		
