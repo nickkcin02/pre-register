@@ -1,0 +1,45 @@
+version: '3.2'
+
+services:
+    Phob_DB:
+      container_name: database
+      restart: always
+      image: mysql:8.0
+      environment:
+       MYSQL_ROOT_PASSWORD: 'cpe327db'
+      volumes:
+       - ./mysql-data:/var/lib/mysql
+      ports:
+       - "3306:3306"
+
+    Phob_PMA:
+      depends_on:
+       - Phob_DB
+      image: phpmyadmin/phpmyadmin
+      container_name: PHOB_PMA
+      restart: always
+      ports:
+       - '8000:80'
+      environment:
+        PMA_HOST: Phob_DB
+
+    php:
+      container_name: php
+      image: php:7.4-fpm-alpine
+      restart: unless-stopped
+      volumes:
+        - ./html/:/var/www/html
+      ports:
+        - "9000"
+
+    nginx:
+      image: nginx:alpine
+      container_name: webserver
+      volumes:
+        - ./html/:/var/www/html
+        - ./nginx/conf/nginx.conf:/etc/nginx/conf/nginx.conf:ro
+        - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      restart: unless-stopped
+      ports:
+        - "80:80"
+
