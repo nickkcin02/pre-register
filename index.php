@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" href="../css/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="icon" href="img/u.png">
+  <link rel="icon" href="./img/u.png">
   <title>PraYU</title>
   <link rel="icon" type = "pic"href="../pic/icon.ico">
   <style>
@@ -204,12 +204,16 @@
             console.log(resp);
             var data = JSON.parse(resp)
             console.log(data);
-            if(data)
+            if(data != "Error")
             {
-              if ($_SESSION['user'] == "Student")
-                window.location = '../welcome/?test=5';
-              if ($_SESSION['user'] == "Lecturer") 
-                window.location = '../welcome/?test=5';
+              if (data == "Student")
+                // Go to Student Page
+                window.location = './';
+              
+              if (data == "Lecturer") 
+                // Go to Lecturer Page
+                window.location = './';
+                
             }
             else
             {
