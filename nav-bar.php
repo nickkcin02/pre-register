@@ -1,70 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<?php  
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+	<link rel="icon" href="img/u.png">
+	<title>PraYU</title>
+	<link rel="icon" type = "pic"href="../pic/icon.ico">
+	<style>
+		body {
+			font-family: "Montserrat";
+		}
+		.btninnav {
+			background-color: #ffffff; 
+			border: none;
+			transition-duration: 0.3s;
+			cursor: pointer;
+		}
+		.btninnav:hover {
+			background-color: #D4DEFA;
+		}
+	</style>
 
-session_start();
+	<?php  
+	session_start();
+	if (!isset($_SESSION["username"])) {
+		header("location: logout.php");
+	}
+	else if ( $_SESSION["role"] == 'Student' ){
+		?>
+		<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #233975; height: 80px;">
+			<a class="navbar-brand" style="background-color: #ffffff; border-top-right-radius: 50px; border-bottom-right-radius: 50px; float: left; position: absolute; left: 0; width: 140px; height: 65px">
+				<img src="img/prayuthlg.png" style="width: 120px; float: right; margin-right: 10%; margin-top: 6%;">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 130px;">
+				<ul class="navbar-nav">
+					<li class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%">
+						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_home.png" style="width: 100%"></a>
+					</li>
+					<li class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-left: 6px;">
+						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_invoice.png" style="width: 100%"></a>
+					</li>
+				</ul>
+				<div class="navbar-nav ml-auto mt-2 mt-lg-0">
+					<form class="form-inline" method="post" style="background-color: #ffffff; border-radius: 20px; margin-right: 12px;">
+						<i><img src="img/magnifier.png" style="width: 60%; margin-left: 7px;"></i>
+						<input type="text" class="form-control" name="search" placeholder="Search" style="border-radius: 20px; border: none; width: 500px">
+					</form>
+				</div>
+				<ul class="navbar-nav">
+					<li class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 6px">
+						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_message.png" style="width: 100%"></a>
+					</li>
+				</ul>
+				<form class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
+					<a href="../logout.php"><img src="img/profile.png" style="width: 100%"></a>
+				</form>
+			</div>
+		</nav>
 
-
-if (!isset($_SESSION["username"])) {
-  ?>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">POS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
-      <form class="navbar-inline my-2 my-lg-0">
-        <a href="../register" class="btn bg-success text-white my-2 my-sm-0"><b>Register</b></a>
-        <a href="../" class="btn btn-outline-primary my-2 my-sm-0"><b>Login</b></a>
-      </form>
-    </div>
-  </nav>
-  
-<?php }
-else if ( $_SESSION["role"] == 'Student' ){
-  ?>
-
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="../welcome"><i class="fa fa-home fa-lg"></i> Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item"> <a class="nav-link" href="../welcome/?page=1"><i class="fa fa-file-text-o fa-lg"></i> Book List</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="../welcome/?page=2"><i class="fa fa-shopping-cart fa-lg"></i> Book Lend</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="../welcome/?page=3"><i class="fa fa-shopping-cart fa-lg"></i> Lend History</a> </li>
-        
-      </ul>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
-      <form class="navbar-inline my-2 my-lg-0">
-        <a href="../logout.php" class="btn btn-danger"><i class="fa fa-sign-out"></i><b> Log out </b></a>
-      </form>
-    </div>
-  </nav>
-
-
-<?php }
-  else if ( $_SESSION["role"] == 'Admin' ){
-  ?>
-
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="../welcome"><i class="fa fa-home fa-lg"></i> Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        
-        
-      </ul>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
-      <form class="navbar-inline my-2 my-lg-0">
-        <a href="../logout.php" class="btn btn-danger"><i class="fa fa-sign-out"></i><b> Log out </b></a>
-      </form>
-    </div>
-  </nav>
-
-
-<?php }
-?>
+	<?php }
+	else if ( $_SESSION["role"] == 'Lecturer' ){
+		?>
+		<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #233975; height: 80px;">
+			<a class="navbar-brand" style="background-color: #ffffff; border-top-right-radius: 50px; border-bottom-right-radius: 50px; float: left; position: absolute; left: 0; width: 140px; height: 65px">
+				<img src="img/prayuthlg.png" style="width: 120px; float: right; margin-right: 10%; margin-top: 6%;">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 130px;">
+				<ul class="navbar-nav">
+					<li class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%">
+						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_home.png" style="width: 100%"></a>
+					</li>
+					<li class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-left: 6px;">
+						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_invoice.png" style="width: 100%"></a>
+					</li>
+				</ul>
+				<div class="navbar-nav ml-auto mt-2 mt-lg-0">
+					<form class="form-inline" method="post" style="background-color: #ffffff; border-radius: 20px; margin-right: 12px;">
+						<i><img src="img/magnifier.png" style="width: 60%; margin-left: 7px;"></i>
+						<input type="text" class="form-control" name="search" placeholder="Search" style="border-radius: 20px; border: none; width: 500px">
+					</form>
+				</div>
+				<ul class="navbar-nav">
+					<li class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 6px">
+						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_message.png" style="width: 100%"></a>
+					</li>
+				</ul>
+				<form class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
+					<a href="../logout.php"><img src="img/profile.png" style="width: 100%"></a>
+				</form>
+			</div>
+		</nav>
+	<?php }
+	?>
