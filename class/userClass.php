@@ -20,7 +20,29 @@
 				$data = $stmt->fetch(PDO::FETCH_OBJ);
 				session_start();
 				$_SESSION['user'] = $data->userRole;
-				return $data->userRole;
+				if ($_SESSION['user'] == "Student") {
+					$stmt = $db->prepare('SELECT * FROM studentInfo WHERE studentID = :userID');
+					$stmt->bindParam("userID", $username,PDO::PARAM_STR);
+					$stmt->execute();
+
+					$data = $stmt->fetch(PDO::FETCH_OBJ);
+					$_SESSION['firstName'] = $data->firstName;
+					$_SESSION['lastName'] =  $data->lastName;
+					$_SESSION['department'] = $data->department;
+					$_SESSION['faculty'] = $data->faculty;
+					$_SESSION['year'] = $data->year;
+
+				}
+				if ($_SESSION['user'] == "Lecturer") {
+					$stmt = $db->prepare('SELECT * FROM lecturerInfo WHERE lecturerID = :userID');
+					$stmt->bindParam("userID", $username,PDO::PARAM_STR);
+					$stmt->execute();
+
+					$data = $stmt->fetch(PDO::FETCH_OBJ);
+					$_SESSION['name'] = $data->firstName + " " + $data->lastName;
+				}
+				session_write_close();
+				return $_SESSION['user'];
 			}else{
 				return "Error";
 			}
