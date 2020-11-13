@@ -1,0 +1,5 @@
+./src/.env2
+./src/.env
+.env
+./mysql-data/*
+mysql-data
