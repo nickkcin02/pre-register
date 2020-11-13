@@ -1,8 +1,6 @@
-1. โหลด  folder Docker
-2. สร้าง folder html
-3. เอาไฟล์งานใส่ folder html
-4. เปิด cmd/terminal
-5. cd ไป folder docker
-6. พิมพ์ docker-compose up -d
-7. เปิด docker 
-8. เสร็จ
+1. โหลด Docker
+2. เอาไฟล์เว็บใส่ folder/src/public
+3. เปิด cmd
+4. cd folder docker
+5. พิมพ์ docker-compose up -d
+6. เปิด browser เข้า localhost:8888
