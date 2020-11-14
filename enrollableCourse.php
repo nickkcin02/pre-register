@@ -283,6 +283,7 @@
 
             prev_openCourseID = data[i]['openCourseID'] ;
             prev_section = data[i]['section'] ;
+
           }
 
         }
@@ -300,6 +301,7 @@ function ampm(string) {
         return strTime;
       }
     </script>
+
 
 
     <!-- <script src="../snowball.js"></script> -->
