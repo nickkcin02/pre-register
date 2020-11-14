@@ -181,14 +181,14 @@
         check = 0;
       }
       else {
-        document.getElementById("username").innerHTML = "";
+        document.getElementById("username").style.border = "2px solid #DDDDDD";
       }
       if (password == "" || password == null) {
         document.getElementById("password").style.border = "2px solid #C61038";
         check = 0;
       }
       else {
-        document.getElementById("password").innerHTML = "";
+        document.getElementById("password").innerHTML = "2px solid #DDDDDD";
       }
 
       console.log(password)
@@ -208,11 +208,11 @@
             {
               if (data == "Student")
                 // Go to Student Page
-                window.location = './';
+                window.location = './enrollableCourse.php';
               
               if (data == "Lecturer") 
                 // Go to Lecturer Page
-                window.location = './';
+                window.location = './enrollableCourse.php';
                 
             }
             else
