@@ -32,57 +32,10 @@
 
 	<?php  
 	session_start();
-	if (!isset($_SESSION["username"])) { ?>
-		<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #233975; height: 80px;">
-			<a class="navbar-brand" style="background-color: #ffffff; border-top-right-radius: 50px; border-bottom-right-radius: 50px; float: left; position: absolute; left: 0; width: 140px; height: 65px">
-				<img src="img/prayuthlg.png" style="width: 120px; float: right; margin-right: 10%; margin-top: 6%;">
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 130px;">
-				<ul class="navbar-nav">
-					<li class="nav-item dot btninnav" id="stdashboard" style="height: 65px; width: 65px; border-radius: 50%">
-						<a class="nav-link" href="stdashboard.php"><img src="img/ic_home.png" style="width: 100%"></a>
-					</li>
-					<li class="nav-item dot btninnav" id="enrolcourse" style="height: 65px; width: 65px; border-radius: 50%; margin-left: 6px;">
-						<a class="nav-link" href="enrollableCourse.php"><img src="img/ic_invoice.png" style="width: 100%"></a>
-					</li>
-				</ul>
-				<div class="navbar-nav ml-auto mt-2 mt-lg-0">
-					<form class="form-inline" method="post" style="background-color: #ffffff; border-radius: 20px; margin-right: 12px;">
-						<i><img src="img/magnifier.png" style="width: 60%; margin-left: 7px;"></i>
-						<input type="text" class="form-control" name="search" placeholder="Search" style="border-radius: 20px; border: none; width: 500px">
-					</form>
-				</div>
-				<ul class="navbar-nav">
-					<li class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 6px">
-						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_message.png" style="width: 100%"></a>
-					</li>
-				</ul>
-				<form class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
-					<a href="../logout.php"><img src="img/profile.png" style="width: 100%"></a>
-				</form>
-			</div>
-		</nav>
-		<script type="text/javascript">
-			if (window.location.href.indexOf("stdashboard") > -1) {
-				document.getElementById("stdashboard").style.borderRadius = "0";
-				document.getElementById("stdashboard").style.borderTopLeftRadius = "50%";
-				document.getElementById("stdashboard").style.borderTopRightRadius = "50%";
-				document.getElementById("stdashboard").style.position = "relative";
-				document.getElementById("stdashboard").innerHTML += "<div class='btninnav' style='background-color: #ffffff; height: 8px; width: 65px; bottom: 0;'></div>";
-			} else if (window.location.href.indexOf("enrollableCourse") > -1) {
-				document.getElementById("enrolcourse").style.borderRadius = "0";
-				document.getElementById("enrolcourse").style.borderTopLeftRadius = "50%";
-				document.getElementById("enrolcourse").style.borderTopRightRadius = "50%";
-				document.getElementById("enrolcourse").style.position = "relative";
-				document.getElementById("enrolcourse").innerHTML += "<div class='btninnav' style='background-color: #ffffff; height: 8px; width: 65px; bottom: 0;'></div>";
-			}
-		</script>
-		<?php
+	if (!isset($_SESSION["user"])) { 
+		header('location: ./');
 	}
-	else if ( $_SESSION["role"] == 'Student' ){
+	else if ( $_SESSION["user"] == 'Student' ){
 		?>
 		<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #233975; height: 80px;">
 			<a class="navbar-brand" style="background-color: #ffffff; border-top-right-radius: 50px; border-bottom-right-radius: 50px; float: left; position: absolute; left: 0; width: 140px; height: 65px">
@@ -132,7 +85,7 @@
 			}
 		</script>
 	<?php }
-	else if ( $_SESSION["role"] == 'Lecturer' ){
+	else if ( $_SESSION["user"] == 'Lecturer' ){
 		?>
 		<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #233975; height: 80px;">
 			<a class="navbar-brand" style="background-color: #ffffff; border-top-right-radius: 50px; border-bottom-right-radius: 50px; float: left; position: absolute; left: 0; width: 140px; height: 65px">
