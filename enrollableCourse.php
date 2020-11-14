@@ -110,7 +110,7 @@
 
       				//follow bar and follow button are here!!!!!
       				const box = document.createElement('div');
-      				box.innerHTML = "<div class='row' style='position: relative; bottom: -96%; left: 9%; margin-top: -10%;'><div class='col-8' style='background-color: #ffffff; color: #000000; border-top-left-radius: 20px; border-bottom-left-radius: 20px; height: 40px; '><h4 style='margin-top: 4%; margin-left: 5%;'>" + data[i]['stuFollow'] + " followers</h4></div><div class='col-2' style='background-color: #F7544E; color: #000000; border-top-right-radius: 20px; border-bottom-right-radius: 20px; height: 40px;'><img src='img/unfilledheart.png' style='width: 60%; margin-top: 20%; margin-left: 10%;'></div></div>";
+      				box.innerHTML = "<div class='row' style='position: relative; bottom: -96%; left: 9%; margin-top: -10%;'><div class='col-8' style='background-color: #ffffff; color: #000000; border-top-left-radius: 20px; border-bottom-left-radius: 20px; height: 40px; '><h4 style='margin-top: 4%; margin-left: 5%;'>" + data[i]['stuFollow'] + " followers</h4></div><button onclick='document.getElementById('heart').src='filledheart.png'' class='col-2' id='follow' style='border: none; background-color: #F7544E; color: #000000; border-top-right-radius: 20px; border-bottom-right-radius: 20px; height: 40px;'><img id='heart' src='img/unfilledheart.png' style='width: 60%; margin-top: 1%;'></button></div>";
 
       				const rowBox = document.createElement('div');
       				rowBox.setAttribute('class','row');
@@ -199,6 +199,12 @@
   			var strTime = hours + ':' + minutes + ampm;
  			return strTime;
   		}
+  		// $("button").click(function(){
+  		// 	var follow = document.getElementById("follow");
+  		// 	follow.onclick = function() {
+  		// 		document.getElementById("heart").src = "filledheart.png";
+  		// 	}
+  		// });
   	</script>
 
 
