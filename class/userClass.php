@@ -26,6 +26,7 @@
 					$stmt->execute();
 
 					$data = $stmt->fetch(PDO::FETCH_OBJ);
+					$_SESSION['userID'] = $data->studentID;
 					$_SESSION['firstName'] = $data->firstName;
 					$_SESSION['lastName'] =  $data->lastName;
 					$_SESSION['department'] = $data->department;
@@ -39,6 +40,7 @@
 					$stmt->execute();
 
 					$data = $stmt->fetch(PDO::FETCH_OBJ);
+					$_SESSION['userID'] = $data->lecturerID;
 					$_SESSION['name'] = $data->firstName + " " + $data->lastName;
 				}
 				session_write_close();
