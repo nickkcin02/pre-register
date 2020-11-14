@@ -12,23 +12,24 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../css/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="preconnect" href="https://fonts.gstatic.com"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="./img/u.png">
   <title>PraYU</title>
   <link rel="icon" type = "pic"href="../pic/icon.ico">
   <style>
     body {
-      font-family: "Montserrat";
+      font-family: "Montserrat", sans-serif;
     }
     body p {
       font-size: 13px;
     }
     body h3 {
       font-size: 20px;
-      font-weight: bold;
+      font-weight: 700;
     }
     body h2 {
-      font-weight: bold;
+      font-weight: 700;
     }
     body h6 {
       font-size: 15px;
@@ -128,7 +129,7 @@
   <div id="Login_BG">
     <center><img src="img/loginbg.png" style="width: 100%; position: absolute; left: 0; bottom: 0;"></center>
     <img src="img/name.png" style="width: 60%; position: absolute; left: 5%; top: 27%;">
-    <h2 style="width: 40%; position: absolute; left: 21%; top: 52%; color: white; font-size: 20px">We help you get to learn what you love!</h2>
+    <h2 style="width: 40%; position: absolute; left: 21%; top: 52%; color: white; font-size: 20px; font-weight: 300;">We help you get to learn what you love!</h2>
     <div class="col-sm-4" id="Container_BG">
       <center><img src="img/prayuthlg.png" align="center" id="prayuthlogo"></center>
       <center><h3 style="padding-top: 20px">Sign In</h3>
@@ -136,11 +137,11 @@
       </center>
       <form method="post" style="padding: 10px">
        <div class="form-group" >
-        <label for="username" style="font-size: 12px; font-weight: bold;">Lecturer ID or Student ID</label>
+        <label for="username" style="font-size: 12px; font-weight: 500;">Lecturer ID or Student ID</label>
         <input type="text" class="form-control" id="username" aria-describedby="emailHelp" name="username" placeholder="ID" style="border-radius: 20px">
       </div>
       <div class="form-group">
-        <label for="password" style="font-size: 12px; font-weight: bold;">Password</label>
+        <label for="password" style="font-size: 12px; font-weight: 500;">Password</label>
         <input type="password" class="form-control" id="password" name="password" placeholder="Password">
       </div>
     </form>
@@ -155,7 +156,7 @@
       <center><img src="/img/cross.png" style="margin-top: 5%; margin-bottom: 5%">
         <h2 style="color: white;">Invalid</h2>
         <p style="color: white;">Please Enter your ID and password again.</p>
-      <button class="btn btn-primary btn-lg" id="okay">Okay</button>
+        <button class="btn btn-primary btn-lg" id="okay">Okay</button>
       </center>
     </div>
 
@@ -208,12 +209,12 @@
             {
               if (data == "Student")
                 // Go to Student Page
-                window.location = './enrollableCourse.php';
+              window.location = './stdashboard.php';
               
               if (data == "Lecturer") 
                 // Go to Lecturer Page
-                window.location = './enrollableCourse.php';
-                
+              window.location = './stdashboard.php';
+
             }
             else
             {
