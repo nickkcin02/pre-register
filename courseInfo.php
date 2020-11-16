@@ -36,42 +36,59 @@
         }   
     </style>
   </head>
-  <body >
-    
+  <body>
+    <?php  
+      include "nav-bar.php";
+    ?>
 
-    <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-3" id="courseID"></div>
+        <div class="col-5" id="courseName"></div>
+        <div class="col-3" >
+          <img id="lecturerPic">
+        </div>
+        <div class="col-1" id="section"></div>
+      </div>
         
     </div>
-    <!-- <div id="Login_BG">
 
-         <div class="col-sm-4" id="Container_BG">
-            <form method="post">
-             <div class="form-group" >
-              <i class="fa fa-user"></i>
-               <label for="username">Username </label>
-               <input type="text" class="form-control" id="username" aria-describedby="emailHelp" name="username" placeholder="Username" >
-               <small id="usernameHelp" class="form-text text-muted"></small>
-             </div>
-             <div class="form-group">
-                <i class="fa fa-lock"></i>
-               <label for="password">Password</label>
-               <input type="password" class="form-control" id="password" name="password" placeholder="Password" >
-               <small id="passwordHelp" class="form-text text-muted"></small>
-             </div>
-           </form>
-            <div class="col-sm-12 " align="center">
-                <button type = "btn" class="btn btn-primary btn-lg" style="width:30%" id="button"><i class="fa fa-sign-in"></i> Log in</button>
-             </div>
-           
-         </div>
-    
-    </div>
-     -->
 
 
 
     <script>
+      $.ajax({
+          url : "./ajax/db_courseInfo.php",
+          type: "post",
+          data :{
+            studentID:<?php echo $_SESSION['userID']; ?>,
+            openCourseID:<?php echo $_GET['openCourseID']; ?>,
+            section:<?php echo $_GET['section']; ?>
+          },
+          success: function(resp){
+              // console.log(resp);
+              var data = JSON.parse(resp)
+              console.log(data);
 
+              document.getElementById("courseID").innerHTML = data[0]["courseID"];
+              document.getElementById("courseName").innerHTML = data[0]["courseName"];
+              document.getElementById("lecturerPic").setAttribute('src',data[0]["lecProfile"]);
+              document.getElementById("section").innerHTML = data[0]["section"];
+              // if(data)
+              // {
+              //   if ($_SESSION['user'] == "Student")
+              //       window.location = '../welcome/?test=5';
+              //   if ($_SESSION['user'] == "Lecturer") 
+              //       window.location = '../welcome/?test=5';
+              // }
+              // else
+              // {
+              //   swal('Invalid','Invalid username of password','error')
+              // }
+               
+              
+          }
+        })
 
     $("button").click(function(){
         var username = document.getElementById("username").value;
@@ -94,32 +111,7 @@
         
         console.log(password)
       if (check == 1) {
-        $.ajax({
-            url : "check-login.php",
-            type: "post",
-            data :{
-              username:username,
-              password:password
-            },
-            success: function(resp){
-                console.log(resp);
-                var data = JSON.parse(resp)
-                console.log(data);
-                if(data)
-                {
-                  if ($_SESSION['user'] == "Student")
-                      window.location = '../welcome/?test=5';
-                  if ($_SESSION['user'] == "Lecturer") 
-                      window.location = '../welcome/?test=5';
-                }
-                else
-                {
-                  swal('Invalid','Invalid username of password','error')
-                }
-                 
-                
-            }
-          })
+        
       }
       
     });

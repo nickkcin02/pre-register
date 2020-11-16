@@ -194,7 +194,7 @@
                             icon: "success",
                           });
 
-                          thisObj.find('img').attr('src',"img/filledheart.png");   
+                          thisObj.find('img').attr('src',"img/filledheart.png"); 
                         }
                         else {
                           swal("Unfollow Success", {
@@ -297,7 +297,7 @@
              box.appendChild(courseCapac);
 
              box.onclick = function(e) {
-              window.location = './courseInfo.php?openCourseID='+data[i]['openCourseID']+"&section"+data[i]['section'];
+              window.location = './courseInfo.php?openCourseID='+data[i]['openCourseID']+"&section="+data[i]['section'];
             }
 
             bigBox.appendChild(box);
