@@ -81,7 +81,7 @@
       		var prev_section = 0;
       		var timeElement;
           var heart;
-
+          var boxColor;
           for (const i in data) {
            if (prev_openCourseID == data[i]['openCourseID'] && prev_section == data[i]['section']) {
             switch(data[i]['classDay']) {
@@ -111,6 +111,12 @@
 
       				//follow bar and follow button are here!!!!!
       				const box = document.createElement('div');
+              boxColor = data[i]["stuFollow"] / data[i]["capacity"];
+              if (boxColor >= 1.0)
+                box.setAttribute('style','background-color: #C61038;');
+              else if (boxColor >= 0.5) 
+                box.setAttribute('style','background-color: #F09B27;');
+
 
               if (data[i]['isFollow'] == 0) 
                 heart = "img/unfilledheart.png";
@@ -188,7 +194,7 @@
                             icon: "success",
                           });
 
-                          thisObj.find('img').attr('src',"img/filledheart.png");   
+                          thisObj.find('img').attr('src',"img/filledheart.png"); 
                         }
                         else {
                           swal("Unfollow Success", {
@@ -200,7 +206,18 @@
                           thisObj.find('h4')[0].innerHTML = data[1] + " follower";
                         else
                           thisObj.find('h4')[0].innerHTML = data[1] + " follower";
+
                         
+                        const boxColor = data[1] / thisObj.parent().find("h4")[3].innerHTML.match(/\d/g).join("");
+
+                        console.log(thisObj.parent());
+
+                        if (boxColor >= 1.0)
+                          thisObj.parent().attr('style','background-color: #C61038;');
+                        else if (boxColor >= 0.5) 
+                          thisObj.parent().attr('style','background-color: #F09B27;');
+                        else
+                          thisObj.parent().attr('style','background-color: #1A9776;');
                       }
                     })
                   } 
@@ -222,12 +239,16 @@
               const lecProfile = document.createElement('div');
               lecProfile.setAttribute('class','col-4 dot');
               lecProfile.setAttribute('style','margin-left: 4%; margin-top: 5%;')
-              lecProfile.innerHTML = "<img src='img/profile.png' style='width: 100%;'>";
+              lecProfile.innerHTML = "<img src='"+ data[i]['lecPic']+"' style='width: 100%; border-radius:50%;'>";
 
               const section = document.createElement('div');
               section.setAttribute('class','dot');
               section.setAttribute('style','height: 50px; width: 50px; border-radius: 50%; background-color: #000000; margin-left: 7px; margin-top: 5px;');
               section.innerHTML = "<center><p style='font-weight: 700; color: #ffffff; margin-top: 7px; font-size: 24px;'>" + data[i]['section'] + "</center>";
+              if (data[i]['surveySection'] == 1) 
+                section.setAttribute('style','height: 50px; width: 50px; border-radius: 50%; background-color: #DB7600; margin-left: 7px; margin-top: 5px;');
+              else
+                section.setAttribute('style','height: 50px; width: 50px; border-radius: 50%; background-color: #000000; margin-left: 7px; margin-top: 5px;');
 
               const courseName = document.createElement('div');
               courseName.setAttribute('class','col-8');
@@ -276,7 +297,7 @@
              box.appendChild(courseCapac);
 
              box.onclick = function(e) {
-              window.location = './courseInfo.php?openCourseID='+data[i]['openCourseID']+"&section"+data[i]['section'];
+              window.location = './courseInfo.php?openCourseID='+data[i]['openCourseID']+"&section="+data[i]['section'];
             }
 
             bigBox.appendChild(box);
