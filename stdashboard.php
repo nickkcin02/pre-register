@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="en">
 <head>
 	<style>
 		body {
@@ -67,24 +69,24 @@
 </body>
 
 <script>
-		$.ajax({
-			url : "./ajax/db_enrollableCourse.php",
-			type: "post",
-			data :{
-				year: '<?php echo $_SESSION["year"];?>',
-				faculty: '<?php echo $_SESSION["faculty"];?>',
-				department: '<?php echo $_SESSION["department"];?>',
-        stdID : '<?php echo $_SESSION["userID"];?>'
-      },
-      success: function(resp){
-      		// console.log(resp);
-      		var data = JSON.parse(resp)
-      		// console.log(data);
-      		var prev_openCourseID = 0;
-      		var prev_section = 0;
-      		var timeElement;
+  $.ajax({
+    url : "./ajax/db_enrollableCourse.php",
+    type: "post",
+    data :{
+      year: '<?php echo $_SESSION["year"];?>',
+      faculty: '<?php echo $_SESSION["faculty"];?>',
+      department: '<?php echo $_SESSION["department"];?>',
+      stdID : '<?php echo $_SESSION["userID"];?>'
+    },
+    success: function(resp){
+          // console.log(resp);
+          var data = JSON.parse(resp)
+          // console.log(data);
+          var prev_openCourseID = 0;
+          var prev_section = 0;
+          var timeElement;
           var heart;
-
+          var boxColor;
           for (const i in data) {
            if (prev_openCourseID == data[i]['openCourseID'] && prev_section == data[i]['section']) {
             switch(data[i]['classDay']) {
@@ -112,15 +114,21 @@
          else {
           const bigBox = document.getElementById('containerBox');
 
-      				//follow bar and follow button are here!!!!!
-      				const box = document.createElement('div');
+              //follow bar and follow button are here!!!!!
+              const box = document.createElement('div');
+              boxColor = data[i]["stuFollow"] / data[i]["capacity"];
+              if (boxColor >= 1.0)
+                box.setAttribute('style','background-color: #C61038;');
+              else if (boxColor >= 0.5) 
+                box.setAttribute('style','background-color: #F09B27;');
+
 
               if (data[i]['isFollow'] == 0) 
                 heart = "img/unfilledheart.png";
               else
                 heart = "img/filledheart.png";
 
-      				// box.innerHTML = "<div class='row' style=''><div class='col-8' style='background-color: #ffffff; color: #000000; border-top-left-radius: 20px; border-bottom-left-radius: 20px; height: 40px; '><h4 style='margin-top: 4%; margin-left: 5%;'>" + data[i]['stuFollow'] + " followers</h4></div><div class='col-2' style='background-color: #F7544E; color: #000000; border-top-right-radius: 20px; border-bottom-right-radius: 20px; height: 40px;'><img src='" + heart + "' style='width: 60%; margin-top: 20%; margin-left: 10%;'></div></div>";
+              // box.innerHTML = "<div class='row' style=''><div class='col-8' style='background-color: #ffffff; color: #000000; border-top-left-radius: 20px; border-bottom-left-radius: 20px; height: 40px; '><h4 style='margin-top: 4%; margin-left: 5%;'>" + data[i]['stuFollow'] + " followers</h4></div><div class='col-2' style='background-color: #F7544E; color: #000000; border-top-right-radius: 20px; border-bottom-right-radius: 20px; height: 40px;'><img src='" + heart + "' style='width: 60%; margin-top: 20%; margin-left: 10%;'></div></div>";
 
               const rowFollow =document.createElement('div');
               rowFollow.setAttribute('class','row');
@@ -191,7 +199,7 @@
                             icon: "success",
                           });
 
-                          thisObj.find('img').attr('src',"img/filledheart.png");   
+                          thisObj.find('img').attr('src',"img/filledheart.png"); 
                         }
                         else {
                           swal("Unfollow Success", {
@@ -203,13 +211,23 @@
                           thisObj.find('h4')[0].innerHTML = data[1] + " follower";
                         else
                           thisObj.find('h4')[0].innerHTML = data[1] + " follower";
+
                         
+                        const boxColor = data[1] / thisObj.parent().find("h4")[3].innerHTML.match(/\d/g).join("");
+
+                        console.log(thisObj.parent());
+
+                        if (boxColor >= 1.0)
+                          thisObj.parent().attr('style','background-color: #C61038;');
+                        else if (boxColor >= 0.5) 
+                          thisObj.parent().attr('style','background-color: #F09B27;');
+                        else
+                          thisObj.parent().attr('style','background-color: #1A9776;');
                       }
                     })
                   } 
                 });
               }
-
 
 
 
