@@ -50,9 +50,9 @@
       </div>
     </div>
     <div class="container" style="position: relative; padding-top: 10%;">
-      <div class="row col-12" style="border-radius: 50px; height: 100px; background-color: #233975; position: absolute;">
-        <div class="col-4" id="courseID" style="font-weight: 700; color: #ffffff; font-size: 80px; height: 100px; position: absolute; bottom: 10px;"></div>
-        <div id="courseName" style="font-size: 25px; position: absolute; left: 350px; font-weight: 700; color: #ffffff; width: 400px; margin-top: 13px;"></div>
+      <div class="col-12" style="border-radius: 50px; height: 100px; background-color: #233975; position: absolute; overflow: hidden;">
+        <div id="courseID" style="display: inline-block; font-weight: 700; color: #ffffff; font-size: 80px; height: 100px; position: relative; bottom: 10px; float: left;"></div>
+        <div id="courseName" style="display: inline-block; font-size: 25px; position: absolute; font-weight: 700; color: #ffffff; width: 340px; margin-top: 13px; margin-left: 10px; float: left;"></div>
         <div class="dot" id="section" style="height: 80px; width: 80px; border-radius: 50%; position: absolute; right: 10px; top: 10px; color: #ffffff; font-weight: 700; font-size: 20px; padding-top: 10px;"></div>
       </div>
       <div class="dot" style="width: 300px; height: 300px; background-color: #233975; border-radius: 50%; position: absolute; z-index: 3; left: 740px; top: 40px; padding-top: 20px;">
@@ -123,7 +123,7 @@
               console.log(data);
 
               document.getElementById("courseID").innerHTML = data[0]["courseID"];
-              if (data[0]["courseID"].length >= 18) {
+              if (data[0]["courseName"].length <= 15) {
                 document.getElementById("courseName").style.marginTop = "30px";
                 document.getElementById("courseName").innerHTML = data[0]["courseName"];
               }
