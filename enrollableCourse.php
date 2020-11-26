@@ -62,7 +62,7 @@
 	<div class="horizontal_container" id="test">
 		<h1 style='margin-left: 3%; margin-top: 3%; color: #233975; font-weight: 700;'>Enrollable Courses</h1>
 	</div>
-	<div id='containerBox' class='grid-container' style='margin: 3%; margin-top: 1%;'></div>
+	<div id='containerBox' class='grid-container' style='margin: 3%; margin-top: 2%;'></div>
 	<script>
 		$.ajax({
 			url : "./ajax/db_enrollableCourse.php",

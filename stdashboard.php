@@ -1,71 +1,145 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<style>
-		body {
-			font-family: "Montserrat", sans-serif;
-		}
-		body h3 {
-			font-size: 10px;
-			font-weight: 700;
-		}
-		body h2 {
-			font-size: 18px;
-			font-weight: 700;
-		}
-		body h4 {
-			font-size: 16px;
-			font-weight: 700;
-		}
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+    }
+    body h3 {
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .dashbox h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .dashbox h4 {
+     font-size: 20px;
+     font-weight: 700;
+     color: #ffffff;
+   }
+   #containerBox h2 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  #containerBox h4 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  #prayuthlogo {
+   position: relative;
+ }
+ .dashbox {
+   background-color: #233975;
+   border: none;
+   border-radius: 50px;
+   box-shadow: 0 0 20px #868686;
+   padding: 30px;
+ }
+ .dashbox1 {
+   background-color: #233975;
+   border: none;
+   border-radius: 50px;
+   box-shadow: 0 0 20px #868686;
+   padding: 30px;
+ }
+ .grid-container {
+  display: grid;
+  grid-template-columns: 31.33% 31.33% 31.33%;
+  grid-gap: 3%;
+  padding-top: 20px;
+}
 
-		#prayuthlogo {
-			position: relative;
-		}
-		.dashbox {
-			background-color: #233975;
-			border: none;
-			border-radius: 50px;
-			box-shadow: 0 0 20px #868686;
-		}
-		.grid-container {
-			display: grid;
-			grid-template-columns: 31% 31% 31%;
-			grid-gap: 2%;
-			padding: 10px;
-		}
-
-		.grid-container > div {
-			background-color: #1A9776;
-			border: none;
-			border-radius: 50px;
-			box-shadow: 0 0 20px #000000;
-			height: 370px;
-		}
-
-
-
-	</style>
+.grid-container > div {
+ background-color: #1A9776;
+ border: none;
+ border-radius: 50px;
+ height: 380px;
+}
+</style>
 </head>
 <body>
-	<?php
-	include 'nav-bar.php';
-	?>
-	<div class="horizontal_container col-12" id="test">
-		<h1 style='margin-left: 3%; margin-top: 3%; color: #233975; font-weight: 700;'>Dashboard</h1>
-	</div>
-	<div class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 3%;">
-		<div class="col-8">
-			<div class="col-12 dashbox" style="height: 250px; margin-bottom: 3%;"></div>
-			<div class="col-12 dashbox" style="height: 400px; margin-bottom: 3%;"></div>
-		</div>
-		<div class="col-4">
-			<div class="dashbox" style="height: 675px;"></div>
-		</div>
-		<div class="col-12">
-			<div class="col-12 dashbox grid-container" id="containerBox">
-			</div>
-		</div>
-	</div>
+  <?php
+  include 'nav-bar.php';
+  ?>
+  <div class="horizontal_container col-12" id="test">
+    <h1 style='margin-left: 3%; margin-top: 3%; color: #233975; font-weight: 700;'>Dashboard</h1>
+  </div>
+  <div class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 3%;">
+    <div class="col-8">
+      <div class="col-12 dashbox" style="height: 250px; margin-bottom: 3%; padding-left: 30px;">
+        <h2 class="dashtitle">CURRICULUM COURSES</h2>   
+      </div>
+      <div class="col-12 dashbox" style="height: 400px; margin-bottom: 3%; padding-left: 30px;">
+        <h2 class="dashtitle">TIMETABLE</h2>
+      </div>
+    </div>
+    <div class="col-4">
+     <div class="dashbox" style="height: 675px; padding-left: 0px; position: relative; padding-right: 0px;">
+       <h2 class="dashtitle" style="margin-left: 30px;">CREDITS</h2>
+       <div style="width: 70%; height: 70px; border-top-left-radius: 35px; border-bottom-left-radius: 35px; background-color: #1A9776; position: relative; float: right; margin-top: 10px;">
+         <h4 style="position: relative; left: 31px; top: 10px;">98 / 127<br>credits completed</h4>
+       </div>
+       <div class="row" style="position: relative; top: -70px; left: 30px;">
+         <div class="col-2" style="height: 512px; background-color: #ffffff; border-radius: 36px; position: relative; top: 75px;">
+           <div style="height: 381px; width: 62px; background-color: #1A9776; border-radius: 31px; position: relative; top: 127px; left: -10px;"></div>
+         </div>
+         <div class="col-10 row" style="position: relative; top: 75px; left: 5px;">
+           <div class="col-1" style="height: 61px;"></div>
+           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;"></div>
+           <div class="col-12" style="height: 3px;"></div>
+           <div class="col-1" style="background-color: #F09B27; height: 61px; border-radius: 15px;"></div>
+           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+             This semester:<br>Senior Semester 1
+           </div>
+           <div class="col-12" style="height: 3px;"></div>
+           <div class="col-1" style="background-color: #1A9776; height: 61px; border-top-right-radius: 15px; border-top-left-radius: 15px;"></div>
+           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+             Junior<br>Semester 2
+           </div>
+           <div class="col-12" style="height: 3px;"></div>
+           <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
+           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+             Junior<br>Semester 1
+           </div>
+           <div class="col-12" style="height: 3px;"></div>
+           <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
+           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+             Sophomore<br>Semester 2
+           </div>
+           <div class="col-12" style="height: 3px;"></div>
+           <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
+           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+             Sophomore<br>Semester 1
+           </div>
+           <div class="col-12" style="height: 3px;"></div>
+           <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
+           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+             Freshman<br>Semester 2
+           </div>
+           <div class="col-12" style="height: 3px;"></div>
+           <div class="col-1" style="background-color: #1A9776; height: 61px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;"></div>
+           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+             Freshman<br>Semester 1
+           </div>
+           <div class="col-12" style="height: 3px;"></div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="col-12">
+    <div class="col-12 dashbox1" style="padding-left: 30px;">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="dashtitle" style="font-size: 22px; font-weight: 700; color: #ffffff;">FOLLOWING COURSES</h2>
+        </div>
+        <div class="col-12 grid-container" id="containerBox"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12" style="height: 50px;"></div>
+</div>
 </body>
 
 <script>
@@ -231,6 +305,7 @@
 
 
 
+
               const rowBox = document.createElement('div');
               rowBox.setAttribute('class','row');
 
@@ -241,14 +316,18 @@
               courseID.setAttribute('style','background-color: #ffffff; border-top-right-radius: 30px; border-bottom-right-radius: 30px; margin-top: 11%; margin-left: 15px; height: 60px; width: 254px;')
 
               const lecProfile = document.createElement('div');
-              lecProfile.setAttribute('class','col-4 dot');
-              lecProfile.setAttribute('style','margin-left: 4%; margin-top: 5%;')
-              lecProfile.innerHTML = "<img src='img/profile.png' style='width: 100%;'>";
+              lecProfile.setAttribute('class','col-3 dot');
+              lecProfile.setAttribute('style','margin-top: 9%; margin-left: 6%; margin-bottom: 5%;')
+              lecProfile.innerHTML = "<img src='"+ data[i]['lecPic']+"' style='width: 100%; border-radius:50%;'>";
 
               const section = document.createElement('div');
               section.setAttribute('class','dot');
               section.setAttribute('style','height: 50px; width: 50px; border-radius: 50%; background-color: #000000; margin-left: 7px; margin-top: 5px;');
               section.innerHTML = "<center><p style='font-weight: 700; color: #ffffff; margin-top: 7px; font-size: 24px;'>" + data[i]['section'] + "</center>";
+              if (data[i]['surveySection'] == 1) 
+                section.setAttribute('style','height: 50px; width: 50px; border-radius: 50%; background-color: #DB7600; margin-left: 7px; margin-top: 5px;');
+              else
+                section.setAttribute('style','height: 50px; width: 50px; border-radius: 50%; background-color: #000000; margin-left: 7px; margin-top: 5px;');
 
               const courseName = document.createElement('div');
               courseName.setAttribute('class','col-8');
@@ -297,7 +376,7 @@
              box.appendChild(courseCapac);
 
              box.onclick = function(e) {
-              window.location = './courseInfo.php?openCourseID='+data[i]['openCourseID']+"&section"+data[i]['section'];
+              window.location = './courseInfo.php?openCourseID='+data[i]['openCourseID']+"&section="+data[i]['section'];
             }
 
             bigBox.appendChild(box);
@@ -311,17 +390,17 @@
       }
     })
 function ampm(string) {
- var time = string.split(":");
- var hours = parseInt(time[0]);
- var minutes = parseInt(time[1]);
- var ampm = hours >= 12 ? 'PM' : 'AM';
- hours = hours % 12;
-  			hours = hours ? hours : 12; // the hour '0' should be '12'
-  			minutes = minutes < 10 ? '0'+minutes : minutes;
-  			var strTime = hours + ':' + minutes + ampm;
-        return strTime;
-      }
-    </script>
+  var time = string.split(":");
+  var hours = parseInt(time[0]);
+  var minutes = parseInt(time[1]);
+  var ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ampm;
+    return strTime;
+  }
+</script>
 
 
 
