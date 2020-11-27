@@ -144,18 +144,15 @@
 
 <script>
   $.ajax({
-    url : "./ajax/db_enrollableCourse.php",
+    url : "./ajax/db_followingCourse.php",
     type: "post",
     data :{
-      year: '<?php echo $_SESSION["year"];?>',
-      faculty: '<?php echo $_SESSION["faculty"];?>',
-      department: '<?php echo $_SESSION["department"];?>',
       stdID : '<?php echo $_SESSION["userID"];?>'
     },
     success: function(resp){
           // console.log(resp);
           var data = JSON.parse(resp)
-          // console.log(data);
+          console.log(data);
           var prev_openCourseID = 0;
           var prev_section = 0;
           var timeElement;

@@ -19,8 +19,6 @@
     }
 
 
-
-
     $stmt = $db->prepare('SELECT * FROM sectionTime WHERE section = :section AND openCourseID = :openCourseID');
 
     $stmt->bindParam("openCourseID", $openCourseID,PDO::PARAM_STR);
@@ -35,17 +33,20 @@
     $res[] = $time;
 
 
+    
+    if ($_POST["user"] == "Student") {
+        $stmt = $db->prepare('SELECT * FROM studentFollow WHERE section = :section AND openCourseID = :openCourseID AND studentID = :studentID');
 
+        $stmt->bindParam("openCourseID", $openCourseID,PDO::PARAM_STR);
+        $stmt->bindParam("section", $section,PDO::PARAM_STR);
+        $stmt->bindParam("studentID", $studentID,PDO::PARAM_STR);
 
-    $stmt = $db->prepare('SELECT * FROM studentFollow WHERE section = :section AND openCourseID = :openCourseID AND studentID = :studentID');
+        $stmt->execute();
 
-    $stmt->bindParam("openCourseID", $openCourseID,PDO::PARAM_STR);
-    $stmt->bindParam("section", $section,PDO::PARAM_STR);
-    $stmt->bindParam("studentID", $studentID,PDO::PARAM_STR);
-
-    $stmt->execute();
-
-    $res[] = $stmt->rowCount();
+        $res[] = $stmt->rowCount();
+    }
+    
+    
 
 
     echo json_encode($res);
