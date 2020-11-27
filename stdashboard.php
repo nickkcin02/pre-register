@@ -15,49 +15,116 @@
       color: #ffffff;
     }
     .dashbox h4 {
-     font-size: 20px;
-     font-weight: 700;
-     color: #ffffff;
-   }
-   #containerBox h2 {
-    font-size: 18px;
-    font-weight: 700;
-  }
-  #containerBox h4 {
-    font-size: 16px;
-    font-weight: 700;
-  }
-  #prayuthlogo {
-   position: relative;
- }
- .dashbox {
-   background-color: #233975;
-   border: none;
-   border-radius: 50px;
-   box-shadow: 0 0 20px #868686;
-   padding: 30px;
- }
- .dashbox1 {
-   background-color: #233975;
-   border: none;
-   border-radius: 50px;
-   box-shadow: 0 0 20px #868686;
-   padding: 30px;
- }
- .grid-container {
-  display: grid;
-  grid-template-columns: 31.33% 31.33% 31.33%;
-  grid-gap: 3%;
-  padding-top: 20px;
-}
-
-.grid-container > div {
- background-color: #1A9776;
- border: none;
- border-radius: 50px;
- height: 380px;
-}
-</style>
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff; 
+    }
+    #containerBox h2 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    #containerBox h4 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    #prayuthlogo {
+      position: relative;
+    }
+    .dashbox {
+      background-color: #233975;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 0 20px #868686;
+      padding: 30px;
+    }
+    .dashbox1 {
+      background-color: #233975;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 0 20px #868686;
+      padding: 30px;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 31.33% 31.33% 31.33%;
+      grid-gap: 2.5%;
+      padding-top: 20px;
+    }
+    .grid-container > div {
+      background-color: #1A9776;
+      border: none;
+      border-radius: 50px;
+      height: 380px;
+    }
+    #cctabletr {
+      font-size: 15px;
+      height: 40px;
+      max-height: 60px;
+    }
+    #cctabletd {
+      width: 15%;
+    }
+    #cctabletdlecturer {
+      width: 25%;
+    }
+    .timetabletime {
+      position: relative;
+      z-index: 20;
+      margin-top: 5px;
+      font-weight: 600;
+      color: #000000;
+      float: left;
+      width: 50px;
+    }
+    .vl {
+      position: relative;
+      z-index: 2;
+      margin-top: 25px;
+      border-right: 1px solid #CECECE;
+      height: 295px;
+      float: left;
+      width: 50px;
+    }
+    .vlinvert {
+      position: relative;
+      z-index: 2;
+      margin-top: 25px;
+      border-left: 1px solid #CECECE;
+      height: 295px;
+      float: left;
+    }
+    .timetableCourse {
+      position: absolute;
+      height: 45px;
+      border-radius: 15px;
+      padding: 10px;
+      padding-left: 15px;
+    }
+    .timetableCourseIDgr {
+      /*for green and red background*/
+      display: inline-block;
+      font-weight: 600;
+      color: #ffffff; 
+    }
+    .timetableCourseRoomgr {
+      /*for green and red background*/
+      display: inline-block;
+      font-weight: 500;
+      color: #ffffff; 
+    }
+    .timetableCourseIDgo {
+      /*for gray and orange background*/
+      display: inline-block;
+      font-weight: 600;
+      color: #000000; 
+    }
+    .timetableCourseRoomgo {
+      /*for gray and orange background*/
+      display: inline-block;
+      font-weight: 500;
+      color: #000000; 
+    }
+  </style>
 </head>
 <body>
   <?php
@@ -68,78 +135,205 @@
   </div>
   <div class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 3%;">
     <div class="col-8">
-      <div class="col-12 dashbox" style="height: 250px; margin-bottom: 3%; padding-left: 30px;">
-        <h2 class="dashtitle">CURRICULUM COURSES</h2>   
+      <div class="col-12 dashbox" style="height: 250px; margin-bottom: 3%; padding-left: 0px;">
+        <h2 class="dashtitle" style="margin-left: 30px;">CURRICULUM COURSES</h2>
+        <table class="table-striped" >
+          <tr>
+            <td>
+              <table style="height: 40px; margin-left: 15px; width: 803px; overflow-y: scroll; table-layout: fixed">
+                <tr style="height: 40px; color: #ffffff;">            
+                  <th style="border-top-left-radius: 35px; background-color: #1A9776; width: 15%;"><center>Course ID</center></th>
+                  <th style="background-color: #20B48D; width: 15%;"><center>Section</center></th> 
+                  <th style="background-color: #1A9776; width: 15%;"><center>Credits</center></th>
+                  <th style="background-color: #20B48D; width: 25%;"><center>Lecturers</center></th>
+                  <th style="background-color: #1A9776; width: 15%;"><center>Date & Time</center></th>
+                  <th style="border-top-right-radius: 35px; background-color: #20B48D; width: 15%;"><center>Classroom</center></th>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div style="overflow: auto; height: 130px; width: 803px; background-color: #ffffff; border-bottom-left-radius: 35px; border-bottom-right-radius: 35px; position: relative; left: 15px; top: -2px;">
+                <table class="table-striped" style="width: 803px;">
+                  <!-- example of how to add info in this table -->
+                  <tr id="cctabletr">
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletdlecturer">lecturername</td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                  </tr>
+                  <tr id="cctabletr">
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletdlecturer">lecturername</td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                  </tr>
+                  <tr id="cctabletr">
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletdlecturer">lecturername</td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                  </tr>
+                  <tr id="cctabletr">
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletdlecturer">lecturername</td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                  </tr>
+                  <tr id="cctabletr">
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletdlecturer">lecturername</td>
+                    <td id="cctabletd"><center>1</center></td>
+                    <td id="cctabletd"><center>1</center></td>
+                  </tr>
+                  <!-- add rows of curriculum courses info here and in each row starts with <tr> each column in that row starts and ends with <td></td> please add <center></center> in each cell except lecturer names -->
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </table>   
+        </div>
+        <div class="col-12 dashbox" style="height: 400px; margin-bottom: 3%; padding-left: 0px;">
+          <h2 class="dashtitle" style="margin-left: 30px;">TIMETABLE</h2>
+          <div class="row" style="background-color: #ffffff; border-radius: 35px; width: 803px; height: 320px; margin-left: 15px;">
+            <div class="col-2" style="height: 320px; padding: 0px; font-weight: 700; color: #ffffff;">
+              <div class="col-12" style="height: 50px; padding-top: 15px; padding-left: 0px; padding-right: 0px; text-align: center; background-color: #ffffff; color: #000000; border-top-left-radius: 35px;">TIME</div>
+              <div class="col-12" style="height: 45px; padding-top: 12px; padding-left: 0px; padding-right: 0px; text-align: center; background-color: #FEC812;">Monday</div>
+              <div class="col-12" style="height: 45px; padding-top: 12px; padding-left: 0px; padding-right: 0px; text-align: center; background-color: #E98699;">Tuesday</div>
+              <div class="col-12" style="height: 45px; padding-top: 12px; padding-left: 0px; padding-right: 0px; text-align: center; background-color: #1A9776;">Wednesday</div>
+              <div class="col-12" style="height: 45px; padding-top: 12px; padding-left: 0px; padding-right: 0px; text-align: center; background-color: #EB9E33;">Thursday</div>
+              <div class="col-12" style="height: 45px; padding-top: 12px; padding-left: 0px; padding-right: 0px; text-align: center; background-color: #5AC7EF;">Friday</div>
+              <div class="col-12" style="height: 45px; padding-top: 12px; padding-left: 0px; padding-right: 0px; text-align: center; background-color: #7B3AB2; border-bottom-left-radius: 35px;">Saturday</div>
+            </div>
+            <div class="col-10" style="height: 320px; background-color: #ffffff; border-bottom-right-radius: 35px; border-top-right-radius: 35px; overflow-x: scroll; overflow-y: hidden; position: relative;">
+              <div style="height: 320px; width: 1420px; float: left; overflow-x: scroll; overflow-y: hidden; position: relative;">
+                <div class="vlinvert"></div>
+                <div class="timetabletime">8AM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">9AM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">10AM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">11AM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">12PM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">1PM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">2PM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">3PM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">4PM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">5PM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">6PM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">7PM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">8PM</div>
+                <div class="vl"></div>
+                <div class="timetabletime">9PM</div>
+                <div class="vl"></div>
+                <div style="height: 270px; width: 1420px; float: left; position: absolute; z-index: 10; top: 50px;">
+                  <div class="timetableCourse" style="background-color: #CECECE; width: 300px;">
+                    <div class="timetableCourseIDgo">CPE111</div>
+                    <div class="timetableCourseRoomgo">CPE1115</div>
+                  </div>
+                  <div class="timetableCourse" style="background-color: #C61038; width: 300px; left: 400px; top: 45px;"></div>
+                  <div class="timetableCourse" style="background-color: #1A9776; width: 250px; left: 200px; top: 90px;">
+                    <div class="timetableCourseIDgr">GEN241</div>
+                    <div class="timetableCourseRoomgr">CB1407</div>
+                  </div>
+                  <div class="timetableCourse" style="background-color: #F09B27; width: 300px; left: 300px; top: 135px;"></div>
+                  <!-- add courses according to time here!!
+                  width = class period and 50px = 1 hour
+                  left = the amount of hours after 8am
+                  top = which day if monday top = 0 and plus 45 for tuesday and so on 
+                  ***** please look at the CSS for font according to color e.g. use white with green and red-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-12 dashbox" style="height: 400px; margin-bottom: 3%; padding-left: 30px;">
-        <h2 class="dashtitle">TIMETABLE</h2>
-      </div>
-    </div>
-    <div class="col-4">
-     <div class="dashbox" style="height: 675px; padding-left: 0px; position: relative; padding-right: 0px;">
-       <h2 class="dashtitle" style="margin-left: 30px;">CREDITS</h2>
-       <div style="width: 70%; height: 70px; border-top-left-radius: 35px; border-bottom-left-radius: 35px; background-color: #1A9776; position: relative; float: right; margin-top: 10px;">
-         <h4 style="position: relative; left: 31px; top: 10px;">98 / 127<br>credits completed</h4>
-       </div>
-       <div class="row" style="position: relative; top: -70px; left: 30px;">
-         <div class="col-2" style="height: 512px; background-color: #ffffff; border-radius: 36px; position: relative; top: 75px;">
-           <div style="height: 381px; width: 62px; background-color: #1A9776; border-radius: 31px; position: relative; top: 127px; left: -10px;"></div>
+      <div class="col-4">
+       <div class="dashbox" style="height: 675px; padding-left: 0px; position: relative; padding-right: 0px;">
+         <h2 class="dashtitle" style="margin-left: 30px;">CREDITS</h2>
+         <div style="width: 70%; height: 70px; border-top-left-radius: 35px; border-bottom-left-radius: 35px; background-color: #1A9776; position: relative; float: right; margin-top: 10px;">
+           <h4 style="position: relative; left: 31px; top: 10px;">98 / 127<br>credits completed</h4>
          </div>
-         <div class="col-10 row" style="position: relative; top: 75px; left: 5px;">
-           <div class="col-1" style="height: 61px;"></div>
-           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;"></div>
-           <div class="col-12" style="height: 3px;"></div>
-           <div class="col-1" style="background-color: #F09B27; height: 61px; border-radius: 15px;"></div>
-           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
-             This semester:<br>Senior Semester 1
+         <div class="row" style="position: relative; top: -70px; left: 30px;">
+           <div class="col-2" style="height: 512px; background-color: #ffffff; border-radius: 36px; position: relative; top: 75px;">
+             <div style="height: 381px; width: 62px; background-color: #1A9776; border-radius: 31px; position: relative; top: 127px; left: -10px;"></div>
            </div>
-           <div class="col-12" style="height: 3px;"></div>
-           <div class="col-1" style="background-color: #1A9776; height: 61px; border-top-right-radius: 15px; border-top-left-radius: 15px;"></div>
-           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
-             Junior<br>Semester 2
+           <div class="col-10 row" style="position: relative; top: 75px; left: 5px;">
+             <div class="col-1" style="height: 61px;"></div>
+             <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;"></div>
+             <div class="col-12" style="height: 3px;"></div>
+             <div class="col-1" style="background-color: #F09B27; height: 61px; border-radius: 15px;"></div>
+             <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+               This semester:<br>Senior Semester 1
+             </div>
+             <div class="col-12" style="height: 3px;"></div>
+             <div class="col-1" style="background-color: #1A9776; height: 61px; border-top-right-radius: 15px; border-top-left-radius: 15px;"></div>
+             <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+               Junior<br>Semester 2
+             </div>
+             <div class="col-12" style="height: 3px;"></div>
+             <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
+             <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+               Junior<br>Semester 1
+             </div>
+             <div class="col-12" style="height: 3px;"></div>
+             <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
+             <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+               Sophomore<br>Semester 2
+             </div>
+             <div class="col-12" style="height: 3px;"></div>
+             <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
+             <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+               Sophomore<br>Semester 1
+             </div>
+             <div class="col-12" style="height: 3px;"></div>
+             <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
+             <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+               Freshman<br>Semester 2
+             </div>
+             <div class="col-12" style="height: 3px;"></div>
+             <div class="col-1" style="background-color: #1A9776; height: 61px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;"></div>
+             <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
+               Freshman<br>Semester 1
+             </div>
+             <div class="col-12" style="height: 3px;"></div>
            </div>
-           <div class="col-12" style="height: 3px;"></div>
-           <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
-           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
-             Junior<br>Semester 1
-           </div>
-           <div class="col-12" style="height: 3px;"></div>
-           <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
-           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
-             Sophomore<br>Semester 2
-           </div>
-           <div class="col-12" style="height: 3px;"></div>
-           <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
-           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
-             Sophomore<br>Semester 1
-           </div>
-           <div class="col-12" style="height: 3px;"></div>
-           <div class="col-1" style="background-color: #1A9776; height: 61px;"></div>
-           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
-             Freshman<br>Semester 2
-           </div>
-           <div class="col-12" style="height: 3px;"></div>
-           <div class="col-1" style="background-color: #1A9776; height: 61px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;"></div>
-           <div class="col-10" style="padding-top: 10px; color: #ffffff; font-weight: 700; font-size: 14px;">
-             Freshman<br>Semester 1
-           </div>
-           <div class="col-12" style="height: 3px;"></div>
          </div>
        </div>
      </div>
-   </div>
-   <div class="col-12">
-    <div class="col-12 dashbox1" style="padding-left: 30px;">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="dashtitle" style="font-size: 22px; font-weight: 700; color: #ffffff;">FOLLOWING COURSES</h2>
+     <div class="col-12">
+      <div class="col-12 dashbox1" style="padding-left: 30px; padding-bottom: 50px;">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="dashtitle" style="font-size: 22px; font-weight: 700; color: #ffffff;">FOLLOWING COURSES</h2>
+          </div>
+          <div class="col-12 grid-container" id="containerBox"></div>
         </div>
-        <div class="col-12 grid-container" id="containerBox"></div>
       </div>
     </div>
+    <div class="col-12" style="height: 50px;"></div>
   </div>
-  <div class="col-12" style="height: 50px;"></div>
-</div>
 </body>
 
 <script>

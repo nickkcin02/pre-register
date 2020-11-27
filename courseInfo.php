@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="container" style="position: relative; padding-top: 10%;">
-      <div class="col-12" style="border-radius: 50px; height: 100px; background-color: #233975; position: absolute; overflow: hidden;">
+      <div class="col-12" style="border-radius: 50px; height: 100px; background-color: #233975; position: absolute; overflow: hidden; left: 0px;">
         <div id="courseID" style="display: inline-block; font-weight: 700; color: #ffffff; font-size: 80px; height: 100px; position: relative; bottom: 10px; float: left;"></div>
         <div id="courseName" style="display: inline-block; font-size: 25px; position: absolute; font-weight: 700; color: #ffffff; width: 340px; margin-top: 13px; margin-left: 10px; float: left;"></div>
         <div class="dot" id="section" style="height: 80px; width: 80px; border-radius: 50%; position: absolute; right: 10px; top: 10px; color: #ffffff; font-weight: 700; font-size: 20px; padding-top: 10px;"></div>
@@ -60,10 +60,11 @@
       <div class="dot" style="width: 300px; height: 300px; background-color: #233975; border-radius: 50%; position: absolute; z-index: 3; left: 740px; top: 40px; padding-top: 20px;">
         <div class="dot" style="height: 260px; width: 260px; border-radius: 50%; text-align: center; margin: auto;"><img id="lecturerPic" style="border-radius: 50%; width: 100%; object-fit: cover;"></div>
       </div>
-      <div id="green_bar" style="height: 50px; width: 650px; border-radius: 25px; background-color: #1A9776; position: relative; top: 120px; padding-top: 5px;">
-        <div id="red_bar" style='height: 40px; width: 520px; border-radius: 25px; background-color: #D83737; margin-left: 5px; font-weight: 700; font-size: 20px; color: #ffffff; text-align: center; padding-top: 7px;'>
+      <div id="green_bar" style="height: 50px; width: 550px; border-radius: 25px; background-color: #1A9776; position: relative; top: 120px; padding-top: 5px;">
+        <div id="red_bar" style='height: 40px; width: 540px; border-radius: 20px; background-color: #D83737; margin-left: 5px; text-align: center; padding-top: 7px;'>
           <!-- use .style.width to change the length of the red bar (calculate percent of the followers, put in var and assign to style.width) and put the number followers here! -->
         </div>
+        <div id="followNum" style="font-weight: 700; font-size: 20px; color: #ffffff; z-index: 3; position: relative; top: -35px; left: 25px; display: inline-block;"></div>
       </div>
       <button class="btn" id="follow_btn" onclick="follow()" style="height: 50px; width: 150px; border-radius: 25px; background-color: #F7544E; border-color: #F7544E; border-width: 2px; position: relative; top: 70px; left: 565px; font-weight: 700; font-size: 20px; color: #ffffff; text-align: center; padding-top: 7px;">Follow
       </button>
@@ -87,7 +88,7 @@
             <div style="height: 120px; width: 2px; background-color: #C61038; position: relative; top: -120px; left: -20px;"></div>
           </div>
         </div>
-        <div id="detail" style="width: 580px; height: 400px; color: #ffffff; position: relative; top: -350px; left: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit ornare neque in porttitor. Fusce eu iaculis risus. Vivamus sem orci, aliquet id dui ut, vulputate auctor urna. In finibus purus at quam bibendum, ac rhoncus libero rhoncus. Morbi ornare, quam non dapibus tempor, ipsum sem porta metus, congue feugiat ipsum purus vel lectus. Cras mattis porta quam, in dignissim nisl feugiat nec. Nulla facilisi. Duis fermentum justo nec velit. </div>
+        <div id="detail" style="width: 580px; height: 400px; color: #ffffff; position: relative; top: -350px; left: 20px;"></div>
         <button class="btn" id="download" style="text-align: center; height: 60px; width: 280px; background-color: #ffffff; border-radius: 30px; font-weight: 600; color: #233975; font-size: 20px; padding: 0; position: relative; left: -558px; top: -60px;">
           <p style="margin-top: 13px;">Download Syllabus</p>
         </button>
@@ -95,7 +96,7 @@
           <p style="margin-top: 13px;">Go to Class Forum</p>
         </button>
       </div>
-      <div class="row col-12" style="height: 100px; position: relative; top: 700px;"></div>
+      <div class="row col-12" style="height: 50px; position: relative; top: 700px;"></div>
     </div>
   </div>
 
@@ -105,7 +106,7 @@
   <script>
 
     $('#download').click(function(e) {
-        console.log("hit");
+      console.log("hit");
         e.preventDefault();  //stop the browser from following
         if (filePath == "")
         {
@@ -120,7 +121,7 @@
           window.location.href = filePath;
         }
         
-    });
+      });
 
 
     function goBack() {
@@ -158,7 +159,7 @@
               var finalStart = ampm(data[0]["finalStart"].split(/[ ]/)[1]); 
               var finalEnd = ampm(data[0]["finalEnd"].split(/[ ]/)[1]);
               document.getElementById("final").innerHTML = dateConvert(finalDate) + "<br>" + finalStart + " - " + finalEnd ;
-  
+
               // console.log(data[1].length)
 
               if (data[1].length == 1)
@@ -178,7 +179,7 @@
 
 
               document.getElementById("courseID").innerHTML = data[0]["courseID"];
-              if (data[0]["courseName"].length <= 15) 
+              if (data[0]["courseName"].length <= 23) 
               {
                 document.getElementById("courseName").style.marginTop = "30px";
                 document.getElementById("courseName").innerHTML = data[0]["courseName"];
@@ -203,7 +204,7 @@
               document.getElementById("section").innerHTML = "<center>SEC<br>" + data[0]["section"] + "</center>";
 
               var bar_percent;
-              if (user != "Student")
+              if (user == "Student")
               {
                 if(data[2] == 0) 
                 {
@@ -217,51 +218,58 @@
                   document.getElementById("follow_btn").style.color = '#FFFFFF';
                   document.getElementById("follow_btn").innerHTML = 'Followed';
                 }
-                bar_percent = parseInt(520 * data[0]["studentCount"] / data[0]["maxStudent"]);
+                bar_percent = parseInt(540 * data[0]["studentCount"] / data[0]["maxStudent"]);
               }
               else
               {
                 document.getElementById("follow_btn").remove();
-                document.getElementById("green_bar").style.width = 650;
-                bar_percent = parseInt(620 * data[0]["studentCount"] / data[0]["maxStudent"]);
+                document.getElementById("green_bar").style.width = 550;
+                bar_percent = parseInt(550 * data[0]["studentCount"] / data[0]["maxStudent"]);
               }
 
               maxStudent = data[0]["maxStudent"];
               // console.log(bar_percent);
-              document.getElementById("red_bar").style.width = bar_percent+'px';
+              if (bar_percent <= 40) {
+                document.getElementById("red_bar").style.width = bar_percent+'px';
+                document.getElementById("red_bar").style.borderTopRightRadius = '0px';
+                document.getElementById("red_bar").style.borderBottomRightRadius = '0px';
+              }
+              else {
+                document.getElementById("red_bar").style.width = bar_percent+'px';
+              }
               if (data[0]["studentCount"] <= 1)
-                document.getElementById("red_bar").innerHTML = data[0]["studentCount"] + " follower";
+                document.getElementById("followNum").innerHTML = data[0]["studentCount"] + " follower";
               else
-                document.getElementById("red_bar").innerHTML = data[0]["studentCount"] + " followers";
+                document.getElementById("followNum").innerHTML = data[0]["studentCount"] + " followers";
               
               document.getElementById("detail").innerHTML = data[0]["coureDetail"];
 
             }
           })
 
-    function follow(){
-      btn = document.getElementById("follow_btn")
-      if (btn.innerHTML == "Followed") 
-        text = 'Unfollow';
-      else
-        text = 'Follow';
-      swal({
-        title: "Are you sure to "+ text +"?",
-        text: "",
-        icon: "warning",
-        buttons: true,
-      })
-      .then((click) => {
-        if (click) {
-          $.ajax({
-            url : "./ajax/db_followUnfollow.php",
-            type: "post",
-            data :{
-              openCourseID:<?php echo $_GET['openCourseID']; ?>,
-              section:<?php echo $_GET['section']; ?>,
-              stdID: <?php echo $_SESSION['userID']; ?>
-            },
-            success: function(resp){
+function follow(){
+  btn = document.getElementById("follow_btn")
+  if (btn.innerHTML == "Followed") 
+    text = 'Unfollow';
+  else
+    text = 'Follow';
+  swal({
+    title: "Are you sure to "+ text +"?",
+    text: "",
+    icon: "warning",
+    buttons: true,
+  })
+  .then((click) => {
+    if (click) {
+      $.ajax({
+        url : "./ajax/db_followUnfollow.php",
+        type: "post",
+        data :{
+          openCourseID:<?php echo $_GET['openCourseID']; ?>,
+          section:<?php echo $_GET['section']; ?>,
+          stdID: <?php echo $_SESSION['userID']; ?>
+        },
+        success: function(resp){
               // console.log(resp)
               const data = JSON.parse(resp);
               console.log(data)
@@ -284,14 +292,22 @@
                 document.getElementById("follow_btn").innerHTML = 'Follow';
               }
               if (data[1] <= 1) 
-                document.getElementById("red_bar").innerHTML = data[1] + " follower";
+                document.getElementById("followNum").innerHTML = data[1] + " follower";
               else
-                document.getElementById("red_bar").innerHTML = data[1] + " follower";
+                document.getElementById("followNum").innerHTML = data[1] + " follower";
 
               
-              var bar_percent = parseInt(520 * parseInt(data[1]) / maxStudent)
+              var bar_percent = parseInt(540 * parseInt(data[1]) / maxStudent)
               // console.log(bar_percent);
-              document.getElementById("red_bar").style.width = bar_percent+'px';
+              if (bar_percent <= 40) {
+                document.getElementById("red_bar").style.width = bar_percent+'px';
+                document.getElementById("red_bar").style.borderTopRightRadius = '0px';
+                document.getElementById("red_bar").style.borderBottomRightRadius = '0px';
+              }
+              else {
+                document.getElementById("red_bar").style.width = bar_percent+'px';
+              }
+              
               
               // const boxColor = data[1] / thisObj.parent().find("h4")[3].innerHTML.match(/\d/g).join("");
 
@@ -305,77 +321,77 @@
               //   thisObj.parent().attr('style','background-color: #1A9776;');
             }
           })
-        } 
-      });
-    }
- 
-    function ampm(string) {
-     var time = string.split(":");
-     var hours = parseInt(time[0]);
-     var minutes = parseInt(time[1]);
-     var ampm = hours >= 12 ? 'PM' : 'AM';
-     hours = hours % 12;
+    } 
+  });
+}
+
+function ampm(string) {
+ var time = string.split(":");
+ var hours = parseInt(time[0]);
+ var minutes = parseInt(time[1]);
+ var ampm = hours >= 12 ? 'PM' : 'AM';
+ hours = hours % 12;
             hours = hours ? hours : 12; // the hour '0' should be '12'
             minutes = minutes < 10 ? '0'+minutes : minutes;
             var strTime = hours + ':' + minutes + ampm;
             return strTime;
-    }
+          }
 
-    function dateConvert(string) {
-     var date = string.split("-");
-     var month;
-     switch(date[1]) {
-       case '1': month = "January"; break;
-       case '2': month = "February"; break;
-       case '3': month = "March"; break;
-       case '4': month = "April"; break;
-       case '5': month = "May"; break;
-       case '6': month = "June"; break;
-       case '7': month = "July"; break;
-       case '8': month = "August"; break;
-       case '9': month = "September"; break;
-       case '10': month = "October"; break;
-       case '11': month = "November"; break;
-       case '12': month = "December"; break;
-     }
-     var strDate = month + " " + date[2] + ", " + date[0];
+          function dateConvert(string) {
+           var date = string.split("-");
+           var month;
+           switch(date[1]) {
+             case '1': month = "January"; break;
+             case '2': month = "February"; break;
+             case '3': month = "March"; break;
+             case '4': month = "April"; break;
+             case '5': month = "May"; break;
+             case '6': month = "June"; break;
+             case '7': month = "July"; break;
+             case '8': month = "August"; break;
+             case '9': month = "September"; break;
+             case '10': month = "October"; break;
+             case '11': month = "November"; break;
+             case '12': month = "December"; break;
+           }
+           var strDate = month + " " + date[2] + ", " + date[0];
 
-      return strDate;
-    }
+           return strDate;
+         }
 
-    function day3letter(string) {
-      var shortDay ;
-       switch(string) {
-        case "Monday":
-        shortDay = "Mon";
-        break;
-        case "Tuesday":
-        shortDay = "Tue";
-        break;
-        case "Wednesday":
-        shortDay = "Wed";
-        break;
-        case "Thursday":
-        shortDay = "Thu";
-        break;
-        case "Friday":
-        shortDay = "Fri";
-        break;
-        case "Saturday":
-        shortDay = "Sat";
-        break;
-      }
-      return shortDay;
-    }
+         function day3letter(string) {
+          var shortDay ;
+          switch(string) {
+            case "Monday":
+            shortDay = "Mon";
+            break;
+            case "Tuesday":
+            shortDay = "Tue";
+            break;
+            case "Wednesday":
+            shortDay = "Wed";
+            break;
+            case "Thursday":
+            shortDay = "Thu";
+            break;
+            case "Friday":
+            shortDay = "Fri";
+            break;
+            case "Saturday":
+            shortDay = "Sat";
+            break;
+          }
+          return shortDay;
+        }
 
-  </script>
+      </script>
 
 
-  <!-- <script src="../snowball.js"></script> -->
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <!-- <script src="../snowball.js"></script> -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-</body>
-</html>
+    </body>
+    </html>
 
 
