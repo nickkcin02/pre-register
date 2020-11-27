@@ -88,7 +88,7 @@
           </div>
         </div>
         <div id="detail" style="width: 580px; height: 400px; color: #ffffff; position: relative; top: -350px; left: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit ornare neque in porttitor. Fusce eu iaculis risus. Vivamus sem orci, aliquet id dui ut, vulputate auctor urna. In finibus purus at quam bibendum, ac rhoncus libero rhoncus. Morbi ornare, quam non dapibus tempor, ipsum sem porta metus, congue feugiat ipsum purus vel lectus. Cras mattis porta quam, in dignissim nisl feugiat nec. Nulla facilisi. Duis fermentum justo nec velit. </div>
-        <button class="btn" style="text-align: center; height: 60px; width: 280px; background-color: #ffffff; border-radius: 30px; font-weight: 600; color: #233975; font-size: 20px; padding: 0; position: relative; left: -558px; top: -60px;">
+        <button class="btn" id="download" style="text-align: center; height: 60px; width: 280px; background-color: #ffffff; border-radius: 30px; font-weight: 600; color: #233975; font-size: 20px; padding: 0; position: relative; left: -558px; top: -60px;">
           <p style="margin-top: 13px;">Download Syllabus</p>
         </button>
         <button class="btn" style="text-align: center; height: 60px; width: 280px; background-color: #ffffff; border-radius: 30px; font-weight: 600; color: #233975; font-size: 20px; padding: 0; position: relative; left: 320px; top: -460px;">
@@ -104,12 +104,32 @@
 
   <script>
 
+    $('#download').click(function(e) {
+        console.log("hit");
+        e.preventDefault();  //stop the browser from following
+        if (filePath == "")
+        {
+          swal({
+            title: "Lecturer hasn't uploaded syllabus yet",
+            text: "",
+            icon: "info"
+          })
+        }
+        else 
+        {
+          window.location.href = filePath;
+        }
+        
+    });
+
+
     function goBack() {
       window.history.back();
     }
 
     var maxStudent;
     var user = '<?php echo $_SESSION['user']; ?>';
+    var filePath;
 
     $.ajax({
       url : "./ajax/db_courseInfo.php",
@@ -125,6 +145,9 @@
               var data = JSON.parse(resp)
               console.log(data);
               
+              // Set Syllabus
+              filePath = data[0]["syllabus"];
+
               // Set Exam Date 
               var midDate = data[0]["midEnd"].split(/[ ]/)[0]; 
               var midStart = ampm(data[0]["midStart"].split(/[ ]/)[1]); 
