@@ -247,8 +247,8 @@
                 <div class="vl"></div>
                 <div class="timetabletime">9PM</div>
                 <div class="vl"></div>
-                <div style="height: 270px; width: 1420px; float: left; position: absolute; z-index: 10; top: 50px;">
-                  <div class="timetableCourse" style="background-color: #CECECE; width: 300px;">
+                <div id="timeTable" style="height: 270px; width: 1420px; float: left; position: absolute; z-index: 10; top: 50px;">
+<!--                   <div class="timetableCourse" style="background-color: #CECECE; width: 300px;">
                     <div class="timetableCourseIDgo">CPE111</div>
                     <div class="timetableCourseRoomgo">CPE1115</div>
                   </div>
@@ -257,7 +257,7 @@
                     <div class="timetableCourseIDgr">GEN241</div>
                     <div class="timetableCourseRoomgr">CB1407</div>
                   </div>
-                  <div class="timetableCourse" style="background-color: #F09B27; width: 300px; left: 300px; top: 135px;"></div>
+                  <div class="timetableCourse" style="background-color: #F09B27; width: 300px; left: 300px; top: 135px;"></div> -->
                   <!-- add courses according to time here!!
                   width = class period and 50px = 1 hour
                   left = the amount of hours after 8am
@@ -337,6 +337,46 @@
 </body>
 
 <script>
+  var thisDate = new Date();
+  var year = thisDate.getFullYear();
+  var semister;
+  if (thisDate.getMonth() <= 6) 
+  {
+    semister = 2;
+  }
+  else 
+  {
+    semister = 1;
+  }
+
+  $.ajax({
+    url : "./ajax/db_enrolledCourse.php",
+    type: "post",
+    data :{
+      semister : semister,
+      year : year,
+      stdID : '<?php echo $_SESSION["userID"];?>'
+    },
+    success: function(resp){
+      // console.log(resp);
+      var data = JSON.parse(resp)
+      console.log(data);
+      for (const i in data) {
+        var startTime = data[i]["classStart"].split(":");
+        var endTime = data[i]["classEnd"].split(":");
+        var startPx = ((startTime[0] - 8)*100) + startTime[1]*(5/3);
+        var widthPx = ((endTime[0] - 8)*100) + endTime[1]*(5/3) - startPx;
+        var numDay = dayToNum(data[i]["classDay"]);
+        
+        document.getElementById('timeTable').innerHTML += '<div class="timetableCourse" style="background-color: #BBBBBB; width: '+ widthPx +'px; left: '+ startPx +'px; top: '+ 45*numDay +'px;"><div class="timetableCourseIDgr">'+ data[i]["courseID"] +'</div><div class="timetableCourseRoomgr">'+ data[i]["room"] +'</div></div>';
+
+
+      }
+    }
+  })
+
+
+
   $.ajax({
     url : "./ajax/db_followingCourse.php",
     type: "post",
@@ -346,38 +386,19 @@
     success: function(resp){
           // console.log(resp);
           var data = JSON.parse(resp)
-          console.log(data);
+          // console.log(data);
           var prev_openCourseID = 0;
           var prev_section = 0;
           var timeElement;
           var heart;
           var boxColor;
           for (const i in data) {
-           if (prev_openCourseID == data[i]['openCourseID'] && prev_section == data[i]['section']) {
-            switch(data[i]['classDay']) {
-             case "Monday":
-             data[i]['classDay'] = "Mon";
-             break;
-             case "Tuesday":
-             data[i]['classDay'] = "Tue";
-             break;
-             case "Wednesday":
-             data[i]['classDay'] = "Wed";
-             break;
-             case "Thursday":
-             data[i]['classDay'] = "Thu";
-             break;
-             case "Friday":
-             data[i]['classDay'] = "Fri";
-             break;
-             case "Saturday":
-             data[i]['classDay'] = "Sat";
-             break;
-           }
-           timeElement.innerHTML += "<h4 style='margin-top: -2%;'>" + data[i]['classType'] + " - " + data[i]['classDay'] + " " + ampm(data[i]['classStart']) + " - " + ampm(data[i]['classEnd']) + "</h4>";
-         }
-         else {
-          const bigBox = document.getElementById('containerBox');
+            if (prev_openCourseID == data[i]['openCourseID'] && prev_section == data[i]['section']) {
+              data[i]['classDay'] = day3letter(data[i]['classDay']);
+              timeElement.innerHTML += "<h4 style='margin-top: -2%;'>" + data[i]['classType'] + " - " + data[i]['classDay'] + " " + ampm(data[i]['classStart']) + " - " + ampm(data[i]['classEnd']) + "</h4>";
+            }
+            else {
+              const bigBox = document.getElementById('containerBox');
 
               //follow bar and follow button are here!!!!!
               const box = document.createElement('div');
@@ -393,18 +414,13 @@
               else
                 heart = "img/filledheart.png";
 
-              // box.innerHTML = "<div class='row' style=''><div class='col-8' style='background-color: #ffffff; color: #000000; border-top-left-radius: 20px; border-bottom-left-radius: 20px; height: 40px; '><h4 style='margin-top: 4%; margin-left: 5%;'>" + data[i]['stuFollow'] + " followers</h4></div><div class='col-2' style='background-color: #F7544E; color: #000000; border-top-right-radius: 20px; border-bottom-right-radius: 20px; height: 40px;'><img src='" + heart + "' style='width: 60%; margin-top: 20%; margin-left: 10%;'></div></div>";
-
               const rowFollow =document.createElement('div');
               rowFollow.setAttribute('class','row');
               rowFollow.setAttribute('style','position: relative; bottom: -96%; left: 4%; margin-top: -10%;');
-              // rowFollow.innerHTML = "<div class='col-8' style='background-color: #ffffff; color: #000000; border-top-left-radius: 20px; border-bottom-left-radius: 20px; height: 40px; '><h4 style='margin-top: 4%; margin-left: 5%;'>" + data[i]['stuFollow'] + " followers</h4></div><div class='col-2' style='background-color: #F7544E; color: #000000; border-top-right-radius: 20px; border-bottom-right-radius: 20px; height: 40px;'><img src='" + heart + "' style='width: 60%; margin-top: 20%; margin-left: 10%;'></div>";
-
 
               const followNumber = document.createElement('div');
               followNumber.setAttribute('class','col-8');
               followNumber.setAttribute('style',"background-color: #ffffff; color: #000000; border-top-left-radius: 20px; border-bottom-left-radius: 20px; height: 40px; '><h4 style='margin-top: 4%; margin-left: 5%;");
-              // followNumber.innerHTML = "<h4 style='margin-top: 4%; margin-left: 5%;'>" + data[i]['stuFollow'] + " followers</h4>";
 
               const h4Number =  document.createElement('h4');
               h4Number.setAttribute('style','margin-top: 4%; margin-left: 5%;');
@@ -529,51 +545,33 @@
               courseTime.setAttribute('class','col-12');
               courseTime.setAttribute('style','color: #ffffff;');
               timeElement = courseTime;
-              switch(data[i]['classDay']) {
-               case "Monday":
-               data[i]['classDay'] = "Mon";
-               break;
-               case "Tuesday":
-               data[i]['classDay'] = "Tue";
-               break;
-               case "Wednesday":
-               data[i]['classDay'] = "Wed";
-               break;
-               case "Thursday":
-               data[i]['classDay'] = "Thu";
-               break;
-               case "Friday":
-               data[i]['classDay'] = "Fri";
-               break;
-               case "Saturday":
-               data[i]['classDay'] = "Sat";
-               break;
-             }
-             courseTime.innerHTML = "<h3 style='margin-top: 1%;'>SCHEDULES</h3><h4 style='margin-top: -2%;'>" + data[i]['classType'] + " - " + data[i]['classDay'] + " " + ampm(data[i]['classStart']) + " - " + ampm(data[i]['classEnd']) + "</h4>";
+              data[i]['classDay'] = day3letter(data[i]['classDay']);
+            
+              courseTime.innerHTML = "<h3 style='margin-top: 1%;'>SCHEDULES</h3><h4 style='margin-top: -2%;'>" + data[i]['classType'] + " - " + data[i]['classDay'] + " " + ampm(data[i]['classStart']) + " - " + ampm(data[i]['classEnd']) + "</h4>";
 
-             const courseCapac = document.createElement('div');
-             courseCapac.setAttribute('class','col-12');
-             courseCapac.setAttribute('style','color: #ffffff;');
-             courseCapac.innerHTML = "<h3 style='margin-top: 1%;'>CAPACITY</h3><h4 style='margin-top: -2%;'>" + data[i]['capacity'] + " seats</h4>";
+              const courseCapac = document.createElement('div');
+              courseCapac.setAttribute('class','col-12');
+              courseCapac.setAttribute('style','color: #ffffff;');
+              courseCapac.innerHTML = "<h3 style='margin-top: 1%;'>CAPACITY</h3><h4 style='margin-top: -2%;'>" + data[i]['capacity'] + " seats</h4>";
 
 
-             courseID.appendChild(section);
-             rowBox.appendChild(courseID);
-             rowBox.appendChild(lecProfile);
-             box.appendChild(rowFollow);
-             box.appendChild(rowBox);
-             box.appendChild(courseName);
-             box.appendChild(courseTime);
-             box.appendChild(courseCapac);
+              courseID.appendChild(section);
+              rowBox.appendChild(courseID);
+              rowBox.appendChild(lecProfile);
+              box.appendChild(rowFollow);
+              box.appendChild(rowBox);
+              box.appendChild(courseName);
+              box.appendChild(courseTime);
+              box.appendChild(courseCapac);
 
-             box.onclick = function(e) {
-              window.location = './courseInfo.php?openCourseID='+data[i]['openCourseID']+"&section="+data[i]['section'];
-            }
+              box.onclick = function(e) {
+                window.location = './courseInfo.php?openCourseID='+data[i]['openCourseID']+"&section="+data[i]['section'];
+              }
 
-            bigBox.appendChild(box);
+              bigBox.appendChild(box);
 
-            prev_openCourseID = data[i]['openCourseID'] ;
-            prev_section = data[i]['section'] ;
+              prev_openCourseID = data[i]['openCourseID'] ;
+              prev_section = data[i]['section'] ;
 
           }
 
@@ -590,6 +588,56 @@ function ampm(string) {
     minutes = minutes < 10 ? '0'+minutes : minutes;
     var strTime = hours + ':' + minutes + ampm;
     return strTime;
+  }
+
+   function day3letter(string) {
+    var shortDay ;
+    switch(string) {
+      case "Monday":
+      shortDay = "Mon";
+      break;
+      case "Tuesday":
+      shortDay = "Tue";
+      break;
+      case "Wednesday":
+      shortDay = "Wed";
+      break;
+      case "Thursday":
+      shortDay = "Thu";
+      break;
+      case "Friday":
+      shortDay = "Fri";
+      break;
+      case "Saturday":
+      shortDay = "Sat";
+      break;
+    }
+    return shortDay;
+  }
+
+  function dayToNum(string) {
+    var shortDay ;
+    switch(string) {
+      case "Monday":
+      shortDay = 0;
+      break;
+      case "Tuesday":
+      shortDay = 1;
+      break;
+      case "Wednesday":
+      shortDay = 2;
+      break;
+      case "Thursday":
+      shortDay = 3;
+      break;
+      case "Friday":
+      shortDay = 4;
+      break;
+      case "Saturday":
+      shortDay = 5;
+      break;
+    }
+    return shortDay;
   }
 </script>
 
