@@ -143,11 +143,10 @@
               <table style="height: 40px; margin-left: 15px; width: 803px; overflow-y: scroll; table-layout: fixed">
                 <tr style="height: 40px; color: #ffffff;">            
                   <th style="border-top-left-radius: 35px; background-color: #1A9776; width: 15%;"><center>Course ID</center></th>
+                  <th style="background-color: #20B48D; width: 25%;"><center>Lecturers</center></th>
                   <th style="background-color: #20B48D; width: 15%;"><center>Section</center></th> 
                   <th style="background-color: #1A9776; width: 15%;"><center>Credits</center></th>
-                  <th style="background-color: #20B48D; width: 25%;"><center>Lecturers</center></th>
-                  <th style="background-color: #1A9776; width: 15%;"><center>Date & Time</center></th>
-                  <th style="border-top-right-radius: 35px; background-color: #20B48D; width: 15%;"><center>Classroom</center></th>
+                  <th style="border-top-right-radius: 35px; background-color: #20B48D; width: 25%;"><center>Lecturers</center></th>
                 </tr>
               </table>
             </td>
@@ -155,48 +154,8 @@
           <tr>
             <td>
               <div style="overflow: auto; height: 130px; width: 803px; background-color: #ffffff; border-bottom-left-radius: 35px; border-bottom-right-radius: 35px; position: relative; left: 15px; top: -2px;">
-                <table class="table-striped" style="width: 803px;">
+                <table id="table" class="table-striped" style="width: 803px;">
                   <!-- example of how to add info in this table -->
-                  <tr id="cctabletr">
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletdlecturer">lecturername</td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                  </tr>
-                  <tr id="cctabletr">
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletdlecturer">lecturername</td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                  </tr>
-                  <tr id="cctabletr">
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletdlecturer">lecturername</td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                  </tr>
-                  <tr id="cctabletr">
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletdlecturer">lecturername</td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                  </tr>
-                  <tr id="cctabletr">
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletdlecturer">lecturername</td>
-                    <td id="cctabletd"><center>1</center></td>
-                    <td id="cctabletd"><center>1</center></td>
-                  </tr>
                   <!-- add rows of curriculum courses info here and in each row starts with <tr> each column in that row starts and ends with <td></td> please add <center></center> in each cell except lecturer names -->
                   </table>
                 </div>
@@ -360,6 +319,7 @@
     success: function(resp){
       // console.log(resp);
       var data = JSON.parse(resp)
+      var prev_courseID = "";
       console.log(data);
       for (const i in data) {
         var startTime = data[i]["classStart"].split(":");
@@ -368,8 +328,13 @@
         var widthPx = ((endTime[0] - 8)*100) + endTime[1]*(5/3) - startPx;
         var numDay = dayToNum(data[i]["classDay"]);
         
-        document.getElementById('timeTable').innerHTML += '<div class="timetableCourse" style="background-color: #BBBBBB; width: '+ widthPx +'px; left: '+ startPx +'px; top: '+ 45*numDay +'px;"><div class="timetableCourseIDgr">'+ data[i]["courseID"] +'</div><div class="timetableCourseRoomgr">'+ data[i]["room"] +'</div></div>';
+        document.getElementById('timeTable').innerHTML += '<div class="timetableCourse" style="background-color: #BBBBBB; width: '+ widthPx +'px; left: '+ startPx +'px; top: '+ 45*numDay +'px;"><div class="timetableCourseIDgr">'+ data[i]["courseID"] +'</div><div class="timetableCourseRoomgr">'+ " " +data[i]["room"] +'</div></div>';
 
+        if (prev_courseID != data[i]["courseID"]) {
+          document.getElementById('table').innerHTML += '<tr id="cctabletr"><td id="cctabletd"><center>'+ data[i]["courseID"] +'</center></td><td id="cctabletdlecturer">'+ data[i]["courseName"] +'</td><td id="cctabletd"><center>'+ data[i]["section"] +'</center></td><td id="cctabletd"><center>'+ data[i]["credit"] +'</center></td><td id="cctabletdlecturer">'+ data[i]["firstName"] +" "+ data[i]["lastName"] +'</td></tr>'
+        }
+        prev_courseID = data[i]["courseID"];
+        
 
       }
     }
@@ -386,7 +351,7 @@
     success: function(resp){
           // console.log(resp);
           var data = JSON.parse(resp)
-          // console.log(data);
+          console.log(data);
           var prev_openCourseID = 0;
           var prev_section = 0;
           var timeElement;
@@ -407,6 +372,17 @@
                 box.setAttribute('style','background-color: #C61038;');
               else if (boxColor >= 0.5) 
                 box.setAttribute('style','background-color: #F09B27;');
+
+
+              var startTime = data[i]["classStart"].split(":");
+              var endTime = data[i]["classEnd"].split(":");
+              var startPx = ((startTime[0] - 8)*100) + startTime[1]*(5/3);
+              var widthPx = ((endTime[0] - 8)*100) + endTime[1]*(5/3) - startPx;
+              var numDay = dayToNum(data[i]["classDay"]);
+              
+              document.getElementById('timeTable').innerHTML += '<div class="timetableCourse" style="background-color: #EB9E33; opacity: 0.7; width: '+ widthPx +'px; left: '+ startPx +'px; top: '+ 45*numDay +'px;"><div class="timetableCourseIDgr">'+ data[i]["courseID"] +'</div><div class="timetableCourseRoomgr">'+ " " +data[i]["room"] +'</div></div>';
+
+
 
 
               if (data[i]['isFollow'] == 0) 
