@@ -213,7 +213,7 @@
               
               if (data == "Lecturer") 
                 // Go to Lecturer Page
-              window.location = './stdashboard.php';
+              window.location = './ltdashboard.php';
 
             }
             else

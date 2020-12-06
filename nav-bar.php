@@ -66,7 +66,7 @@
 					</li>
 				</ul>
 				<form class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
-					<a href="../logout.php"><img src="img/profile.png" style="width: 100%"></a>
+					<a href="./logout.php"><img src="img/profile.png" style="width: 100%"></a>
 				</form>
 			</div>
 		</nav>
@@ -113,7 +113,7 @@
 					</li>
 				</ul>
 				<form class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
-					<a href="../logout.php"><img src="img/profile.png" style="width: 100%"></a>
+					<a href="./logout.php"><img src="img/profile.png" style="width: 100%"></a>
 				</form>
 			</div>
 		</nav>
