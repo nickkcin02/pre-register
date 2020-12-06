@@ -232,6 +232,7 @@
                 <div class="col-3" style="margin: 0px;">
                   <div style=" background-color: #ffffff; position: relative; top: 20px; border-radius: 46px; height: 460px; text-align: center;">
                     <div style="width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: #911833; border-radius: 28px; height: 450px;">
+                     <!-- use dark red (911833) when followers exceed max capacity and use normal red (C61038) if followers reach max capacity -->
                       <!-- max height (followers = 100%) = 450px -->
                       <div style="position: absolute; bottom: 20px; left: 14px;">
                         <div style="display: inline-block; font-weight: 700; color: #ffffff">120</div>
