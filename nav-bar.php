@@ -14,6 +14,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com"> 
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="icon" href="img/u.png">
+	<script src="AntiOverflowFontResizer.min.js"></script>
 	<title>PraYU</title>
 	<link rel="icon" type = "pic"href="../pic/icon.ico">
 	<style>

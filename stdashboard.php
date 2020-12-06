@@ -66,6 +66,7 @@
     }
     #cctabletdlecturer {
       width: 25%;
+      padding-left: 5px;
     }
     .timetabletime {
       position: relative;
@@ -110,7 +111,8 @@
       /*for green and red background*/
       display: inline-block;
       font-weight: 500;
-      color: #ffffff; 
+      color: #ffffff;
+      margin-left: 5px; 
     }
     .timetableCourseIDgo {
       /*for gray and orange background*/
@@ -122,7 +124,8 @@
       /*for gray and orange background*/
       display: inline-block;
       font-weight: 500;
-      color: #000000; 
+      color: #000000;
+      margin-left: 5px; 
     }
   </style>
 </head>
@@ -143,10 +146,10 @@
               <table style="height: 40px; margin-left: 15px; width: 803px; overflow-y: scroll; table-layout: fixed">
                 <tr style="height: 40px; color: #ffffff;">            
                   <th style="border-top-left-radius: 35px; background-color: #1A9776; width: 15%;"><center>Course ID</center></th>
-                  <th style="background-color: #20B48D; width: 25%;"><center>Lecturers</center></th>
-                  <th style="background-color: #20B48D; width: 15%;"><center>Section</center></th> 
-                  <th style="background-color: #1A9776; width: 15%;"><center>Credits</center></th>
-                  <th style="border-top-right-radius: 35px; background-color: #20B48D; width: 25%;"><center>Lecturers</center></th>
+                  <th style="background-color: #20B48D; width: 25%;"><center>Course Name</center></th>
+                  <th style="background-color: #1A9776; width: 15%;"><center>Section</center></th> 
+                  <th style="background-color: #20B48D; width: 15%;"><center>Credits</center></th>
+                  <th style="border-top-right-radius: 35px; background-color: #1A9776; width: 25%;"><center>Lecturers</center></th>
                 </tr>
               </table>
             </td>
