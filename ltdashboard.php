@@ -108,6 +108,105 @@
 						<h2 class="dashtitle" style="font-size: 22px; font-weight: 700; color: #ffffff;">YOUR COURSES</h2>
 					</div>
 					<div class="col-12 grid-container" id="containerBox">
+
+
+            <div>
+              <div class="row">
+                <div class="row" id="courseid" style="background-color: #ffffff; border-top-right-radius: 30px; border-bottom-right-radius: 30px; position: relative; top: 50px; left: 30px; height: 60px; width: 220px;">
+                  <div class="col-9" style="font-weight: 700; font-size: 40px;">CPE100</div>
+                </div>
+                <div class="dot" style="position: relative; top: 25px; left: 70px; width: 110px; height: 110px; border-radius: 50%; background-color: #000000;">
+                  <div style="font-weight: 700; color: #ffffff; font-size: 30px; text-align: center; position: relative; top: 20px; line-height: normal;">SEC<br>1
+                  </div>
+                </div>
+              </div>
+              <div class="col-8 antioverflowfont" style="position: relative; top: 10px; color: #ffffff; height: 75px; font-size: 30px; font-weight: 700; line-height: normal; max-height: 75px; overflow: hidden;">Computer Programming for Engineering
+              </div>
+              <div class="row" style="margin: 0px; height: 495px;">
+                <div class="col-9 row" style="margin: 0px; padding-right: 0px;">
+                  <div class="col-12" style="background-color: rgba(255, 255, 255, 0.3); border-radius: 35px; height: 340px; width: 100%; position: relative; top: 20px;">
+                    <h3 style="position: relative; top: 20px;">ABOUT THIS COURSE</h3>
+                    <p style=" position: relative; top: 20px; height: 216px; overflow: hidden;">
+                      <!-- course info here -->
+                    </p>
+                    <!-- button has three styles in CSS id, choose regard of the color of the box (green, orange or red) -->
+                    <button id="ltdashbtng" style="border: none; height: 50px; width: 252px; border-radius: 25px; bottom: 10px; left: 10px;">
+                      <h2 style="position: relative; top: 4px;">Go to Course Page</h2>
+                    </button>
+                  </div>
+                  <button class="col-12" id="ltdashbtng" style="border: none; height: 50px; width: 272px; border-radius: 25px; bottom: 75px;">
+                    <h2 style="position: relative; top: 5px;">Edit Course & Sections Info</h2>
+                  </button>
+                  <button class="col-12" id="ltdashbtng" style="border: none; height: 50px; width: 272px; border-radius: 25px; bottom: 15px;">
+                    <h2 style="position: relative; top: 5px;">View Interested Students</h2>
+                  </button>
+                </div>
+                <div class="col-3" style="margin: 0px;">
+                  <div style=" background-color: #ffffff; position: relative; top: 20px; border-radius: 46px; height: 460px; text-align: center;">
+                    <div style="width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: #1A9776; border-radius: 28px; height: 150px;">
+                      <!-- max height (followers = 100%) = 450px -->
+                      <div style="position: absolute; bottom: 20px; left: 14px;">
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">20</div>
+                        <div style="background-color: #ffffff; height: 3px; border-radius: 2px;"></div>
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">100</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+            <div style="background-color: #C61038">
+              <div class="row">
+                <div class="row" id="courseid" style="background-color: #ffffff; border-top-right-radius: 30px; border-bottom-right-radius: 30px; position: relative; top: 50px; left: 30px; height: 60px; width: 220px;">
+                  <div class="col-9" style="font-weight: 700; font-size: 40px;">CPE100</div>
+                </div>
+                <div class="dot" style="position: relative; top: 25px; left: 70px; width: 110px; height: 110px; border-radius: 50%; background-color: #DB7600;">
+                  <div style="font-weight: 700; color: #ffffff; font-size: 30px; text-align: center; position: relative; top: 20px; line-height: normal;">SEC<br>3
+                  </div>
+                </div>
+              </div>
+              <div class="col-8 antioverflowfont" style="position: relative; top: 10px; color: #ffffff; height: 75px; font-size: 30px; font-weight: 700; line-height: normal; max-height: 75px; overflow: hidden;">Computer Programming for Engineering
+              </div>
+              <div class="row" style="margin: 0px; height: 495px;">
+                <div class="col-9 row" style="margin: 0px; padding-right: 0px;">
+                  <div class="col-12" style="background-color: rgba(255, 255, 255, 0.3); border-radius: 35px; height: 340px; width: 100%; position: relative; top: 20px;">
+                    <h3 style="position: relative; top: 20px;">ABOUT THIS COURSE</h3>
+                    <p style=" position: relative; top: 20px; height: 216px; overflow: hidden;">
+                      <!-- course info here -->
+                    </p>
+                    <!-- button has three styles in CSS id, choose regard of the color of the box (green, orange or red) -->
+                    <button id="ltdashbtnr" style="border: none; height: 50px; width: 252px; border-radius: 25px; bottom: 10px; left: 10px;">
+                      <h2 style="position: relative; top: 4px;">Go to Course Page</h2>
+                    </button>
+                  </div>
+                  <button class="col-12" id="ltdashbtnr" style="border: 2px solid #ffffff; height: 50px; width: 272px; border-radius: 25px; bottom: 75px;">
+                    <h2 style="position: relative; top: 5px;">Edit Course & Sections Info</h2>
+                  </button>
+                  <button class="col-12" id="ltdashbtnr" style="border: none; height: 50px; width: 272px; border-radius: 25px; bottom: 15px;">
+                    <h2 style="position: relative; top: 5px;">View Interested Students</h2>
+                  </button>
+                </div>
+                <div class="col-3" style="margin: 0px;">
+                  <div style=" background-color: #ffffff; position: relative; top: 20px; border-radius: 46px; height: 460px; text-align: center;">
+                    <div style="width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: #911833; border-radius: 28px; height: 450px;">
+                     <!-- use dark red (911833) when followers exceed max capacity and use normal red (C61038) if followers reach max capacity -->
+                      <!-- max height (followers = 100%) = 450px -->
+                      <div style="position: absolute; bottom: 20px; left: 14px;">
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">120</div>
+                        <div style="background-color: #ffffff; height: 3px; border-radius: 2px;"></div>
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">100</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -138,13 +237,22 @@
         const box = document.createElement('div');
         var box_color = "";
         var button_type = "ltdashbtng";
-        if (student_percentage >= 1.0) {     
+        var student_bar_color = '#1A9776';
+
+        if (student_percentage > 1.0) {
           box_color = "background-color: #C61038";
           button_type = "ltdashbtnr";
+          student_bar_color = '#911833';
+        }
+        else if (student_percentage == 1.0) {     
+          box_color = "background-color: #C61038";
+          button_type = "ltdashbtnr";
+          student_bar_color = '#C61038';
         }
         else if (student_percentage >= 0.5) {  
           box_color = "background-color: #F09B27";
           button_type = "ltdashbtno";
+          student_bar_color = '#F09B27';
         }
         box.setAttribute('style',box_color);
 
@@ -255,7 +363,7 @@
                 outer_bar.setAttribute('style','background-color: #ffffff; position: relative; top: 20px; border-radius: 46px; height: 460px; text-align: center;');
 
                     const inner_bar = document.createElement('div');
-                    inner_bar.setAttribute('style','width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: #F09B27; border-radius: 28px; height: '+ student_percentage*450 +'px;');
+                    inner_bar.setAttribute('style','width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: '+ student_bar_color +'; border-radius: 28px; height: '+ student_percentage*450 +'px;');
 
                         const bar_detail = document.createElement('div');
                         bar_detail.setAttribute('style','position: absolute; bottom: 20px; left: 14px;');
