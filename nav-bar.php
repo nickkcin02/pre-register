@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,9 +17,25 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com"> 
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="icon" href="img/u.png">
+	<script src="AntiOverflowFontResizer.min.js"></script>
 	<title>PraYU</title>
 	<link rel="icon" type = "pic"href="../pic/icon.ico">
 	<style>
+		.lgtbtn {
+			background-color: rgba(255,255,255,0); 
+			border: none;
+			color: rgba(255,255,255,0);
+			font-weight: 700;
+			transition-duration: 0.3s;
+			cursor: pointer;
+			line-height: normal;
+			text-decoration: none;
+		}
+		.lgtbtn:hover {
+			background-color: #C61038;
+			color: #ffffff;
+			text-decoration: none;
+		}		
 		body {
 			font-family: "Montserrat";
 		}
@@ -30,9 +49,7 @@
 			background-color: #D4DEFA;
 		}
 	</style>
-
 	<?php  
-	session_start();
 	if (!isset($_SESSION["user"])) { 
 		header('location: ./');
 	}
@@ -65,8 +82,11 @@
 						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_message.png" style="width: 100%"></a>
 					</li>
 				</ul>
-				<form class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
-					<a href="./logout.php"><img src="img/profile.png" style="width: 100%"></a>
+				<form class="nav-item dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
+					<a href="./logout.php" style="position: relative; text-decoration: none;">
+						<div class="dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; position: relative; z-index: 3; text-align: center; text-decoration: none; padding-top: 12px;">Log<br>Out</div>
+						<img src="img/profile.png" style="width: 100%; position: relative; top: -65px;">
+					</a>
 				</form>
 			</div>
 		</nav>
@@ -112,8 +132,11 @@
 						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_message.png" style="width: 100%"></a>
 					</li>
 				</ul>
-				<form class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
-					<a href="./logout.php"><img src="img/profile.png" style="width: 100%"></a>
+				<form class="nav-item dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
+					<a href="./logout.php" style="position: relative; text-decoration: none;">
+						<div class="dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; position: relative; z-index: 3; text-align: center; text-decoration: none; padding-top: 12px;">Log<br>Out</div>
+						<img src="img/profile.png" style="width: 100%; position: relative; top: -65px;">
+					</a>
 				</form>
 			</div>
 		</nav>

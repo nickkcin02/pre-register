@@ -24,13 +24,30 @@
       float: right;
     } 
     .backbtn {
+      background-color: #ffffff; 
       transition-duration: 0.3s;
       cursor: pointer;
     }
     .backbtn:hover {
       background-color: #D4DEFA;
     }  
-
+    .whtebtn {
+      border: none;
+      text-align: center;
+      height: 60px;
+      width: 280px;
+      background-color: #ffffff;
+      border-radius: 30px;
+      font-weight: 600;
+      color: #233975;
+      font-size: 20px;
+      padding: 0;
+      transition-duration: 0.3s;
+      cursor: pointer;
+    }
+    .whtebtn:hover {
+      background-color: #D4DEFA;
+    }
 
   </style>
 </head>
@@ -43,7 +60,7 @@
   <div class="Login_BG" style="margin-top: 80px; padding-bottom: 100px;">
     <div class="horizontal-container">
       <div class="col-1" style="height: 100px;">
-        <button onclick="goBack()" class="btn backbtn" style="text-align: left; height: 40px; width: 110px; background-color: #ffffff; border-radius: 20px; margin-top: 40px; margin-left: 30px; border-color: #233975; border-width: 2px; font-weight: 600; color: #233975; font-size: 20px; padding: 0;">
+        <button onclick="goBack()" class="backbtn" style="text-align: left; height: 40px; width: 110px; border-radius: 20px; margin-top: 40px; margin-left: 30px; border: 2px solid #233975; font-weight: 600; color: #233975; font-size: 20px; padding: 0;">
           <div class="row" style="padding-left: 13px; padding-right: 13px;">
             <img src="img/leftarrow.png" style="height: 30px; margin-left: 10px; margin-top: 3px;">
             <p style="width: 50px; margin-left: 8px; margin-top: 3px;">Back</p>
@@ -89,10 +106,10 @@
           </div>
         </div>
         <div id="detail" style="width: 580px; height: 400px; color: #ffffff; position: relative; top: -350px; left: 20px;"></div>
-        <button class="btn" id="download" style="text-align: center; height: 60px; width: 280px; background-color: #ffffff; border-radius: 30px; font-weight: 600; color: #233975; font-size: 20px; padding: 0; position: relative; left: -558px; top: -60px;">
+        <button class="whtebtn" id="download" style="position: relative; left: -558px; top: -60px;">
           <p style="margin-top: 13px;">Download Syllabus</p>
         </button>
-        <button class="btn" style="text-align: center; height: 60px; width: 280px; background-color: #ffffff; border-radius: 30px; font-weight: 600; color: #233975; font-size: 20px; padding: 0; position: relative; left: 320px; top: -460px;">
+        <button class="whtebtn" style="position: relative; left: 320px; top: -460px;">
           <p style="margin-top: 13px;">Go to Class Forum</p>
         </button>
       </div>

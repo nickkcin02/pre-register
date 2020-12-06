@@ -6,58 +6,92 @@
 			font-family: "Montserrat", sans-serif;
 		}
 		body h3 {
-			font-size: 10px;
+			font-size: 12px;
 			font-weight: 700;
-		}
-		.dashbox h2 {
-			font-size: 22px;
-			font-weight: 700;
-			color: #ffffff;
-		}
-		.dashbox h4 {
-			font-size: 20px;
-			font-weight: 700;
-			color: #ffffff;
-		}
-		#containerBox h2 {
-			font-size: 18px;
-			font-weight: 700;
-		}
-		#containerBox h4 {
-			font-size: 16px;
-			font-weight: 700;
-		}
-		#prayuthlogo {
-			position: relative;
-		}
-		.dashbox {
-			background-color: #233975;
-			border: none;
-			border-radius: 50px;
-			box-shadow: 0 0 20px #868686;
-			padding: 30px;
-		}
-		.dashbox1 {
-			background-color: #233975;
-			border: none;
-			border-radius: 50px;
-			box-shadow: 0 0 20px #868686;
-			padding: 30px;
-		}
-		.grid-container {
-			display: grid;
-			grid-template-columns: 31.33% 31.33% 31.33%;
-			grid-gap: 3%;
-			padding-top: 20px;
-		}
-
-		.grid-container > div {
-			background-color: #1A9776;
-			border: none;
-			border-radius: 50px;
-			height: 380px;
-		}
-	</style>
+      color: #ffffff;
+    }
+    body h2 {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    body p {
+      font-size: 12px;
+      font-weight: 400;
+      color: #ffffff;
+    }
+    .dashbox h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    #containerBox h4 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    #prayuthlogo {
+      position: relative;
+    }
+    .dashbox {
+      background-color: #233975;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 0 20px #868686;
+      padding: 30px;
+    }
+    .dashbox1 {
+      background-color: #233975;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 0 20px #868686;
+      padding: 30px;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 31.33% 31.33% 31.33%;
+      grid-gap: 2.5%;
+      padding-top: 20px;
+    }
+    .grid-container > div {
+      background-color: #1A9776;
+      border: none;
+      border-radius: 40px;
+      height: 680px;
+    }
+    /*change id according to color of the box g = green, o = orange, r = red*/
+    #ltdashbtng {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.3);  
+      position: absolute; 
+      transition-duration: 0.3s;
+      color: #ffffff;
+    }
+    #ltdashbtng:hover {
+      background-color: rgba(255, 255, 255, 0.7);  
+      color: #1A9776;
+    }
+    #ltdashbtno {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.3);  
+      position: absolute; 
+      transition-duration: 0.3s;
+      color: #ffffff;
+    }
+    #ltdashbtno:hover {
+      background-color: rgba(255, 255, 255, 0.7);  
+      color: #F09B27;
+    }
+    #ltdashbtnr {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.3);  
+      position: absolute; 
+      transition-duration: 0.3s;
+      color: #ffffff;
+    }
+    #ltdashbtnr:hover {
+      background-color: rgba(255, 255, 255, 0.7);  
+      color: #C61038;
+    }
+  </style>
 </head>
 <body>
 	<?php
@@ -73,15 +107,153 @@
 					<div class="col-12">
 						<h2 class="dashtitle" style="font-size: 22px; font-weight: 700; color: #ffffff;">YOUR COURSES</h2>
 					</div>
-					<div class="col-12 grid-container" id="containerBox"></div>
-				</div>
-			</div>
-		</div>
-		<div class="col-12" style="height: 50px;"></div>
-	</div>
+					<div class="col-12 grid-container" id="containerBox">
+            <div>
+              <div class="row">
+                <div class="row" id="courseid" style="background-color: #ffffff; border-top-right-radius: 30px; border-bottom-right-radius: 30px; position: relative; top: 50px; left: 30px; height: 60px; width: 220px;">
+                  <div class="col-9" style="font-weight: 700; font-size: 40px;">CPE100</div>
+                </div>
+                <div class="dot" style="position: relative; top: 25px; left: 70px; width: 110px; height: 110px; border-radius: 50%; background-color: #000000;">
+                  <div style="font-weight: 700; color: #ffffff; font-size: 30px; text-align: center; position: relative; top: 20px; line-height: normal;">SEC<br>1
+                  </div>
+                </div>
+              </div>
+              <div class="col-8 antioverflowfont" style="position: relative; top: 10px; color: #ffffff; height: 75px; font-size: 30px; font-weight: 700; line-height: normal; max-height: 75px; overflow: hidden;">Computer Programming for Engineering
+              </div>
+              <div class="row" style="margin: 0px; height: 495px;">
+                <div class="col-9 row" style="margin: 0px; padding-right: 0px;">
+                  <div class="col-12" style="background-color: rgba(255, 255, 255, 0.3); border-radius: 35px; height: 340px; width: 100%; position: relative; top: 20px;">
+                    <h3 style="position: relative; top: 20px;">ABOUT THIS COURSE</h3>
+                    <p style=" position: relative; top: 20px; height: 216px; overflow: hidden;">
+                      <!-- course info here -->
+                    </p>
+                    <!-- button has three styles in CSS id, choose regard of the color of the box (green, orange or red) -->
+                    <button id="ltdashbtng" style="border: none; height: 50px; width: 252px; border-radius: 25px; bottom: 10px; left: 10px;">
+                      <h2 style="position: relative; top: 4px;">Go to Course Page</h2>
+                    </button>
+                  </div>
+                  <button class="col-12" id="ltdashbtng" style="border: none; height: 50px; width: 272px; border-radius: 25px; bottom: 75px;">
+                    <h2 style="position: relative; top: 5px;">Edit Course & Sections Info</h2>
+                  </button>
+                  <button class="col-12" id="ltdashbtng" style="border: none; height: 50px; width: 272px; border-radius: 25px; bottom: 15px;">
+                    <h2 style="position: relative; top: 5px;">View Interested Students</h2>
+                  </button>
+                </div>
+                <div class="col-3" style="margin: 0px;">
+                  <div style=" background-color: #ffffff; position: relative; top: 20px; border-radius: 46px; height: 460px; text-align: center;">
+                    <div style="width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: #1A9776; border-radius: 28px; height: 150px;">
+                      <!-- max height (followers = 100%) = 450px -->
+                      <div style="position: absolute; bottom: 20px; left: 14px;">
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">20</div>
+                        <div style="background-color: #ffffff; height: 3px; border-radius: 2px;"></div>
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">100</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="background-color: #F09B27">
+              <div class="row">
+                <div class="row" id="courseid" style="background-color: #ffffff; border-top-right-radius: 30px; border-bottom-right-radius: 30px; position: relative; top: 50px; left: 30px; height: 60px; width: 220px;">
+                  <div class="col-9" style="font-weight: 700; font-size: 40px;">CPE100</div>
+                </div>
+                <div class="dot" style="position: relative; top: 25px; left: 70px; width: 110px; height: 110px; border-radius: 50%; background-color: #000000;">
+                  <div style="font-weight: 700; color: #ffffff; font-size: 30px; text-align: center; position: relative; top: 20px; line-height: normal;">SEC<br>2
+                  </div>
+                </div>
+              </div>
+              <div class="col-8 antioverflowfont" style="position: relative; top: 10px; color: #ffffff; height: 75px; font-size: 30px; font-weight: 700; line-height: normal; max-height: 75px; overflow: hidden;">Computer Programming for Engineering
+              </div>
+              <div class="row" style="margin: 0px; height: 495px;">
+                <div class="col-9 row" style="margin: 0px; padding-right: 0px;">
+                  <div class="col-12" style="background-color: rgba(255, 255, 255, 0.3); border-radius: 35px; height: 340px; width: 100%; position: relative; top: 20px;">
+                    <h3 style="position: relative; top: 20px;">ABOUT THIS COURSE</h3>
+                    <p style=" position: relative; top: 20px; height: 216px; overflow: hidden;">
+                      <!-- course info here -->
+                    </p>
+                    <!-- button has three styles in CSS id, choose regard of the color of the box (green, orange or red) -->
+                    <button id="ltdashbtno" style="border: none; height: 50px; width: 252px; border-radius: 25px; bottom: 10px; left: 10px;">
+                      <h2 style="position: relative; top: 4px;">Go to Course Page</h2>
+                    </button>
+                  </div>
+                  <button class="col-12" id="ltdashbtno" style="border: none; height: 50px; width: 272px; border-radius: 25px; bottom: 75px;">
+                    <h2 style="position: relative; top: 5px;">Edit Course & Sections Info</h2>
+                  </button>
+                  <button class="col-12" id="ltdashbtno" style="border: none; height: 50px; width: 272px; border-radius: 25px; bottom: 15px;">
+                    <h2 style="position: relative; top: 5px;">View Interested Students</h2>
+                  </button>
+                </div>
+                <div class="col-3" style="margin: 0px;">
+                  <div style=" background-color: #ffffff; position: relative; top: 20px; border-radius: 46px; height: 460px; text-align: center;">
+                    <div style="width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: #F09B27; border-radius: 28px; height: 400px;">
+                      <!-- max height (followers = 100%) = 450px -->
+                      <div style="position: absolute; bottom: 20px; left: 14px;">
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">80</div>
+                        <div style="background-color: #ffffff; height: 3px; border-radius: 2px;"></div>
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">100</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="background-color: #C61038">
+              <div class="row">
+                <div class="row" id="courseid" style="background-color: #ffffff; border-top-right-radius: 30px; border-bottom-right-radius: 30px; position: relative; top: 50px; left: 30px; height: 60px; width: 220px;">
+                  <div class="col-9" style="font-weight: 700; font-size: 40px;">CPE100</div>
+                </div>
+                <div class="dot" style="position: relative; top: 25px; left: 70px; width: 110px; height: 110px; border-radius: 50%; background-color: #DB7600;">
+                  <div style="font-weight: 700; color: #ffffff; font-size: 30px; text-align: center; position: relative; top: 20px; line-height: normal;">SEC<br>3
+                  </div>
+                </div>
+              </div>
+              <div class="col-8 antioverflowfont" style="position: relative; top: 10px; color: #ffffff; height: 75px; font-size: 30px; font-weight: 700; line-height: normal; max-height: 75px; overflow: hidden;">Computer Programming for Engineering
+              </div>
+              <div class="row" style="margin: 0px; height: 495px;">
+                <div class="col-9 row" style="margin: 0px; padding-right: 0px;">
+                  <div class="col-12" style="background-color: rgba(255, 255, 255, 0.3); border-radius: 35px; height: 340px; width: 100%; position: relative; top: 20px;">
+                    <h3 style="position: relative; top: 20px;">ABOUT THIS COURSE</h3>
+                    <p style=" position: relative; top: 20px; height: 216px; overflow: hidden;">
+                      <!-- course info here -->
+                    </p>
+                    <!-- button has three styles in CSS id, choose regard of the color of the box (green, orange or red) -->
+                    <button id="ltdashbtnr" style="border: none; height: 50px; width: 252px; border-radius: 25px; bottom: 10px; left: 10px;">
+                      <h2 style="position: relative; top: 4px;">Go to Course Page</h2>
+                    </button>
+                  </div>
+                  <button class="col-12" id="ltdashbtnr" style="border: 2px solid #ffffff; height: 50px; width: 272px; border-radius: 25px; bottom: 75px;">
+                    <h2 style="position: relative; top: 5px;">Edit Course & Sections Info</h2>
+                  </button>
+                  <button class="col-12" id="ltdashbtnr" style="border: none; height: 50px; width: 272px; border-radius: 25px; bottom: 15px;">
+                    <h2 style="position: relative; top: 5px;">View Interested Students</h2>
+                  </button>
+                </div>
+                <div class="col-3" style="margin: 0px;">
+                  <div style=" background-color: #ffffff; position: relative; top: 20px; border-radius: 46px; height: 460px; text-align: center;">
+                    <div style="width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: #911833; border-radius: 28px; height: 450px;">
+                     <!-- use dark red (911833) when followers exceed max capacity and use normal red (C61038) if followers reach max capacity -->
+                      <!-- max height (followers = 100%) = 450px -->
+                      <div style="position: absolute; bottom: 20px; left: 14px;">
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">120</div>
+                        <div style="background-color: #ffffff; height: 3px; border-radius: 2px;"></div>
+                        <div style="display: inline-block; font-weight: 700; color: #ffffff">100</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12" style="height: 50px;"></div>
+</div>
 </body>
 
-<script>
+<!-- <script>
 	$.ajax({
 		url : "./ajax/db_enrollableCourse.php",
 		type: "post",
@@ -339,6 +511,9 @@ function ampm(string) {
     var strTime = hours + ':' + minutes + ampm;
     return strTime;
 }
+</script> -->
+<script>
+  $('.antioverflowfont').aofsr().addClass( 'FluidFontType' );
 </script>
 
 
