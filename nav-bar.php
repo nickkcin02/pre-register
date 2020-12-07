@@ -83,9 +83,9 @@ session_start();
 					</li>
 				</ul>
 				<form class="nav-item dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
-					<a href="../logout.php" style="position: relative; text-decoration: none;">
+					<a href="./logout.php" style="position: relative; text-decoration: none;">
 						<div class="dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; position: relative; z-index: 3; text-align: center; text-decoration: none; padding-top: 12px;">Log<br>Out</div>
-						<img src="img/profile.png" style="width: 100%; position: relative; top: -65px;">
+						<img src="<?php echo $_SESSION["profilePhoto"]?>" style="border-radius: 50%; width: 100%; position: relative; top: -65px;">
 					</a>
 				</form>
 			</div>
@@ -133,9 +133,9 @@ session_start();
 					</li>
 				</ul>
 				<form class="nav-item dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
-					<a href="../logout.php" style="position: relative; text-decoration: none;">
+					<a href="./logout.php" style="position: relative; text-decoration: none;">
 						<div class="dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; position: relative; z-index: 3; text-align: center; text-decoration: none; padding-top: 12px;">Log<br>Out</div>
-						<img src="img/profile.png" style="width: 100%; position: relative; top: -65px;">
+						<img src="<?php echo $_SESSION["profilePhoto"]?>" style="border-radius: 50%; width: 100%; position: relative; top: -65px;">
 					</a>
 				</form>
 			</div>
