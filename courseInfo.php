@@ -56,7 +56,7 @@
   <?php  
   include "nav-bar.php";
   ?>
-  <center><img src="../img/loginbg.png" style="width: 100%; position: absolute; left: 0; top: 0;"></center>
+  <center><img src="./img/loginbg.png" style="width: 100%; position: absolute; left: 0; top: 0;"></center>
   <div class="Login_BG" style="margin-top: 80px; padding-bottom: 100px;">
     <div class="horizontal-container">
       <div class="col-1" style="height: 100px;">
