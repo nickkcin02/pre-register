@@ -266,7 +266,13 @@
                 outer_bar.setAttribute('style','background-color: #ffffff; position: relative; top: 20px; border-radius: 46px; height: 460px; text-align: center;');
 
                     const inner_bar = document.createElement('div');
-                    inner_bar.setAttribute('style','width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: '+ student_bar_color +'; border-radius: 28px; height: '+ student_percentage*450 +'px;');
+                    if (student_percentage * 450 < 56) {
+                      inner_bar.setAttribute('style','width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: '+ student_bar_color +'; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; height: '+ student_percentage*450 +'px;');
+                    }
+                    else {
+                      inner_bar.setAttribute('style','width: 56px; position: absolute; bottom: 5px; left: 5px; background-color: '+ student_bar_color +'; border-radius: 28px; height: '+ student_percentage*450 +'px;');
+                    }
+                    
 
                         const bar_detail = document.createElement('div');
                         bar_detail.setAttribute('style','position: absolute; bottom: 20px; left: 14px;');
@@ -293,10 +299,7 @@
 
             bottom_part.appendChild(right_part);
 
-        box.appendChild(bottom_part);
-
-
-        
+        box.appendChild(bottom_part);        
         bigBox.appendChild(box);
         // console.log(student_percentage)
       }
