@@ -79,7 +79,7 @@ session_start();
 				</div>
 				<ul class="navbar-nav">
 					<li class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 6px">
-						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_message.png" style="width: 100%"></a>
+						<a class="nav-link" href="chat.php"><img src="img/ic_message.png" style="width: 100%"></a>
 					</li>
 				</ul>
 				<form class="nav-item dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">
@@ -129,7 +129,7 @@ session_start();
 				</div>
 				<ul class="navbar-nav">
 					<li class="nav-item dot btninnav" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 6px">
-						<a class="nav-link" href="../welcome/?test=10"><img src="img/ic_message.png" style="width: 100%"></a>
+						<a class="nav-link" href="chat.php"><img src="img/ic_message.png" style="width: 100%"></a>
 					</li>
 				</ul>
 				<form class="nav-item dot lgtbtn" style="height: 65px; width: 65px; border-radius: 50%; margin-right: 20px">

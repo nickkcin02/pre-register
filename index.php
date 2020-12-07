@@ -165,8 +165,13 @@
 
 
   <script>
-
-
+    var input = document.getElementById("password");
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+       event.preventDefault();
+       document.getElementById("signin").click();
+     }
+   });
     $("button").click(function(){
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
@@ -213,7 +218,7 @@
               
               if (data == "Lecturer") 
                 // Go to Lecturer Page
-              window.location = './stdashboard.php';
+              window.location = './ltdashboard.php';
 
             }
             else
@@ -223,19 +228,23 @@
                 modal.style.display = "block";
               }
               // When the user clicks on <span> (x), close the modal
-              btn.onclick = function() {
-                dis = 1;
-                modal.style.display = "none";
-                
-              }
+              if (event.keyCode === 13) {
+               event.preventDefault();
+               document.getElementById("okay").click();
+             }
+             btn.onclick = function() {
+              dis = 1;
+              modal.style.display = "none";
+              
             }
-            document.getElementById("username").value = "";
-            document.getElementById("password").value = "";
-
-
-
           }
-        })
+          document.getElementById("username").value = "";
+          document.getElementById("password").value = "";
+
+
+
+        }
+      })
       }
 
     });
