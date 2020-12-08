@@ -4,6 +4,8 @@ include 'nav-bar.php';
 <!doctype html>
 <html lang="en">
 <head>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <style>
         body {
             font-family: "Montserrat", sans-serif;
@@ -103,60 +105,76 @@ include 'nav-bar.php';
         }
         /*style the arrow inside the select element:*/
         .select-selected:after {
-          position: absolute;
-          content: "";
-          top: 14px;
-          right: 10px;
-          width: 0;
-          height: 0;
-          border: 6px solid transparent;
-          border-color: #fff transparent transparent transparent;
-      }
-
-      /*point the arrow upwards when the select box is open (active):*/
-      .select-selected.select-arrow-active:after {
-          border-color: transparent transparent #fff transparent;
-          top: 7px;
-      }
-
-      /*style the items (options), including the selected item:*/
-      .select-items div,.select-selected {
-          color: #000000;
-          border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-          cursor: pointer;
-          user-select: none;
-          position: relative;
-          top: -7px;
-          width: 180px;
-          left: -7px;
-          border-radius: 12px;
-          padding-left: 8px;
-      }
-
-      /*style items (options):*/
-      .select-items {
-          position: relative;
-          background-color: #ffffff;
-          top: -7px;
-          left: -7px;
-          width: 180px;
-          border-radius: 12px;
-          right: 0;
-          z-index: 99;
-          padding-left: 13px;
-          padding-top: 9px;
-          padding-right: 13px;
-      }
-
-      /*hide the items when the select box is closed:*/
-      .select-hide {
-          display: none;
-      }
-
-      .select-items div:hover, .same-as-selected {
-          background-color: rgba(0, 0, 0, 0.1);
-          width: 100%;
-      }
+            position: absolute;
+            content: "";
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #fff transparent transparent transparent;
+        }
+        /*point the arrow upwards when the select box is open (active):*/
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #fff transparent;
+            top: 7px;
+        }
+        /*style the items (options), including the selected item:*/
+        .select-items div,.select-selected {
+            color: #000000;
+            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            top: -7px;
+            width: 180px;
+            left: -7px;
+            border-radius: 12px;
+            padding-left: 8px;
+        }
+        /*style items (options):*/
+        .select-items {
+            position: relative;
+            background-color: #ffffff;
+            top: -7px;
+            left: -7px;
+            width: 180px;
+            border-radius: 12px;
+            right: 0;
+            z-index: 99;
+            padding-left: 13px;
+            padding-top: 9px;
+            padding-right: 13px;
+        }
+        /*hide the items when the select box is closed:*/
+        .select-hide {
+            display: none;
+        }
+        .select-items div:hover, .same-as-selected {
+            background-color: rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        .btn {
+            border-radius: 12px;
+        }
+        .gj-timepicker-bootstrap [role=right-icon] button .gj-icon, .gj-timepicker-bootstrap [role=right-icon] button .material-icons {
+            position: absolute;
+            font-size: 21px;
+            top: 1px;
+            left: 3px;
+        }
+        .gj-timepicker-bootstrap [role=right-icon] button {
+            position: relative;
+            width: 25px;
+        }
+        .gj-timepicker .gj-timepicker-bootstrap .gj-unselectable .input-group {
+            margin: 0px;
+        }
+        .timepicker2 .input-group-append {
+            position: relative;
+            top: -24px;
+            left: 135px;
+        }
         /* .backbtn {
             transition-duration: 0.3s;
             cursor: pointer;
@@ -286,11 +304,14 @@ include 'nav-bar.php';
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-12 linesecbox" style="overflow: hidden;">
+                                            <div class="col-12 linesecbox" style="overflow: hidden; height: 25px;">
                                                 <div class="textinsecbox">From </div>
-                                                <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
-                                                <div class="textinsecbox" style="margin-left: 10px;">to </div>
-                                                <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
+                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;">
+                                                <div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div>
+                                                <div style="position: relative; top: -24px; left: 145px;">
+                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;">
+
+                                                </div>
                                             </div>
                                             <div class="col-12 linesecbox">
                                                 <div class="textinsecbox">At </div>
@@ -327,11 +348,13 @@ include 'nav-bar.php';
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 linesecbox" style="overflow: hidden;">
+                                            <div class="col-12 linesecbox" style="overflow: hidden; height: 25px;">
                                                 <div class="textinsecbox">From </div>
-                                                <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
-                                                <div class="textinsecbox" style="margin-left: 10px;">to </div>
-                                                <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
+                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;">
+                                                <div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div>
+                                                <div style="position: relative; top: -24px; left: 145px;">
+                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;">
+                                                </div>
                                             </div>
                                             <div class="col-12 linesecbox">
                                                 <div class="textinsecbox">At </div>
@@ -374,12 +397,14 @@ include 'nav-bar.php';
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 linesecbox" style="overflow: hidden;">
-                                            <div class="textinsecbox">From </div>
-                                            <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
-                                            <div class="textinsecbox" style="margin-left: 10px;">to </div>
-                                            <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
-                                        </div>
+                                        <div class="col-12 linesecbox" style="overflow: hidden; height: 25px;">
+                                                <div class="textinsecbox">From </div>
+                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;">
+                                                <div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div>
+                                                <div style="position: relative; top: -24px; left: 145px;">
+                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;">
+                                                </div>
+                                            </div>
                                         <div class="col-12 linesecbox">
                                             <div class="textinsecbox">At </div>
                                             <input class="inputinsecbox">
@@ -414,6 +439,11 @@ include 'nav-bar.php';
 
 
 <script>
+
+    $('.timepicker').timepicker({
+        uiLibrary: 'bootstrap4'
+    });
+
     $.ajax({
         url : "./ajax/db_queryCourseInEdit.php",
         type: "post",
@@ -430,6 +460,8 @@ include 'nav-bar.php';
 
         }
     })
+
+
 
     function create_new_section(isQuery,fisrtTime,secondTime){
         // const big_box = document.getElementById('big_box_section'); 
@@ -651,15 +683,16 @@ include 'nav-bar.php';
         outer_class_time.setAttribute('class','col-12 linesecbox');
         outer_class_time.setAttribute('style','overflow: hidden;');
 
-
+        // outer_class_time.innerHTML = '<div class="textinsecbox">From </div><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;"><div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div><div style="position: relative; top: -24px; left: 145px;"><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;"></div>'
             const head_class_start = document.createElement('div');
             head_class_start.setAttribute('class','textinsecbox');
             head_class_start.innerHTML = 'From ';
             outer_class_time.appendChild(head_class_start);
 
             const input_class_start = document.createElement('input');
-            input_class_start.setAttribute('class','inputinsecbox');
-            input_class_start.setAttribute('style','width: 90px; float: left;');
+            input_class_start.setAttribute('class','inputinsecbox timepicker');
+            input_class_start.setAttribute('width','90');
+            input_class_start.setAttribute('style','float: left; height: 24px;');
             input_class_start.setAttribute('id','time_start');
             outer_class_time.appendChild(input_class_start);
 
@@ -670,10 +703,16 @@ include 'nav-bar.php';
             outer_class_time.appendChild(head_class_end);
 
             const input_class_end = document.createElement('input');
-            input_class_end.setAttribute('class','inputinsecbox');
-            input_class_end.setAttribute('style','width: 90px; float: left;');
+            input_class_end.setAttribute('class','inputinsecbox timepicker');
+            input_class_end.setAttribute('width','90');
+            input_class_end.setAttribute('style','float: left; height: 24px;');
             input_class_end.setAttribute('id','time_end');
             outer_class_time.appendChild(input_class_end);
+
+
+            
+
+            
 
         data_input.appendChild(outer_class_time);
 
@@ -757,27 +796,31 @@ include 'nav-bar.php';
     function closeAllSelect(elmnt) {
       /*a function that will close all select boxes in the document,
       except the current select box:*/
-      var x, y, i, xl, yl, arrNo = [];
-      x = document.getElementsByClassName("select-items");
-      y = document.getElementsByClassName("select-selected");
-      xl = x.length;
-      yl = y.length;
-      for (i = 0; i < yl; i++) {
-        if (elmnt == y[i]) {
-          arrNo.push(i)
-      } else {
-          y[i].classList.remove("select-arrow-active");
-      }
-    }
-    for (i = 0; i < xl; i++) {
-        if (arrNo.indexOf(i)) {
-          x[i].classList.add("select-hide");
-      }
-    }
+        var x, y, i, xl, yl, arrNo = [];
+        x = document.getElementsByClassName("select-items");
+        y = document.getElementsByClassName("select-selected");
+        xl = x.length;
+        yl = y.length;
+        for (i = 0; i < yl; i++) {
+            if (elmnt == y[i]) {
+                arrNo.push(i)
+            } 
+            else {
+                y[i].classList.remove("select-arrow-active");
+            }
+        }
+        for (i = 0; i < xl; i++) {
+            if (arrNo.indexOf(i)) {
+                x[i].classList.add("select-hide");
+            }
+        }
     }
     /*if the user clicks anywhere outside the select box,
     then close all select boxes:*/
     document.addEventListener("click", closeAllSelect);
+
+    
+
     </script>
 
 </script>
