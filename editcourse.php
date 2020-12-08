@@ -5,7 +5,8 @@ include 'nav-bar.php';
 <html lang="en">
 <head>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <style>
         body {
             font-family: "Montserrat", sans-serif;
@@ -175,6 +176,31 @@ include 'nav-bar.php';
             top: -24px;
             left: 135px;
         }
+        .whtebtn {
+            border: none;
+            text-align: center;
+            height: 50px;
+            width: 280px;
+            background-color: #ffffff;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #233975;
+            font-size: 20px;
+            padding: 0;
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .whtebtn:hover {
+            background-color: #D4DEFA;
+        }
+        .upldbtn {
+            background-color: #ffffff;
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .upldbtn:hover {
+            background-color: #D4DEFA;
+        }
         /* .backbtn {
             transition-duration: 0.3s;
             cursor: pointer;
@@ -193,7 +219,7 @@ include 'nav-bar.php';
         </div>
         <div class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 3%;">
             <div class="col-12">
-                <div class="col-12 dashbox1" style="padding: 15px; height: 650px;">
+                <div class="col-12 dashbox1" style="padding: 15px; height: 720px;">
                     <div class="row">
                         <div class="col-12" style="position: absolute; top: 30px;">
                             <div class="row" id="courseid" style="background-color: #ffffff; border-top-right-radius: 40px; border-bottom-right-radius: 40px; position: relative; top: 20px; left: 0px; height: 80px; width: 1200px;">
@@ -208,14 +234,27 @@ include 'nav-bar.php';
                                 <h1 style="position: absolute; top: 15px; left: 20px;">Course Details</h1>
                                 <textarea style="width: 453px; height: 225px; border-radius: 15px; border: none; resize: none; position: absolute; bottom: 15px; padding-left: 10px; padding-right: 10px;"></textarea>
                             </div>
-                            <div class="col-11" style="height: 140px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 370px; left: 30px;">
+                            <div class="col-11" style="height: 140px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 370px; left: 30px; overflow: hidden; padding-left: 20px;">
+                                <div style="line-height: normal; font-size: 25px; color: #ffffff; margin-top: 25px; float: left;">Upload<br>Course<br>Syllabus</div>
+                                <button class="dot upldbtn" style="border-radius: 50%; width: 100px; height: 100px; border: none; margin-top: 20px; margin-left: 10px; float: left;">
+                                    <img src="img/greentick.png" style="width: 75px;">
+                                </button>
+                                <div style="line-height: normal; font-size: 25px; color: #ffffff; margin-top: 25px; float: left; margin-left: 25px;">Upload<br>Cover<br>Picture</div>
+                                <button class="dot upldbtn" style="border-radius: 50%; width: 100px; height: 100px; border: none; margin-top: 20px; margin-left: 10px; float: left;">
+                                    <img src="img/upload.png" style="width: 75px;">
+                                </button>
                             </div>
-                            <div style="height: 460px; width: 5px; border-radius: 3px; background-color: rgba(255, 255, 255, 0.5); position: absolute; top: 50px; left: 532px;"></div>
+                            <div class="col-12" style="text-align: center; position: relative; top: 530px;">
+                                <button class="whtebtn" id="download" style="position: relative; left: 15px;">
+                                    <p style="margin-top: 10px;">Save Changes</p>
+                                </button>
+                            </div>
+                            <div style="height: 530px; width: 5px; border-radius: 3px; background-color: rgba(255, 255, 255, 0.5); position: absolute; top: 50px; left: 532px;"></div>
                         </div>
                         <div class="col-7" style="position: absolute; top: 110px; right: 0px;">
-                            <div class="col-11" style="height: 460px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 50px; left: 30px;">
+                            <div class="col-11" style="height: 530px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 50px; left: 30px;">
                                 <h1 style="position: absolute; top: 15px; left: 20px;">Sections</h1>
-                                <div style="position: absolute; top: 60px; height: 385px; width: 646px; border-radius: 15px; overflow-y: scroll; overflow-x: hidden;">
+                                <div style="position: absolute; top: 60px; height: 455px; width: 646px; border-radius: 15px; overflow-y: scroll; overflow-x: hidden;">
                                     <div id="big_box_section" class="grid-container" style="width: 100%">
                                         <div>
                                             <div style="background-color: #233975; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 1</div>
@@ -306,10 +345,11 @@ include 'nav-bar.php';
                                             </div>
                                             <div class="col-12 linesecbox" style="overflow: hidden; height: 25px;">
                                                 <div class="textinsecbox">From </div>
-                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;">
+                                                <b-form-timepicker id="timepicker-placeholder" locale="th"></b-form-timepicker>
+                                                <!-- <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;"> -->
                                                 <div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div>
                                                 <div style="position: relative; top: -24px; left: 145px;">
-                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;">
+                                                    <!-- <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;"> -->
 
                                                 </div>
                                             </div>
@@ -353,7 +393,7 @@ include 'nav-bar.php';
                                                 <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;">
                                                 <div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div>
                                                 <div style="position: relative; top: -24px; left: 145px;">
-                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;">
+                                                    <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;">
                                                 </div>
                                             </div>
                                             <div class="col-12 linesecbox">
@@ -398,13 +438,13 @@ include 'nav-bar.php';
                                             </div>
                                         </div>
                                         <div class="col-12 linesecbox" style="overflow: hidden; height: 25px;">
-                                                <div class="textinsecbox">From </div>
-                                                <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;">
-                                                <div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div>
-                                                <div style="position: relative; top: -24px; left: 145px;">
+                                            <div class="textinsecbox">From </div>
+                                            <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;">
+                                            <div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div>
+                                            <div style="position: relative; top: -24px; left: 145px;">
                                                 <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;">
-                                                </div>
                                             </div>
+                                        </div>
                                         <div class="col-12 linesecbox">
                                             <div class="textinsecbox">At </div>
                                             <input class="inputinsecbox">
@@ -449,14 +489,14 @@ include 'nav-bar.php';
         type: "post",
         data :{
           openCourseID : '<?php echo $_GET["openCourseID"];?>'
-        },
-        success: function(resp){
-            var data = JSON.parse(resp);
-            console.log(data);
+      },
+      success: function(resp){
+        var data = JSON.parse(resp);
+        console.log(data);
 
+        document.getElementById('courseID').innerHTML = data[0][0]["courseID"];
+        document.getElementById('courseName').innerHTML = data[0][0]["courseName"];
 
-            document.getElementById('courseID').innerHTML = data[0][0]["courseID"];
-            document.getElementById('courseName').innerHTML = data[0][0]["courseName"];
             // add data to left side
 
             // section data
@@ -507,8 +547,8 @@ include 'nav-bar.php';
 
         const box = document.createElement('div');
 
-            const section_display_box = document.createElement('div');
-            section_display_box.setAttribute('style','background-color: #DB7600; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;');
+        const section_display_box = document.createElement('div');
+        section_display_box.setAttribute('style','background-color: #DB7600; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;');
             // Must edit running sec
             section_display_box.innerHTML = "SEC "+running_section_number();
 
@@ -521,9 +561,9 @@ include 'nav-bar.php';
             capacity_box.innerHTML = "Capacity :";
 
 
-                const capacity_input = document.createElement('input');
-                capacity_input.setAttribute('style','border-radius: 12px; height: 24px; width: 80px; position: relative; top: -1px; right: -3px; text-align: left; color: #000000; padding-left: 10px; border: none;');
-                capacity_box.appendChild(capacity_input);
+            const capacity_input = document.createElement('input');
+            capacity_input.setAttribute('style','border-radius: 12px; height: 24px; width: 80px; position: relative; top: -1px; right: -3px; text-align: left; color: #000000; padding-left: 10px; border: none;');
+            capacity_box.appendChild(capacity_input);
 
 
             box.appendChild(capacity_box);
@@ -535,8 +575,8 @@ include 'nav-bar.php';
             outer_delete_sec.onclick = function(e) {
                 // Must edit
                 swal({
-                    title: "Are you sure to delete section?",
-                    text: "You will not be able to recover the section", 
+                    title: "Delete this section?",
+                    text: "This section will be permanently deleted.", 
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -564,9 +604,9 @@ include 'nav-bar.php';
                 // window.location = './courseInfo.php';
             }
 
-                const inner_delete_sec = document.createElement('div');
-                inner_delete_sec.setAttribute('style','height: 5px; width: 20px; background-color: #585858; border-radius: 3px; position: relative; left: -1px; top: 1px;');
-                outer_delete_sec.appendChild(inner_delete_sec);
+            const inner_delete_sec = document.createElement('div');
+            inner_delete_sec.setAttribute('style','height: 5px; width: 20px; background-color: #585858; border-radius: 3px; position: relative; left: -1px; top: 1px;');
+            outer_delete_sec.appendChild(inner_delete_sec);
 
             box.appendChild(outer_delete_sec);
 
@@ -617,10 +657,11 @@ include 'nav-bar.php';
             box.appendChild(create_update_button(box,isQuery));
 
 
+            $("#last_obj_section").before(box);
 
-        $("#last_obj_section").before(box);
+            return box;
 
-        return box;
+
         // console.log(obj)
         
     }
@@ -630,8 +671,8 @@ include 'nav-bar.php';
         add_time_button.setAttribute('style','border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 8px; top: -37px; overflow: hidden;');
         add_time_button.innerHTML = '<img src="img/plus.png" style="width: 20px; height: 20px; position: relative; top: 0px; left: 0px;">'
         add_time_button.onclick = function(e) {
- 
-      
+
+
             const line = document.createElement('div');
             line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 0px; background-color: #ffffff; border-radius: 1.5px');
 
@@ -656,7 +697,7 @@ include 'nav-bar.php';
         if (time_num  == 1)
             update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
         else
-            update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 66px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
+            update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -66px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
         update_button.innerHTML = 'Update';
         update_button.onclick = function(e) {
             // console.log(box.getElementsByTagName('input'))
@@ -718,14 +759,15 @@ include 'nav-bar.php';
         const outer_class_type = document.createElement('div');
         outer_class_type.setAttribute('class','col-12 linesecbox');
 
-            const head_class_type = document.createElement('div');
-            head_class_type.setAttribute('class','textinsecbox');
-            head_class_type.innerHTML = 'Class Type: ';
-            outer_class_type.appendChild(head_class_type);
+        const head_class_type = document.createElement('div');
+        head_class_type.setAttribute('class','textinsecbox');
+        head_class_type.innerHTML = 'Class Type: ';
+        outer_class_type.appendChild(head_class_type);
             // <div class="custom-select">
 
             const box_select_class_type = document.createElement('div');
             box_select_class_type.setAttribute('class','custom-select')
+
 
                 const input_class_type = document.createElement('select');
                 input_class_type.setAttribute('class','inputinsecbox');
@@ -740,14 +782,15 @@ include 'nav-bar.php';
                 }
                 box_select_class_type.appendChild(input_class_type);
 
+
             check_drop_down(box_select_class_type);
             outer_class_type.appendChild(box_select_class_type);
 
-        data_input.appendChild(outer_class_type);
+            data_input.appendChild(outer_class_type);
 
 
-        const outer_class_day = document.createElement('div');
-        outer_class_day.setAttribute('class','col-12 linesecbox');
+            const outer_class_day = document.createElement('div');
+            outer_class_day.setAttribute('class','col-12 linesecbox');
 
             const head_class_day = document.createElement('div');
             head_class_day.setAttribute('class','textinsecbox');
@@ -769,19 +812,21 @@ include 'nav-bar.php';
                 }
                 box_select_class_day.appendChild(input_class_day);
 
+
             console.log(box_select_class_day)
             check_drop_down(box_select_class_day);
             outer_class_day.appendChild(box_select_class_day);
 
-        data_input.appendChild(outer_class_day);
+            data_input.appendChild(outer_class_day);
 
 
 
-        const outer_class_time = document.createElement('div');
-        outer_class_time.setAttribute('class','col-12 linesecbox');
-        outer_class_time.setAttribute('style','overflow: hidden;');
+            const outer_class_time = document.createElement('div');
+            outer_class_time.setAttribute('class','col-12 linesecbox');
+            outer_class_time.setAttribute('style','overflow: hidden;');
 
         // outer_class_time.innerHTML = '<div class="textinsecbox">From </div><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;"><div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div><div style="position: relative; top: -24px; left: 145px;"><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;"></div>'
+
             const head_class_start = document.createElement('div');
             head_class_start.setAttribute('class','textinsecbox');
             head_class_start.innerHTML = 'From ';
@@ -812,20 +857,17 @@ include 'nav-bar.php';
             outer_class_time.appendChild(input_class_end);
 
 
-            
-
-            
-
         data_input.appendChild(outer_class_time);
 
 
         const outer_class_at = document.createElement('div');
         outer_class_at.setAttribute('class','col-12 linesecbox');
 
-            const head_class_at = document.createElement('div');
-            head_class_at.setAttribute('class','textinsecbox');
-            head_class_at.innerHTML = 'At ';
-            outer_class_at.appendChild(head_class_at);
+        const head_class_at = document.createElement('div');
+        head_class_at.setAttribute('class','textinsecbox');
+        head_class_at.innerHTML = 'At ';
+        outer_class_at.appendChild(head_class_at);
+
 
             const input_class_at = document.createElement('input');
             input_class_at.setAttribute('class','inputinsecbox');
@@ -833,6 +875,7 @@ include 'nav-bar.php';
             if( isQuery != 0)
                 input_class_at.setAttribute('value',data["room"]);
             outer_class_at.appendChild(input_class_at);
+
 
         data_input.appendChild(outer_class_at);
 
@@ -850,55 +893,55 @@ include 'nav-bar.php';
     function check_drop_down(custom_select) {
         var x, i, j, l, ll, selElmnt, a, b, c;
         /*look for any elements with the class "custom-select":*/
-            selElmnt = custom_select.getElementsByTagName("select")[0];
-            ll = selElmnt.length;
-            /*for each element, create a new DIV that will act as the selected item:*/
-            a = document.createElement("DIV");
-            a.setAttribute("class", "select-selected");
-            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-            custom_select.appendChild(a);
-            /*for each element, create a new DIV that will contain the option list:*/
-            b = document.createElement("DIV");
-            b.setAttribute("class", "select-items select-hide");
-            for (j = 1; j < ll; j++) {
+        selElmnt = custom_select.getElementsByTagName("select")[0];
+        ll = selElmnt.length;
+        /*for each element, create a new DIV that will act as the selected item:*/
+        a = document.createElement("DIV");
+        a.setAttribute("class", "select-selected");
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        custom_select.appendChild(a);
+        /*for each element, create a new DIV that will contain the option list:*/
+        b = document.createElement("DIV");
+        b.setAttribute("class", "select-items select-hide");
+        for (j = 1; j < ll; j++) {
             /*for each option in the original select element,
             create a new DIV that will act as an option item:*/
-                c = document.createElement("DIV");
-                c.innerHTML = selElmnt.options[j].innerHTML;
-                c.addEventListener("click", function(e) {
+            c = document.createElement("DIV");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function(e) {
                 /*when an item is clicked, update the original select box,
                 and the selected item:*/
-                    var y, i, k, s, h, sl, yl;
-                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                    sl = s.length;
-                    h = this.parentNode.previousSibling;
-                    for (i = 0; i < sl; i++) {
-                        if (s.options[i].innerHTML == this.innerHTML) {
-                            s.selectedIndex = i;
-                            h.innerHTML = this.innerHTML;
-                            y = this.parentNode.getElementsByClassName("same-as-selected");
-                            yl = y.length;
-                            for (k = 0; k < yl; k++) {
-                                y[k].removeAttribute("class");
-                            }
-                            this.setAttribute("class", "same-as-selected");
-                            break;
-                        }  
-                    }
-                    h.click();
-                });
-                b.appendChild(c);
-            }
-            custom_select.appendChild(b);
-
-            a.addEventListener("click", function(e) {
-            /*when the select box is clicked, close any other select boxes,
-              and open/close the current select box:*/
-                e.stopPropagation();
-                closeAllSelect(this);
-                this.nextSibling.classList.toggle("select-hide");
-                this.classList.toggle("select-arrow-active");
+                var y, i, k, s, h, sl, yl;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                sl = s.length;
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < sl; i++) {
+                    if (s.options[i].innerHTML == this.innerHTML) {
+                        s.selectedIndex = i;
+                        h.innerHTML = this.innerHTML;
+                        y = this.parentNode.getElementsByClassName("same-as-selected");
+                        yl = y.length;
+                        for (k = 0; k < yl; k++) {
+                            y[k].removeAttribute("class");
+                        }
+                        this.setAttribute("class", "same-as-selected");
+                        break;
+                    }  
+                }
+                h.click();
             });
+            b.appendChild(c);
+        }
+        custom_select.appendChild(b);
+
+        a.addEventListener("click", function(e) {
+            /*when the select box is clicked, close any other select boxes,
+            and open/close the current select box:*/
+            e.stopPropagation();
+            closeAllSelect(this);
+            this.nextSibling.classList.toggle("select-hide");
+            this.classList.toggle("select-arrow-active");
+        });
         
     }
 
@@ -929,32 +972,32 @@ include 'nav-bar.php';
     function closeAllSelect(elmnt) {
       /*a function that will close all select boxes in the document,
       except the current select box:*/
-        var x, y, i, xl, yl, arrNo = [];
-        x = document.getElementsByClassName("select-items");
-        y = document.getElementsByClassName("select-selected");
-        xl = x.length;
-        yl = y.length;
-        for (i = 0; i < yl; i++) {
-            if (elmnt == y[i]) {
-                arrNo.push(i)
-            } 
-            else {
-                y[i].classList.remove("select-arrow-active");
-            }
-        }
-        for (i = 0; i < xl; i++) {
-            if (arrNo.indexOf(i)) {
-                x[i].classList.add("select-hide");
-            }
+      var x, y, i, xl, yl, arrNo = [];
+      x = document.getElementsByClassName("select-items");
+      y = document.getElementsByClassName("select-selected");
+      xl = x.length;
+      yl = y.length;
+      for (i = 0; i < yl; i++) {
+        if (elmnt == y[i]) {
+            arrNo.push(i)
+        } 
+        else {
+            y[i].classList.remove("select-arrow-active");
         }
     }
+    for (i = 0; i < xl; i++) {
+        if (arrNo.indexOf(i)) {
+            x[i].classList.add("select-hide");
+        }
+    }
+}
     /*if the user clicks anywhere outside the select box,
     then close all select boxes:*/
     document.addEventListener("click", closeAllSelect);
 
     
 
-    </script>
+</script>
 
 </script>
 

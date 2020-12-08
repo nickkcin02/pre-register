@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-      <link rel="icon" href="img/u.png">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="icon" href="img/u.png">
 
 	<style>
 		body {
@@ -277,7 +278,7 @@
                     
 
                         const bar_detail = document.createElement('div');
-                        bar_detail.setAttribute('style','position: absolute; bottom: 20px; left: 14px;');
+                        bar_detail.setAttribute('style','position: absolute; bottom: 460px; left: 13px; width: 30px;');
 
                             const student_follow = document.createElement('div');
                             student_follow.setAttribute('style','display: inline-block; font-weight: 700; color: #ffffff');
