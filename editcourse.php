@@ -21,7 +21,7 @@ include 'nav-bar.php';
         .grid-container {
             display: grid;
             grid-template-columns: 49% 49%;
-            grid-gap: 2%;
+            grid-gap: 12px;
         }
         .grid-container>div {
             background-color: rgba(255, 255, 255, 0.2);
@@ -171,11 +171,6 @@ include 'nav-bar.php';
         .gj-timepicker .gj-timepicker-bootstrap .gj-unselectable .input-group {
             margin: 0px;
         }
-        .timepicker2 .input-group-append {
-            position: relative;
-            top: -24px;
-            left: 135px;
-        }
         .whtebtn {
             border: none;
             text-align: center;
@@ -200,6 +195,22 @@ include 'nav-bar.php';
         }
         .upldbtn:hover {
             background-color: #D4DEFA;
+        }
+        .newsecbtn {
+            background-color: rgba(255, 255, 255, 0.5);
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .newsecbtn:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .minusbtn {
+            background-color: rgba(255, 255, 255, 0.5);
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .minusbtn:hover {
+            background-color: rgba(255, 255, 255, 1);
         }
         /* .backbtn {
             transition-duration: 0.3s;
@@ -254,17 +265,15 @@ include 'nav-bar.php';
                         <div class="col-7" style="position: absolute; top: 110px; right: 0px;">
                             <div class="col-11" style="height: 530px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 50px; left: 30px;">
                                 <h1 style="position: absolute; top: 15px; left: 20px;">Sections</h1>
+
                                 <div style="position: absolute; top: 60px; height: 455px; width: 646px; border-radius: 15px; overflow-y: scroll; overflow-x: hidden;">
                                     <div id="big_box_section" class="grid-container" style="width: 100%">
 
-
-                                
-
-
-                                <div id="last_obj_section">
-                                    <button class="dot" onclick="create_new_section(0,0,0)" style="height: 50px; width: 50px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 133.5px; top: 135px; border: none;">
-                                        <img src="img/plus.png" style="width: 30px; height: 30px; position: relative; top: 0px; left: 0px;">
-                                    </button>
+                                    <div id="last_obj_section">
+                                        <button class="dot newsecbtn" onclick="create_new_section(0,0,0)" style="height: 50px; width: 50px; border-radius: 50%; position: relative; left: 133.5px; top: 135px; border: none;">
+                                            <img src="img/plus.png" style="width: 30px; height: 30px; position: relative; top: 0px; left: 0px;">
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -272,9 +281,8 @@ include 'nav-bar.php';
                 </div>
             </div>
         </div>
+        <div class="col-12" style="height: 50px;"></div>
     </div>
-    <div class="col-12" style="height: 50px;"></div>
-</div>
 </div>
 </body>
 
@@ -282,6 +290,8 @@ include 'nav-bar.php';
 
 
 <script>
+
+    var timeid = 0;
 
     $('.timepicker').timepicker({
         uiLibrary: 'bootstrap4'
@@ -412,8 +422,8 @@ include 'nav-bar.php';
             box.appendChild(capacity_box);
 
             const outer_delete_sec = document.createElement('button');
-            outer_delete_sec.setAttribute('class','dot');
-            outer_delete_sec.setAttribute('style','height: 30px; width: 30px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 282px; top: -55px; border: none;');
+            outer_delete_sec.setAttribute('class','dot minusbtn');
+            outer_delete_sec.setAttribute('style','height: 30px; width: 30px; border-radius: 50%; position: relative; left: 282px; top: -55px; border: none;');
             
             outer_delete_sec.onclick = function(e) {
                 swal({
@@ -471,16 +481,12 @@ include 'nav-bar.php';
                 box.appendChild(create_add_time_button(box));
             }
             
-            
-            
             box.appendChild(create_update_button(box,isQuery));
-
 
             $("#last_obj_section").before(box);
 
             return box;
 
-        
     }
 
     function create_add_time_button(box){
@@ -491,7 +497,7 @@ include 'nav-bar.php';
 
 
             const line = document.createElement('div');
-            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 0px; background-color: #ffffff; border-radius: 1.5px');
+            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px');
 
             const del_button = create_del_time_button(box);
 
@@ -628,7 +634,7 @@ include 'nav-bar.php';
         // console.log(data)
         data_input.setAttribute('class','row');
         if(isUpper == 'Lower')
-            data_input.setAttribute('style','position: relative; top: -54px; left: 15px;');
+            data_input.setAttribute('style','position: relative; top: -35px; left: 15px;');
         else
             data_input.setAttribute('style','position: relative; top: -40px; left: 15px;');
 
@@ -701,8 +707,6 @@ include 'nav-bar.php';
             outer_class_time.setAttribute('class','col-12 linesecbox');
             outer_class_time.setAttribute('style','overflow: hidden;');
 
-        // outer_class_time.innerHTML = '<div class="textinsecbox">From </div><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;"><div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div><div style="position: relative; top: -24px; left: 145px;"><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;"></div>'
-
             const head_class_start = document.createElement('div');
             head_class_start.setAttribute('class','textinsecbox');
             head_class_start.innerHTML = 'From ';
@@ -757,7 +761,7 @@ include 'nav-bar.php';
 
         if (isQuery == 2) {
             const line = document.createElement('div');
-            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 0px; background-color: #ffffff; border-radius: 1.5px');
+            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px');
             data_input.appendChild(line);
         }
         // console.log(data_input)
@@ -909,7 +913,6 @@ include 'nav-bar.php';
 
 </script>
 
-</script>
 
 
 
