@@ -24,7 +24,7 @@ include 'nav-bar.php';
             background-color: rgba(255, 255, 255, 0.2);
             border: none;
             border-radius: 15px;
-            height: 320px;
+            height: 340px;
         }
         body h1 {
             color: #ffffff;
@@ -42,7 +42,7 @@ include 'nav-bar.php';
             border: 2px solid #ffffff;
             border-radius: 12px;
             height: 24px;
-            width: 100px;
+            width: 180px;
             overflow: hidden;
             color: #ffffff;
             font-size: 15px;
@@ -85,6 +85,78 @@ include 'nav-bar.php';
         .linesecbox {
             margin-bottom: 5px;
         }
+        /*the container must be positioned relative:*/
+        .custom-select {
+            position: relative;
+            border: 2px solid #ffffff;
+            border-radius: 12px;
+            height: 24px;
+            width: 180px;
+            color: #000000;
+            padding-left: 5px;
+        }
+        .custom-select select {
+            display: none; /*hide original SELECT element:*/
+        }
+        .select-selected {
+            background-color: #ffffff;
+        }
+        /*style the arrow inside the select element:*/
+        .select-selected:after {
+          position: absolute;
+          content: "";
+          top: 14px;
+          right: 10px;
+          width: 0;
+          height: 0;
+          border: 6px solid transparent;
+          border-color: #fff transparent transparent transparent;
+      }
+
+      /*point the arrow upwards when the select box is open (active):*/
+      .select-selected.select-arrow-active:after {
+          border-color: transparent transparent #fff transparent;
+          top: 7px;
+      }
+
+      /*style the items (options), including the selected item:*/
+      .select-items div,.select-selected {
+          color: #000000;
+          border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+          cursor: pointer;
+          user-select: none;
+          position: relative;
+          top: -7px;
+          width: 180px;
+          left: -7px;
+          border-radius: 12px;
+          padding-left: 8px;
+      }
+
+      /*style items (options):*/
+      .select-items {
+          position: relative;
+          background-color: #ffffff;
+          top: -7px;
+          left: -7px;
+          width: 180px;
+          border-radius: 12px;
+          right: 0;
+          z-index: 99;
+          padding-left: 13px;
+          padding-top: 9px;
+          padding-right: 13px;
+      }
+
+      /*hide the items when the select box is closed:*/
+      .select-hide {
+          display: none;
+      }
+
+      .select-items div:hover, .same-as-selected {
+          background-color: rgba(0, 0, 0, 0.1);
+          width: 100%;
+      }
         /* .backbtn {
             transition-duration: 0.3s;
             cursor: pointer;
@@ -147,13 +219,13 @@ include 'nav-bar.php';
                                                 </div>
                                                 <div class="col-12 linesecbox" style="overflow: hidden;">
                                                     <div class="textinsecbox">From </div>
-                                                    <div class="displayinsecbox" style="width: 90px; float: left;">08:30 AM</div>
+                                                    <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">08:30 AM</div>
                                                     <div class="textinsecbox" style="margin-left: 10px;">to </div>
-                                                    <div class="displayinsecbox" style="width: 90px; float: left;">12:20 PM</div>
+                                                    <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">12:20 PM</div>
                                                 </div>
                                                 <div class="col-12 linesecbox">
                                                     <div class="textinsecbox">At </div>
-                                                    <div class="displayinsecbox">CPE1115</div>
+                                                    <div class="displayinsecbox" style="width: 100px;">CPE1115</div>
                                                 </div>
                                                 <div style="height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px"></div>
                                             </div>
@@ -168,13 +240,13 @@ include 'nav-bar.php';
                                                 </div>
                                                 <div class="col-12 linesecbox" style="overflow: hidden;">
                                                     <div class="textinsecbox">From </div>
-                                                    <div class="displayinsecbox" style="width: 90px; float: left;">08:30 AM</div>
+                                                    <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">08:30 AM</div>
                                                     <div class="textinsecbox" style="margin-left: 10px;">to </div>
-                                                    <div class="displayinsecbox" style="width: 90px; float: left;">12:20 PM</div>
+                                                    <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">12:20 PM</div>
                                                 </div>
                                                 <div class="col-12 linesecbox">
                                                     <div class="textinsecbox">At </div>
-                                                    <div class="displayinsecbox">CPE1115</div>
+                                                    <div class="displayinsecbox" style="width: 100px;">CPE1115</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,156 +264,150 @@ include 'nav-bar.php';
                                             <div class="row" style="position: relative; top: -40px; left: 15px;">
                                                 <div class="col-12 linesecbox">
                                                     <div class="textinsecbox">Class Type: </div>
-                                                    <input class="inputinsecbox" list="classType" name="classType">
-                                                    <datalist id="classType">
-                                                        <option value="Lecture">
-                                                        <option value="Lab">
-                                                        <option value="Lecture & Lab">
-                                                    </datalist>
-                                                    <!-- <select class="textinsecbox" name="cars" id="cars">
-                                                      <option value="volvo">Volvo</option>
-                                                      <option value="saab">Saab</option>
-                                                      <option value="mercedes">Mercedes</option>
-                                                      <option value="audi">Audi</option>
-                                                    </select> -->
-                                                </div>
-                                                <div class="col-12 linesecbox">
-                                                    <div class="textinsecbox">On every </div>
-                                                    <input class="inputinsecbox" list="days" name="day">
-                                                    <datalist id="days">
-                                                        <option value="Monday">
-                                                        <option value="Tuesday">
-                                                        <option value="Wednesday">
-                                                        <option value="Thursday">
-                                                        <option value="Friday">
-                                                        <option value="Saturday">
-                                                    </datalist>
-                                                </div>
-                                                <div class="col-12 linesecbox" style="overflow: hidden;">
-                                                    <div class="textinsecbox">From </div>
-                                                    <input class="inputinsecbox" style="width: 90px; float: left;">
-                                                    <div class="textinsecbox" style="margin-left: 10px;">to </div>
-                                                    <input class="inputinsecbox" style="width: 90px; float: left;">
-                                                </div>
-                                                <div class="col-12 linesecbox">
-                                                    <div class="textinsecbox">At </div>
-                                                    <input class="inputinsecbox">
-                                                </div>
-                                                <div style="height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px"></div>
-                                            </div>
-                                            <button style="border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 279px; top: -37px;">
-                                                <img src="img/greycross.png" style="width: 15px; height: 15px; position: relative; top: 0px; left: 0px;">
-                                            </button>
-                                            <div class="row" style="position: relative; top: -54px; left: 15px;">
-                                                <div class="col-12 linesecbox">
-                                                    <div class="textinsecbox">Class Type: </div>
-                                                    <input class="inputinsecbox" list="classType" name="classType">
-                                                    <datalist id="classType">
-                                                        <option value="Lecture">
-                                                        <option value="Lab">
-                                                        <option value="Lecture & Lab">
-                                                    </datalist>
-                                                </div>
-                                                <div class="col-12 linesecbox">
-                                                    <div class="textinsecbox">On every </div>
-                                                    <input class="inputinsecbox" list="days" name="day">
-                                                    <datalist id="days">
-                                                        <option value="Monday">
-                                                        <option value="Tuesday">
-                                                        <option value="Wednesday">
-                                                        <option value="Thursday">
-                                                        <option value="Friday">
-                                                        <option value="Saturday">
-                                                    </datalist>
-                                                </div>
-                                                <div class="col-12 linesecbox" style="overflow: hidden;">
-                                                    <div class="textinsecbox">From </div>
-                                                    <input class="inputinsecbox" style="width: 90px; float: left;">
-                                                    <div class="textinsecbox" style="margin-left: 10px;">to </div>
-                                                    <input class="inputinsecbox" style="width: 90px; float: left;">
-                                                </div>
-                                                <div class="col-12 linesecbox">
-                                                    <div class="textinsecbox">At </div>
-                                                    <input class="inputinsecbox">
+
+                                                    <div class="custom-select">
+                                                      <select id="classType" name="classType" class="inputinsecbox">
+                                                        <option value="Lecture">Lecture</option>
+                                                        <option value="Lab">Lab</option>
+                                                        <option value="Lecture & Lab">Lecture & Lab</option>
+                                                    </select>  
                                                 </div>
                                             </div>
-                                            <div style="background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -73px; left: 233px; text-align: left; color: #ffffff; padding-left: 10px;">Update</div>
+                                            <div class="col-12 linesecbox">
+                                                <div class="textinsecbox">On every </div>
+                                                <div class="custom-select">
+                                                    <select id="days" name="day" class="inputinsecbox">
+                                                        <option value="Monday">Monday</option>
+                                                        <option value="Tuesday">Tuesday</option>
+                                                        <option value="Wednesday">Wednesday</option>
+                                                        <option value="Thursday">Thursday</option>
+                                                        <option value="Friday">Friday</option>
+                                                        <option value="Saturday">Saturday</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 linesecbox" style="overflow: hidden;">
+                                                <div class="textinsecbox">From </div>
+                                                <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
+                                                <div class="textinsecbox" style="margin-left: 10px;">to </div>
+                                                <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
+                                            </div>
+                                            <div class="col-12 linesecbox">
+                                                <div class="textinsecbox">At </div>
+                                                <input class="inputinsecbox">
+                                            </div>
+                                            <div style="height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px"></div>
                                         </div>
-
-
-
-
-                                        <div>
-                                            <div style="background-color: #DB7600; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 2</div>
-                                            <div style="background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;">Capacity :
-                                                <input style="border-radius: 12px; height: 24px; width: 80px; position: relative; top: -1px; right: -3px; text-align: left; color: #000000; padding-left: 10px; border: none;">
-                                            </div>
-                                            <!-- minus button -->
-                                            <button class="dot" style="height: 30px; width: 30px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 282px; top: -55px; border: none;">
-                                                <div style="height: 5px; width: 20px; background-color: #585858; border-radius: 3px; position: relative; left: -1px; top: 1px;"></div>
-                                            </button>
-
-
+                                        <button style="border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 279px; top: -37px;">
+                                            <img src="img/greycross.png" style="width: 15px; height: 15px; position: relative; top: 0px; left: 0px;">
+                                        </button>
+                                        <div class="row" style="position: relative; top: 0px; left: 15px;">
                                             <div class="row" style="position: relative; top: -40px; left: 15px;">
                                                 <div class="col-12 linesecbox">
                                                     <div class="textinsecbox">Class Type: </div>
-                                                    <input class="inputinsecbox" list="classType" name="classType">
-                                                    <datalist id="classType">
-                                                        <option value="Lecture">
-                                                        <option value="Lab">
-                                                        <option value="Lecture & Lab">
-                                                    </datalist>
+                                                    <div class="custom-select">
+                                                      <select id="classType" name="classType" class="inputinsecbox">
+                                                        <option value="Lecture">Lecture</option>
+                                                        <option value="Lab">Lab</option>
+                                                        <option value="Lecture & Lab">Lecture & Lab</option>
+                                                    </select>  
                                                 </div>
-                                                <div class="col-12 linesecbox">
-                                                    <div class="textinsecbox">On every </div>
-                                                    <input class="inputinsecbox" list="days" name="day">
-                                                    <datalist id="days">
-                                                        <option value="Monday">
-                                                        <option value="Tuesday">
-                                                        <option value="Wednesday">
-                                                        <option value="Thursday">
-                                                        <option value="Friday">
-                                                        <option value="Saturday">
-                                                    </datalist>
-                                                </div>
-                                                <div class="col-12 linesecbox" style="overflow: hidden;">
-                                                    <div class="textinsecbox">From </div>
-                                                    <input class="inputinsecbox" style="width: 90px; float: left;">
-                                                    <div class="textinsecbox" style="margin-left: 10px;">to </div>
-                                                    <input class="inputinsecbox" style="width: 90px; float: left;">
-                                                </div>
-                                                <div class="col-12 linesecbox">
-                                                    <div class="textinsecbox">At </div>
-                                                    <input class="inputinsecbox">
+                                            </div>
+                                            <div class="col-12 linesecbox">
+                                                <div class="textinsecbox">On every </div>
+                                                <div class="custom-select">
+                                                    <select id="days" name="day" class="inputinsecbox">
+                                                        <option value="Monday">Monday</option>
+                                                        <option value="Tuesday">Tuesday</option>
+                                                        <option value="Wednesday">Wednesday</option>
+                                                        <option value="Thursday">Thursday</option>
+                                                        <option value="Friday">Friday</option>
+                                                        <option value="Saturday">Saturday</option>
+                                                    </select>
                                                 </div>
                                             </div>
 
-
-                                            <button style="border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 8px; top: -37px; overflow: hidden;">
-                                                <img src="img/plus.png" style="width: 20px; height: 20px; position: relative; top: 0px; left: 0px;">
-                                            </button>
-                                            <div style="background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;">Update</div>
+                                            <div class="col-12 linesecbox" style="overflow: hidden;">
+                                                <div class="textinsecbox">From </div>
+                                                <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
+                                                <div class="textinsecbox" style="margin-left: 10px;">to </div>
+                                                <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
+                                            </div>
+                                            <div class="col-12 linesecbox">
+                                                <div class="textinsecbox">At </div>
+                                                <input class="inputinsecbox">
+                                            </div>
                                         </div>
-
-
-                                        <div id="last_obj_section">
-                                            <button class="dot" onclick="create_new_section(0,0,0);" style="height: 50px; width: 50px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 133.5px; top: 135px; border: none;">
-                                                <img src="img/plus.png" style="width: 30px; height: 30px; position: relative; top: 0px; left: 0px;">
-                                            </button>
+                                        <div style="background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -57px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;">Update</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="background-color: #DB7600; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 2</div>
+                                    <div style="background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;">Capacity :
+                                        <input style="border-radius: 12px; height: 24px; width: 80px; position: relative; top: -1px; right: -3px; text-align: left; color: #000000; padding-left: 10px; border: none;">
+                                    </div>
+                                    <!-- minus button -->
+                                    <button class="dot" style="height: 30px; width: 30px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 282px; top: -55px; border: none;">
+                                        <div style="height: 5px; width: 20px; background-color: #585858; border-radius: 3px; position: relative; left: -1px; top: 1px;"></div>
+                                    </button>
+                                    <div class="row" style="position: relative; top: -40px; left: 15px;">
+                                        <div class="col-12 linesecbox">
+                                            <div class="textinsecbox">Class Type: </div>
+                                            <div class="custom-select">
+                                                <select id="classType" name="classType" class="inputinsecbox">
+                                                    <option value="Lecture">Lecture</option>
+                                                    <option value="Lab">Lab</option>
+                                                    <option value="Lecture & Lab">Lecture & Lab</option>
+                                                </select>  
+                                            </div>
+                                        </div>
+                                        <div class="col-12 linesecbox">
+                                            <div class="textinsecbox">On every </div>
+                                            <div class="custom-select">
+                                                <select id="days" name="day" class="inputinsecbox">
+                                                    <option value="Monday">Monday</option>
+                                                    <option value="Tuesday">Tuesday</option>
+                                                    <option value="Wednesday">Wednesday</option>
+                                                    <option value="Thursday">Thursday</option>
+                                                    <option value="Friday">Friday</option>
+                                                    <option value="Saturday">Saturday</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 linesecbox" style="overflow: hidden;">
+                                            <div class="textinsecbox">From </div>
+                                            <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
+                                            <div class="textinsecbox" style="margin-left: 10px;">to </div>
+                                            <input class="inputinsecbox" style="width: 90px; float: left; height: 24px;">
+                                        </div>
+                                        <div class="col-12 linesecbox">
+                                            <div class="textinsecbox">At </div>
+                                            <input class="inputinsecbox">
                                         </div>
 
 
 
                                     </div>
+                                    <button style="border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 8px; top: -37px; overflow: hidden;">
+                                        <img src="img/plus.png" style="width: 20px; height: 20px; position: relative; top: 0px; left: 0px;">
+                                    </button>
+                                    <div style="background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 74px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;">Update</div>
+                                </div>
+                                <div id="last_obj_section">
+                                    <button class="dot" onclick="create_new_section(0,0,0)" style="height: 50px; width: 50px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 133.5px; top: 135px; border: none;">
+                                        <img src="img/plus.png" style="width: 30px; height: 30px; position: relative; top: 0px; left: 0px;">
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12" style="height: 50px;"></div>
         </div>
     </div>
+    <div class="col-12" style="height: 50px;"></div>
+</div>
+</div>
 </body>
 
 
@@ -367,6 +433,7 @@ include 'nav-bar.php';
 
     function create_new_section(isQuery,fisrtTime,secondTime){
         // const big_box = document.getElementById('big_box_section'); 
+
         if(isQuery == 1){
             //
         }
@@ -446,14 +513,26 @@ include 'nav-bar.php';
             update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
             update_button.innerHTML = 'Update';
             update_button.onclick = function(e) {
-                // Must edit
-                window.location = './courseInfo.php';
+                // console.log(box.getElementsByTagName('input'))
+                var input_data = box.getElementsByTagName('input'); 
+                for(const i in input_data) {
+
+                }
+
+                var input_data = box.getElementsByTagName('select'); 
+                for (const i in input_data) {
+                    console.log(input_data[i].value)
+                }
+                // console.log(box.getElementsByTagName('select'))
+                
+                // window.location = './courseInfo.php';
             }
             box.appendChild(update_button);
 
 
 
         $("#last_obj_section").before(box);
+        check_drop_down();
         // console.log(obj)
         
     }
@@ -525,20 +604,22 @@ include 'nav-bar.php';
             head_class_type.setAttribute('class','textinsecbox');
             head_class_type.innerHTML = 'Class Type: ';
             outer_class_type.appendChild(head_class_type);
+            // <div class="custom-select">
 
-            const input_class_type = document.createElement('input');
-            input_class_type.setAttribute('class','inputinsecbox');
-            input_class_type.setAttribute('list','classType');
-            input_class_type.setAttribute('name','classType');
-            outer_class_type.appendChild(input_class_type);
+            const box_select_class_type = document.createElement('div');
+            box_select_class_type.setAttribute('class','custom-select')
 
-            const datalist_class_type = document.createElement('datalist');
-            datalist_class_type.setAttribute('id','classType');
-            datalist_class_type.innerHTML = '<option value="Lecture"><option value="Lab"><option value="Lecture & Lab">';
-            outer_class_type.appendChild(datalist_class_type);
+                const input_class_type = document.createElement('select');
+                input_class_type.setAttribute('class','inputinsecbox');
+                input_class_type.setAttribute('id','classType');
+                input_class_type.setAttribute('name','classType');
+                input_class_type.innerHTML = '<option value="Lecture">Lecture</option><option value="Lab">Lab</option><option value="Lecture & Lab">Lecture & Lab</option>';
+                box_select_class_type.appendChild(input_class_type);
+
+            check_drop_down(box_select_class_type);
+            outer_class_type.appendChild(box_select_class_type);
 
         data_input.appendChild(outer_class_type);
-
 
 
         const outer_class_day = document.createElement('div');
@@ -549,16 +630,18 @@ include 'nav-bar.php';
             head_class_day.innerHTML = 'On every ';
             outer_class_day.appendChild(head_class_day);
 
-            const input_class_day = document.createElement('input');
-            input_class_day.setAttribute('class','inputinsecbox');
-            input_class_day.setAttribute('list','days');
-            input_class_day.setAttribute('name','day');
-            outer_class_day.appendChild(input_class_day);
+            const box_select_class_day = document.createElement('div');
+            box_select_class_day.setAttribute('class','custom-select')
 
-            const datalist_class_day = document.createElement('datalist');
-            datalist_class_day.setAttribute('id','days');
-            datalist_class_day.innerHTML = '<option value="Monday"><option value="Tuesday"><option value="Wednesday"><option value="Thursday"><option value="Friday"><option value="Saturday">';
-            outer_class_day.appendChild(datalist_class_day);
+                const input_class_day = document.createElement('select');
+                input_class_day.setAttribute('class','inputinsecbox');
+                input_class_day.setAttribute('id','classDay');
+                input_class_day.setAttribute('name','classDay');
+                input_class_day.innerHTML = '<option value="Monday">Monday</option><option value="Tuesday">Tuesday</option><option value="Wednesday">Wednesday</option><option value="Thursday">Thursday</option><option value="Friday">Friday</option><option value="Saturday">Saturday</option>';
+                box_select_class_day.appendChild(input_class_day);
+
+            check_drop_down(box_select_class_day);
+            outer_class_day.appendChild(box_select_class_day);
 
         data_input.appendChild(outer_class_day);
 
@@ -567,6 +650,7 @@ include 'nav-bar.php';
         const outer_class_time = document.createElement('div');
         outer_class_time.setAttribute('class','col-12 linesecbox');
         outer_class_time.setAttribute('style','overflow: hidden;');
+
 
             const head_class_start = document.createElement('div');
             head_class_start.setAttribute('class','textinsecbox');
@@ -611,6 +695,91 @@ include 'nav-bar.php';
 
         return data_input;
     }
+
+
+
+    function check_drop_down(custom_select) {
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        /*look for any elements with the class "custom-select":*/
+            selElmnt = custom_select.getElementsByTagName("select")[0];
+            ll = selElmnt.length;
+            /*for each element, create a new DIV that will act as the selected item:*/
+            a = document.createElement("DIV");
+            a.setAttribute("class", "select-selected");
+            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+            custom_select.appendChild(a);
+            /*for each element, create a new DIV that will contain the option list:*/
+            b = document.createElement("DIV");
+            b.setAttribute("class", "select-items select-hide");
+            for (j = 1; j < ll; j++) {
+            /*for each option in the original select element,
+            create a new DIV that will act as an option item:*/
+                c = document.createElement("DIV");
+                c.innerHTML = selElmnt.options[j].innerHTML;
+                c.addEventListener("click", function(e) {
+                /*when an item is clicked, update the original select box,
+                and the selected item:*/
+                    var y, i, k, s, h, sl, yl;
+                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                    sl = s.length;
+                    h = this.parentNode.previousSibling;
+                    for (i = 0; i < sl; i++) {
+                        if (s.options[i].innerHTML == this.innerHTML) {
+                            s.selectedIndex = i;
+                            h.innerHTML = this.innerHTML;
+                            y = this.parentNode.getElementsByClassName("same-as-selected");
+                            yl = y.length;
+                            for (k = 0; k < yl; k++) {
+                                y[k].removeAttribute("class");
+                            }
+                            this.setAttribute("class", "same-as-selected");
+                            break;
+                        }  
+                    }
+                    h.click();
+                });
+                b.appendChild(c);
+            }
+            custom_select.appendChild(b);
+
+            a.addEventListener("click", function(e) {
+            /*when the select box is clicked, close any other select boxes,
+              and open/close the current select box:*/
+                e.stopPropagation();
+                closeAllSelect(this);
+                this.nextSibling.classList.toggle("select-hide");
+                this.classList.toggle("select-arrow-active");
+            });
+        
+    }
+
+
+    function closeAllSelect(elmnt) {
+      /*a function that will close all select boxes in the document,
+      except the current select box:*/
+      var x, y, i, xl, yl, arrNo = [];
+      x = document.getElementsByClassName("select-items");
+      y = document.getElementsByClassName("select-selected");
+      xl = x.length;
+      yl = y.length;
+      for (i = 0; i < yl; i++) {
+        if (elmnt == y[i]) {
+          arrNo.push(i)
+      } else {
+          y[i].classList.remove("select-arrow-active");
+      }
+    }
+    for (i = 0; i < xl; i++) {
+        if (arrNo.indexOf(i)) {
+          x[i].classList.add("select-hide");
+      }
+    }
+    }
+    /*if the user clicks anywhere outside the select box,
+    then close all select boxes:*/
+    document.addEventListener("click", closeAllSelect);
+    </script>
+
 </script>
 
 
