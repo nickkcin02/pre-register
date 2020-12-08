@@ -42,7 +42,7 @@ include 'nav-bar.php';
             border: 2px solid #ffffff;
             border-radius: 12px;
             height: 24px;
-            width: 100px;
+            width: 180px;
             overflow: hidden;
             color: #ffffff;
             font-size: 15px;
@@ -225,7 +225,7 @@ include 'nav-bar.php';
                                                 </div>
                                                 <div class="col-12 linesecbox">
                                                     <div class="textinsecbox">At </div>
-                                                    <div class="displayinsecbox">CPE1115</div>
+                                                    <div class="displayinsecbox" style="width: 100px;">CPE1115</div>
                                                 </div>
                                                 <div style="height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px"></div>
                                             </div>
@@ -246,7 +246,7 @@ include 'nav-bar.php';
                                                 </div>
                                                 <div class="col-12 linesecbox">
                                                     <div class="textinsecbox">At </div>
-                                                    <div class="displayinsecbox">CPE1115</div>
+                                                    <div class="displayinsecbox" style="width: 100px;">CPE1115</div>
                                                 </div>
                                             </div>
                                         </div>
