@@ -658,7 +658,7 @@ include 'nav-bar.php';
 
 
             const line = document.createElement('div');
-            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 0px; background-color: #ffffff; border-radius: 1.5px');
+            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px');
 
             const del_button = create_del_time_button(box);
 
