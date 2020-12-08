@@ -269,6 +269,59 @@ include 'nav-bar.php';
                                 <div style="position: absolute; top: 60px; height: 455px; width: 646px; border-radius: 15px; overflow-y: scroll; overflow-x: hidden;">
                                     <div id="big_box_section" class="grid-container" style="width: 100%">
 
+
+                                        <div>
+                                            <div style="background-color: #233975; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 1</div>
+                                            <div style="background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;">Capacity :
+                                                <div style="background-color: #233975; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -23px; right: -79px; text-align: left; color: #ffffff; padding-left: 10px; border: 2px solid #ffffff">50</div>
+                                            </div>
+                                            <!-- minus button -->
+                                            <div class="row" style="position: relative; top: -10px; left: 15px;">
+                                                <div class="col-11 linesecbox">
+                                                    <div class="textinsecbox">Class Type: </div>
+                                                    <div class="displayinsecbox">Lecture</div>
+                                                </div>
+                                                <div class="col-11 linesecbox">
+                                                    <div class="textinsecbox">On every </div>
+                                                    <div class="displayinsecbox monday">Monday</div>
+                                                </div>
+                                                <div class="col-11 linesecbox" style="overflow: hidden;">
+                                                    <div class="textinsecbox">From </div>
+                                                    <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">08:30 AM</div>
+                                                    <div class="textinsecbox" style="margin-left: 10px;">to </div>
+                                                    <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">12:20 PM</div>
+                                                </div>
+                                                <div class="col-11 linesecbox">
+                                                    <div class="textinsecbox">At </div>
+                                                    <div class="displayinsecbox" style="width: 100px;">CPE1115</div>
+                                                </div>
+                                                <div style="height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px"></div>
+                                            </div>
+                                            <div class="row" style="position: relative; top: 10px; left: 15px;">
+                                                <div class="col-11 linesecbox">
+                                                    <div class="textinsecbox">Class Type: </div>
+                                                    <div class="displayinsecbox">Lecture</div>
+                                                </div>
+                                                <div class="col-11 linesecbox">
+                                                    <div class="textinsecbox">On every </div>
+                                                    <div class="displayinsecbox monday">Monday</div>
+                                                </div>
+                                                <div class="col-11 linesecbox" style="overflow: hidden;">
+                                                    <div class="textinsecbox">From </div>
+                                                    <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">08:30 AM</div>
+                                                    <div class="textinsecbox" style="margin-left: 10px;">to </div>
+                                                    <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">12:20 PM</div>
+                                                </div>
+                                                <div class="col-11 linesecbox">
+                                                    <div class="textinsecbox">At </div>
+                                                    <div class="displayinsecbox" style="width: 100px;">CPE1115</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
                                     <div id="last_obj_section">
                                         <button class="dot newsecbtn" onclick="create_new_section(0,0,0)" style="height: 50px; width: 50px; border-radius: 50%; position: relative; left: 133.5px; top: 135px; border: none;">
                                             <img src="img/plus.png" style="width: 30px; height: 30px; position: relative; top: 0px; left: 0px;">
@@ -326,67 +379,203 @@ include 'nav-bar.php';
                 }
                 else {
                     if (stack == 1) {
-                        
-                        create_new_section(2,section_data[i-2],section_data[i-1])
+                        if (section_data[i-2]["surveySection"] == 1) {
+                            create_non_survey_section(2,section_data[i-2],section_data[i-1])
+                        }
+                        else {
+                            create_new_section(2,section_data[i-2],section_data[i-1])
+                        }
                         stack = 0;
                     }
                     else {
-                        if (openCourseID != 0 && section != 0) {    
-                            create_new_section(1,section_data[i-1],0)
+                        if (openCourseID != 0 && section != 0) {   
+                            if (section_data[i-1]["surveySection"] == 1) {
+                                create_non_survey_section(1,section_data[i-1],0)
+                            } 
+                            else {
+                                create_new_section(1,section_data[i-1],0)
+                            }
                         }
                     }
                     openCourseID = section_data[i]["openCourseID"];
                     section = section_data[i]["section"];
                 }
             }
-            // if (stack == 1) {
-            //     if (section_data[section_data.length-2]["surveySection"] == 1) {
-            //         create_non_survey_section(2,section_data[section_data.length-2],section_data[section_data.length-1]);
-            //     }
-            //     else 
-            //     {
-            //         create_new_section(2,section_data[section_data.length-2],section_data[section_data.length-1]);
-            //         stack = 0;
-            //     }
-            // }
-            // else {
-            //     if (openCourseID != 0 && section != 0) {
-            //         if (section_data[section_data.length-1]["surveySection"] == 1) {
-            //             create_non_survey_section(1,section_data[section_data.length-1]);
-            //         }
-            //         else 
-            //         {
-            //             create_new_section(1,section_data[section_data.length-1],0);
-            //         }
-            //     }
-            // }
 
             if (stack == 1) {
+                // console.log("maasd"+section_data[section_data.length-2]["surveySection"])
+                if (section_data[section_data.length-2]["surveySection"] == 1) {
+                    create_non_survey_section(2,section_data[section_data.length-2],section_data[section_data.length-1]);
 
+                }
+                else 
+                {
                     create_new_section(2,section_data[section_data.length-2],section_data[section_data.length-1]);
-                    stack = 0;
+                }
+                stack = 0;
             }
             else {
                 if (openCourseID != 0 && section != 0) {
-
+                    if (section_data[section_data.length-1]["surveySection"] == 1) {
+                        create_non_survey_section(1,section_data[section_data.length-1],0);
+                    }
+                    else 
+                    {
                         create_new_section(1,section_data[section_data.length-1],0);
-                    
+                    }
                 }
             }
+
+            // if (stack == 1) {
+
+            //         create_new_section(2,section_data[section_data.length-2],section_data[section_data.length-1]);
+            //         stack = 0;
+            // }
+            // else {
+            //     if (openCourseID != 0 && section != 0) {
+
+            //             create_new_section(1,section_data[section_data.length-1],0);
+                    
+            //     }
+            // }
             console.log(section_data)
 
 
         }
     })
 
-    function create_non_survey_section(type,data) {
+
+    function create_non_survey_section(type,data,data2) {
         const box = document.createElement('div');
-        if (type == 2)
-            box.innerHTML ='<div style="background-color: #233975; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 1</div><div style="background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;">Capacity :<div style="background-color: #233975; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -23px; right: -79px; text-align: left; color: #ffffff; padding-left: 10px; border: 2px solid #ffffff">50</div></div><div class="row" style="position: relative; top: -40px; left: 15px;"><div class="col-12 linesecbox"><div class="textinsecbox">Class Type: </div><div class="displayinsecbox">Lecture</div></div><div class="col-12 linesecbox"><div class="textinsecbox">On every </div><div class="displayinsecbox monday">Monday</div></div><div class="col-12 linesecbox" style="overflow: hidden;"><div class="textinsecbox">From </div><div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">08:30 AM</div><div class="textinsecbox" style="margin-left: 10px;">to </div><div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">12:20 PM</div></div><div class="col-12 linesecbox"><div class="textinsecbox">At </div><div class="displayinsecbox" style="width: 100px;">CPE1115</div></div><div style="height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px"></div></div><div class="row" style="position: relative; top: -25px; left: 15px;"><div class="col-12 linesecbox"><div class="textinsecbox">Class Type: </div><div class="displayinsecbox">Lecture</div></div><div class="col-12 linesecbox"><div class="textinsecbox">On every </div><div class="displayinsecbox monday">Monday</div></div><div class="col-12 linesecbox" style="overflow: hidden;"><div class="textinsecbox">From </div><div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">08:30 AM</div><div class="textinsecbox" style="margin-left: 10px;">to </div><div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">12:20 PM</div></div><div class="col-12 linesecbox"><div class="textinsecbox">At </div><div class="displayinsecbox" style="width: 100px;">CPE1115</div></div></div>';
-        else
-            box.innerHTML ='<div style="background-color: #233975; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 1</div><div style="background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;">Capacity :<div style="background-color: #233975; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -23px; right: -79px; text-align: left; color: #ffffff; padding-left: 10px; border: 2px solid #ffffff">50</div></div><div class="row" style="position: relative; top: -40px; left: 15px;"><div class="col-12 linesecbox"><div class="textinsecbox">Class Type: </div><div class="displayinsecbox">Lecture</div></div><div class="col-12 linesecbox"><div class="textinsecbox">On every </div><div class="displayinsecbox monday">Monday</div></div><div class="col-12 linesecbox" style="overflow: hidden;"><div class="textinsecbox">From </div><div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">08:30 AM</div><div class="textinsecbox" style="margin-left: 10px;">to </div><div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">12:20 PM</div></div><div class="col-12 linesecbox"><div class="textinsecbox">At </div><div class="displayinsecbox" style="width: 100px;">CPE1115</div></div></div>';
+
+        const boxSec = document.createElement('div');
+        boxSec.setAttribute('style','background-color: #233975; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;');
+        boxSec.innerHTML = 'SEC ' + data["section"];
+        box.appendChild(boxSec);
+
+        const boxCap = document.createElement('div');
+        boxCap.setAttribute('style','background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;');
+        boxCap.innerHTML = 'Capacity :' ;
+
+        const boxCapInput = document.createElement('div');
+        boxCapInput.setAttribute('style','background-color: #233975; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -23px; right: -79px; text-align: left; color: #ffffff; padding-left: 10px; border: 2px solid #ffffff');
+        boxCapInput.innerHTML =  data["capacity"];
+        boxCap.appendChild(boxCapInput);
+
+        box.appendChild(boxCap);
+
+        const time_box = non_survey_section_inner(data);
+
+        
+
+        if (type == 2) {
+            const line = document.createElement('div');
+            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px');
+            time_box.appendChild(line);
+            box.appendChild(time_box);
+
+            const time_box2 = non_survey_section_inner(data2);
+            time_box2.setAttribute('style','position: relative; top: 10px; left: 15px;');
+            box.appendChild(time_box2);
+
+        }
+        else {
+            box.appendChild(time_box);
+        }
+            
+        
+            
 
         $("#last_obj_section").before(box);
+    }
+
+    function non_survey_section_inner(data) {
+        const time_box = document.createElement('div');
+        time_box.setAttribute('style','position: relative; top: -10px; left: 15px;');
+        time_box.setAttribute('class','row');
+        
+            const type_box = document.createElement('div');
+            type_box.setAttribute('class','col-11 linesecbox');
+
+                const type_head = document.createElement('div');
+                type_head.setAttribute('class','textinsecbox');
+                type_head.innerHTML = 'Class Type: ';
+                type_box.appendChild(type_head);
+
+                const type_input = document.createElement('div');
+                type_input.setAttribute('class','displayinsecbox');
+                type_input.innerHTML = data["classType"];
+                type_box.appendChild(type_input);
+
+            time_box.appendChild(type_box);
+
+
+
+            const day_box = document.createElement('div');
+            day_box.setAttribute('class','col-11 linesecbox');
+
+                const day_head = document.createElement('div');
+                day_head.setAttribute('class','textinsecbox');
+                day_head.innerHTML = 'Class Type: ';
+                day_box.appendChild(day_head);
+
+                const day_input = document.createElement('div');
+                day_input.setAttribute('class','displayinsecbox ' +  data["classDay"].toLowerCase());
+                day_input.innerHTML = data["classDay"];
+                day_box.appendChild(day_input);
+
+            time_box.appendChild(day_box);
+
+
+
+            const start_box = document.createElement('div');
+            start_box.setAttribute('class','col-11 linesecbox');
+            start_box.setAttribute('style','overflow: hidden;');
+            
+
+                const start_head = document.createElement('div');
+                start_head.setAttribute('class','textinsecbox');
+                start_head.innerHTML = 'From ';
+                start_box.appendChild(start_head);
+                
+                const start_input = document.createElement('div');
+                start_input.setAttribute('class','displayinsecbox');
+                start_input.setAttribute('style','width: 90px; float: left; height: 24px;');
+                start_input.innerHTML = data["classStartTime"];
+                start_box.appendChild(start_input);
+
+                const end_head = document.createElement('div');
+                end_head.setAttribute('class','textinsecbox');
+                end_head.setAttribute('style','margin-left: 10px;');
+                end_head.innerHTML = 'to ';
+                start_box.appendChild(end_head);
+                
+                const end_input = document.createElement('div');
+                end_input.setAttribute('class','displayinsecbox');
+                end_input.setAttribute('style','width: 90px; float: left; height: 24px;');
+                end_input.innerHTML = data["classEndTime"];
+                start_box.appendChild(end_input);
+
+            time_box.appendChild(start_box);
+
+
+            const room_box = document.createElement('div');
+            room_box.setAttribute('class','col-11 linesecbox');
+
+                const room_head = document.createElement('div');
+                room_head.setAttribute('class','textinsecbox');
+                room_head.innerHTML = 'At ';
+                room_box.appendChild(room_head);
+
+                const room_input = document.createElement('div');
+                room_input.setAttribute('class','displayinsecbox');
+                room_input.setAttribute('style','width: 100px;');
+                room_input.innerHTML = data["room"];
+                room_box.appendChild(room_input);
+
+            time_box.appendChild(room_box);
+
+            return time_box;
     }
 
 
