@@ -21,7 +21,7 @@ include 'nav-bar.php';
         .grid-container {
             display: grid;
             grid-template-columns: 49% 49%;
-            grid-gap: 2%;
+            grid-gap: 12px;
         }
         .grid-container>div {
             background-color: rgba(255, 255, 255, 0.2);
@@ -171,11 +171,6 @@ include 'nav-bar.php';
         .gj-timepicker .gj-timepicker-bootstrap .gj-unselectable .input-group {
             margin: 0px;
         }
-        .timepicker2 .input-group-append {
-            position: relative;
-            top: -24px;
-            left: 135px;
-        }
         .whtebtn {
             border: none;
             text-align: center;
@@ -200,6 +195,22 @@ include 'nav-bar.php';
         }
         .upldbtn:hover {
             background-color: #D4DEFA;
+        }
+        .newsecbtn {
+            background-color: rgba(255, 255, 255, 0.5);
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .newsecbtn:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .minusbtn {
+            background-color: rgba(255, 255, 255, 0.5);
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .minusbtn:hover {
+            background-color: rgba(255, 255, 255, 1);
         }
         /* .backbtn {
             transition-duration: 0.3s;
@@ -254,54 +265,51 @@ include 'nav-bar.php';
                         <div class="col-7" style="position: absolute; top: 110px; right: 0px;">
                             <div class="col-11" style="height: 530px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 50px; left: 30px;">
                                 <h1 style="position: absolute; top: 15px; left: 20px;">Sections</h1>
-                                <div style="position: absolute; top: 60px; height: 455px; width: 646px; border-radius: 15px; overflow-y: scroll; overflow-x: hidden;">
-                                    <div id="big_box_section" class="grid-container" style="width: 100%">
+                                <div style="position: relative; top: 60px; height: 455px; width: 646px; border-radius: 15px; overflow-y: scroll; overflow-x: hidden;">
+                                    <div id="big_box_section" class="grid-container" style="width: 646px; border-radius: 15px; position: relative; overflow-y: hidden; overflow-x: hidden; float: left;">
                                         <div>
                                             <div style="background-color: #233975; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 1</div>
                                             <div style="background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;">Capacity :
                                                 <div style="background-color: #233975; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -23px; right: -79px; text-align: left; color: #ffffff; padding-left: 10px; border: 2px solid #ffffff">50</div>
                                             </div>
                                             <!-- minus button -->
-                                            <button class="dot" style="height: 30px; width: 30px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 282px; top: -55px; border: none;">
-                                                <div style="height: 5px; width: 20px; background-color: #585858; border-radius: 3px; position: relative; left: -1px; top: 1px;"></div>
-                                            </button>
-                                            <div class="row" style="position: relative; top: -40px; left: 15px;">
-                                                <div class="col-12 linesecbox">
+                                            <div class="row" style="position: relative; top: -10px; left: 15px;">
+                                                <div class="col-11 linesecbox">
                                                     <div class="textinsecbox">Class Type: </div>
                                                     <div class="displayinsecbox">Lecture</div>
                                                 </div>
-                                                <div class="col-12 linesecbox">
+                                                <div class="col-11 linesecbox">
                                                     <div class="textinsecbox">On every </div>
                                                     <div class="displayinsecbox monday">Monday</div>
                                                 </div>
-                                                <div class="col-12 linesecbox" style="overflow: hidden;">
+                                                <div class="col-11 linesecbox" style="overflow: hidden;">
                                                     <div class="textinsecbox">From </div>
                                                     <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">08:30 AM</div>
                                                     <div class="textinsecbox" style="margin-left: 10px;">to </div>
                                                     <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">12:20 PM</div>
                                                 </div>
-                                                <div class="col-12 linesecbox">
+                                                <div class="col-11 linesecbox">
                                                     <div class="textinsecbox">At </div>
                                                     <div class="displayinsecbox" style="width: 100px;">CPE1115</div>
                                                 </div>
                                                 <div style="height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px"></div>
                                             </div>
-                                            <div class="row" style="position: relative; top: -25px; left: 15px;">
-                                                <div class="col-12 linesecbox">
+                                            <div class="row" style="position: relative; top: 10px; left: 15px;">
+                                                <div class="col-11 linesecbox">
                                                     <div class="textinsecbox">Class Type: </div>
                                                     <div class="displayinsecbox">Lecture</div>
                                                 </div>
-                                                <div class="col-12 linesecbox">
+                                                <div class="col-11 linesecbox">
                                                     <div class="textinsecbox">On every </div>
                                                     <div class="displayinsecbox monday">Monday</div>
                                                 </div>
-                                                <div class="col-12 linesecbox" style="overflow: hidden;">
+                                                <div class="col-11 linesecbox" style="overflow: hidden;">
                                                     <div class="textinsecbox">From </div>
                                                     <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">08:30 AM</div>
                                                     <div class="textinsecbox" style="margin-left: 10px;">to </div>
                                                     <div class="displayinsecbox" style="width: 90px; float: left; height: 24px;">12:20 PM</div>
                                                 </div>
-                                                <div class="col-12 linesecbox">
+                                                <div class="col-11 linesecbox">
                                                     <div class="textinsecbox">At </div>
                                                     <div class="displayinsecbox" style="width: 100px;">CPE1115</div>
                                                 </div>
@@ -319,7 +327,7 @@ include 'nav-bar.php';
                                                 <div style="height: 5px; width: 20px; background-color: #585858; border-radius: 3px; position: relative; left: -1px; top: 1px;"></div>
                                             </button>
                                             <div class="row" style="position: relative; top: -40px; left: 15px;">
-                                                <div class="col-12 linesecbox">
+                                                <div class="col-11 linesecbox">
                                                     <div class="textinsecbox">Class Type: </div>
 
                                                     <div class="custom-select">
@@ -330,7 +338,7 @@ include 'nav-bar.php';
                                                     </select>  
                                                 </div>
                                             </div>
-                                            <div class="col-12 linesecbox">
+                                            <div class="col-11 linesecbox">
                                                 <div class="textinsecbox">On every </div>
                                                 <div class="custom-select">
                                                     <select id="days" name="day" class="inputinsecbox">
@@ -343,7 +351,7 @@ include 'nav-bar.php';
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-12 linesecbox" style="overflow: hidden; height: 25px;">
+                                            <div class="col-11 linesecbox" style="overflow: hidden; height: 25px;">
                                                 <div class="textinsecbox">From </div>
                                                 <b-form-timepicker id="timepicker-placeholder" locale="th"></b-form-timepicker>
                                                 <!-- <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;"> -->
@@ -353,7 +361,7 @@ include 'nav-bar.php';
 
                                                 </div>
                                             </div>
-                                            <div class="col-12 linesecbox">
+                                            <div class="col-11 linesecbox">
                                                 <div class="textinsecbox">At </div>
                                                 <input class="inputinsecbox">
                                             </div>
@@ -364,7 +372,7 @@ include 'nav-bar.php';
                                         </button>
                                         <div class="row" style="position: relative; top: 0px; left: 15px;">
                                             <div class="row" style="position: relative; top: -40px; left: 15px;">
-                                                <div class="col-12 linesecbox">
+                                                <div class="col-11 linesecbox">
                                                     <div class="textinsecbox">Class Type: </div>
                                                     <div class="custom-select">
                                                       <select id="classType" name="classType" class="inputinsecbox">
@@ -374,7 +382,7 @@ include 'nav-bar.php';
                                                     </select>  
                                                 </div>
                                             </div>
-                                            <div class="col-12 linesecbox">
+                                            <div class="col-11 linesecbox">
                                                 <div class="textinsecbox">On every </div>
                                                 <div class="custom-select">
                                                     <select id="days" name="day" class="inputinsecbox">
@@ -388,7 +396,7 @@ include 'nav-bar.php';
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 linesecbox" style="overflow: hidden; height: 25px;">
+                                            <div class="col-11 linesecbox" style="overflow: hidden; height: 25px;">
                                                 <div class="textinsecbox">From </div>
                                                 <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;">
                                                 <div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div>
@@ -396,7 +404,7 @@ include 'nav-bar.php';
                                                     <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;">
                                                 </div>
                                             </div>
-                                            <div class="col-12 linesecbox">
+                                            <div class="col-11 linesecbox">
                                                 <div class="textinsecbox">At </div>
                                                 <input class="inputinsecbox">
                                             </div>
@@ -414,7 +422,7 @@ include 'nav-bar.php';
                                         <div style="height: 5px; width: 20px; background-color: #585858; border-radius: 3px; position: relative; left: -1px; top: 1px;"></div>
                                     </button>
                                     <div class="row" style="position: relative; top: -40px; left: 15px;">
-                                        <div class="col-12 linesecbox">
+                                        <div class="col-11 linesecbox">
                                             <div class="textinsecbox">Class Type: </div>
                                             <div class="custom-select">
                                                 <select id="classType" name="classType" class="inputinsecbox">
@@ -424,7 +432,7 @@ include 'nav-bar.php';
                                                 </select>  
                                             </div>
                                         </div>
-                                        <div class="col-12 linesecbox">
+                                        <div class="col-11 linesecbox">
                                             <div class="textinsecbox">On every </div>
                                             <div class="custom-select">
                                                 <select id="days" name="day" class="inputinsecbox">
@@ -437,7 +445,7 @@ include 'nav-bar.php';
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 linesecbox" style="overflow: hidden; height: 25px;">
+                                        <div class="col-11 linesecbox" style="overflow: hidden; height: 25px;">
                                             <div class="textinsecbox">From </div>
                                             <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;">
                                             <div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div>
@@ -445,7 +453,7 @@ include 'nav-bar.php';
                                                 <input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;">
                                             </div>
                                         </div>
-                                        <div class="col-12 linesecbox">
+                                        <div class="col-11 linesecbox">
                                             <div class="textinsecbox">At </div>
                                             <input class="inputinsecbox">
                                         </div>
@@ -459,7 +467,7 @@ include 'nav-bar.php';
                                     <div style="background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 74px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;">Update</div>
                                 </div>
                                 <div id="last_obj_section">
-                                    <button class="dot" onclick="create_new_section(0,0,0)" style="height: 50px; width: 50px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 133.5px; top: 135px; border: none;">
+                                    <button class="dot newsecbtn" onclick="create_new_section(0,0,0)" style="height: 50px; width: 50px; border-radius: 50%; position: relative; left: 133.5px; top: 135px; border: none;">
                                         <img src="img/plus.png" style="width: 30px; height: 30px; position: relative; top: 0px; left: 0px;">
                                     </button>
                                 </div>
@@ -479,6 +487,8 @@ include 'nav-bar.php';
 
 
 <script>
+
+    var timeid = 0;
 
     $('.timepicker').timepicker({
         uiLibrary: 'bootstrap4'
@@ -526,15 +536,15 @@ include 'nav-bar.php';
 
 
             const capacity_input = document.createElement('input');
-            capacity_input.setAttribute('style','border-radius: 12px; height: 24px; width: 80px; position: relative; top: -1px; right: -3px; text-align: left; color: #000000; padding-left: 10px; border: none;');
+            capacity_input.setAttribute('style','border-radius: 12px; height: 24px; width: 80px; position: relative; top: -1px; right: -7px; text-align: left; color: #000000; padding-left: 10px; border: none;');
             capacity_box.appendChild(capacity_input);
 
 
             box.appendChild(capacity_box);
 
             const outer_delete_sec = document.createElement('button');
-            outer_delete_sec.setAttribute('class','dot');
-            outer_delete_sec.setAttribute('style','height: 30px; width: 30px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 282px; top: -55px; border: none;');
+            outer_delete_sec.setAttribute('class','dot minusbtn');
+            outer_delete_sec.setAttribute('style','height: 30px; width: 30px; border-radius: 50%; position: relative; left: 282px; top: -55px; border: none;');
             
             outer_delete_sec.onclick = function(e) {
                 // Must edit
@@ -600,8 +610,13 @@ include 'nav-bar.php';
                 // window.location = './courseInfo.php';
             }
             box.appendChild(update_button);
-
-
+            // $('.timepicker' + timeid).timepicker({
+            //     uiLibrary: 'bootstrap4'
+            // });
+            // $('.timepicker' + (timeid + 1)).timepicker({
+            //     uiLibrary: 'bootstrap4'
+            // });
+            // timeid = timeid + 2;
 
             $("#last_obj_section").before(box);
             check_drop_down();
@@ -730,11 +745,14 @@ include 'nav-bar.php';
         outer_class_time.appendChild(head_class_start);
 
         const input_class_start = document.createElement('input');
-        input_class_start.setAttribute('class','inputinsecbox timepicker');
+        input_class_start.setAttribute('class','inputinsecbox timepicker' + timeid);
         input_class_start.setAttribute('width','90');
         input_class_start.setAttribute('style','float: left; height: 24px;');
         input_class_start.setAttribute('id','time_start');
         outer_class_time.appendChild(input_class_start);
+        $('.timepicker' + timeid).timepicker({
+            uiLibrary: 'bootstrap4'
+        });
 
         const head_class_end = document.createElement('div');
         head_class_end.setAttribute('class','textinsecbox');
@@ -743,11 +761,14 @@ include 'nav-bar.php';
         outer_class_time.appendChild(head_class_end);
 
         const input_class_end = document.createElement('input');
-        input_class_end.setAttribute('class','inputinsecbox timepicker');
+        input_class_end.setAttribute('class','inputinsecbox timepicker' + (timeid + 1));
         input_class_end.setAttribute('width','90');
         input_class_end.setAttribute('style','float: left; height: 24px;');
         input_class_end.setAttribute('id','time_end');
         outer_class_time.appendChild(input_class_end);
+        $('.timepicker' + (timeid + 1)).timepicker({
+            uiLibrary: 'bootstrap4'
+        });
 
 
 
@@ -863,7 +884,6 @@ include 'nav-bar.php';
 
 </script>
 
-</script>
 
 
 
