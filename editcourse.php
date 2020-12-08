@@ -243,7 +243,7 @@ include 'nav-bar.php';
                         <div class="col-5" style="position: absolute; top: 110px;">
                             <div class="col-11" style="height: 300px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 50px; left: 30px;">
                                 <h1 style="position: absolute; top: 15px; left: 20px;">Course Details</h1>
-                                <textarea style="width: 453px; height: 225px; border-radius: 15px; border: none; resize: none; position: absolute; bottom: 15px; padding-left: 10px; padding-right: 10px;"></textarea>
+                                <textarea id="course_detail" style="width: 453px; height: 225px; border-radius: 15px; border: none; resize: none; position: absolute; bottom: 15px; padding-left: 10px; padding-right: 10px;"></textarea>
                             </div>
                             <div class="col-11" style="height: 140px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 370px; left: 30px; overflow: hidden; padding-left: 20px;">
                                 <div style="line-height: normal; font-size: 25px; color: #ffffff; margin-top: 25px; float: left;">Upload<br>Course<br>Syllabus</div>
@@ -256,7 +256,7 @@ include 'nav-bar.php';
                                 </button>
                             </div>
                             <div class="col-12" style="text-align: center; position: relative; top: 530px;">
-                                <button class="whtebtn" id="download" style="position: relative; left: 15px;">
+                                <button class="whtebtn" id="download" onclick="save_change()"style="position: relative; left: 15px;">
                                     <p style="margin-top: 10px;">Save Changes</p>
                                 </button>
                             </div>
@@ -309,6 +309,7 @@ include 'nav-bar.php';
 
         document.getElementById('courseID').innerHTML = data[0][0]["courseID"];
         document.getElementById('courseName').innerHTML = data[0][0]["courseName"];
+        document.getElementById('course_detail').innerHTML = data[0][0]["courseDetail"];
 
             // add data to left side
 
@@ -388,6 +389,35 @@ include 'nav-bar.php';
         $("#last_obj_section").before(box);
     }
 
+
+    function save_change() {
+        swal({
+            title: "Are you sure to save change?",
+            text: "", 
+            icon: "info",
+            buttons: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url : "./ajax/db_editCourse.php",
+                    type: "post",
+                    data :{
+                        openCourseID : '<?php echo $_GET["openCourseID"];?>',
+                        courseDetail : document.getElementById('course_detail').value
+                    },
+                    success: function(){
+                        swal({
+                            title: "Changes Saved",
+                            icon: "success"
+                        });
+                    }
+                });
+                
+            } 
+        });
+    }
+
     function create_new_section(isQuery,fisrtTime,secondTime,cap){
         // const big_box = document.getElementById('big_box_section'); 
 
@@ -414,7 +444,8 @@ include 'nav-bar.php';
 
             const capacity_input = document.createElement('input');
             capacity_input.setAttribute('style','border-radius: 12px; height: 24px; width: 80px; position: relative; top: -1px; right: -3px; text-align: left; color: #000000; padding-left: 10px; border: none;');
-            if (isQuery == 1)
+            console.log(isQuery)
+            if (isQuery != 0)
                 capacity_input.setAttribute('value',fisrtTime["capacity"]);
             capacity_box.appendChild(capacity_input);
 
@@ -444,12 +475,13 @@ include 'nav-bar.php';
                             },
                             success: function(){
                                 box.remove();
+                                swal({
+                                    title: "Section Deleted",
+                                    icon: "success"
+                                });
                             }
                         });
-                        swal({
-                            title: "Section Deleted",
-                            icon: "success"
-                        });
+                        
                     } 
                 });
 

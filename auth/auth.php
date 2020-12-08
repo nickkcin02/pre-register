@@ -16,6 +16,7 @@
 	// }
 function db(){
 	$servername = "hub.aomwara.me";
+	// $servername = "35.240.178.237";
 	$username = "root";
 	$password = "cpe327db";
 	$database = "Prayuth_DB";
