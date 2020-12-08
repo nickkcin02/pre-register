@@ -641,39 +641,13 @@ include 'nav-bar.php';
                 box.appendChild(create_add_time_button(box));
             }
             
-            
-            
-            
-
-
-            // const update_button = document.createElement('div');
-            // update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
-            // update_button.innerHTML = 'Update';
-            // update_button.onclick = function(e) {
-            //     // console.log(box.getElementsByTagName('input'))
-            //     var input_data = box.getElementsByTagName('input'); 
-            //     for(const i in input_data) {
-
-            //     }
-
-            //     var input_data = box.getElementsByTagName('select'); 
-            //     for (const i in input_data) {
-            //         console.log(input_data[i].value)
-            //     }
-            //     // console.log(box.getElementsByTagName('select'))
-                
-
-            //     // window.location = './courseInfo.php';
-            // }
+     
             box.appendChild(create_update_button(box,isQuery));
 
             $("#last_obj_section").before(box);
 
             return box;
 
-
-        // console.log(obj)
-        
     }
 
     function create_add_time_button(box){
@@ -762,7 +736,7 @@ include 'nav-bar.php';
         // console.log(data)
         data_input.setAttribute('class','row');
         if(isUpper == 'Lower')
-            data_input.setAttribute('style','position: relative; top: -54px; left: 15px;');
+            data_input.setAttribute('style','position: relative; top: -35px; left: 15px;');
         else
             data_input.setAttribute('style','position: relative; top: -40px; left: 15px;');
 
@@ -835,8 +809,6 @@ include 'nav-bar.php';
             outer_class_time.setAttribute('class','col-12 linesecbox');
             outer_class_time.setAttribute('style','overflow: hidden;');
 
-        // outer_class_time.innerHTML = '<div class="textinsecbox">From </div><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;"><div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div><div style="position: relative; top: -24px; left: 145px;"><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;"></div>'
-
             const head_class_start = document.createElement('div');
             head_class_start.setAttribute('class','textinsecbox');
             head_class_start.innerHTML = 'From ';
@@ -891,7 +863,7 @@ include 'nav-bar.php';
 
         if (isQuery == 2) {
             const line = document.createElement('div');
-            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 0px; background-color: #ffffff; border-radius: 1.5px');
+            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 10px; background-color: #ffffff; border-radius: 1.5px');
             data_input.appendChild(line);
         }
         // console.log(data_input)
