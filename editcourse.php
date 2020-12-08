@@ -193,6 +193,14 @@ include 'nav-bar.php';
         .whtebtn:hover {
             background-color: #D4DEFA;
         }
+        .upldbtn {
+            background-color: #ffffff;
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .upldbtn:hover {
+            background-color: #D4DEFA;
+        }
         /* .backbtn {
             transition-duration: 0.3s;
             cursor: pointer;
@@ -226,7 +234,15 @@ include 'nav-bar.php';
                                 <h1 style="position: absolute; top: 15px; left: 20px;">Course Details</h1>
                                 <textarea style="width: 453px; height: 225px; border-radius: 15px; border: none; resize: none; position: absolute; bottom: 15px; padding-left: 10px; padding-right: 10px;"></textarea>
                             </div>
-                            <div class="col-11" style="height: 140px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 370px; left: 30px;">
+                            <div class="col-11" style="height: 140px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 370px; left: 30px; overflow: hidden; padding-left: 20px;">
+                                <div style="line-height: normal; font-size: 25px; color: #ffffff; margin-top: 25px; float: left;">Upload<br>Course<br>Syllabus</div>
+                                <button class="dot upldbtn" style="border-radius: 50%; width: 100px; height: 100px; border: none; margin-top: 20px; margin-left: 10px; float: left;">
+                                    <img src="img/greentick.png" style="width: 75px;">
+                                </button>
+                                <div style="line-height: normal; font-size: 25px; color: #ffffff; margin-top: 25px; float: left; margin-left: 25px;">Upload<br>Cover<br>Picture</div>
+                                <button class="dot upldbtn" style="border-radius: 50%; width: 100px; height: 100px; border: none; margin-top: 20px; margin-left: 10px; float: left;">
+                                    <img src="img/upload.png" style="width: 75px;">
+                                </button>
                             </div>
                             <div class="col-12" style="text-align: center; position: relative; top: 530px;">
                                 <button class="whtebtn" id="download" style="position: relative; left: 15px;">
