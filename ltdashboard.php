@@ -239,7 +239,7 @@
                 edit_course_section_btn.innerHTML = '<h2 style="position: relative; top: 5px;">Edit Course & Sections Info</h2>';
                 edit_course_section_btn.onclick = function(e) {
                   // Link for edit
-                  window.location = './courseInfo.php?openCourseID='+data[i]['openCourseID']+"&section="+data[i]['section'];
+                  window.location = './editcourse.php?openCourseID='+data[i]['openCourseID'];
                 }
 
                 left_part.appendChild(edit_course_section_btn);
