@@ -107,10 +107,10 @@ include 'nav-bar.php';
                     <div class="row">
                         <div class="col-12" style="position: absolute; top: 30px;">
                             <div class="row" id="courseid" style="background-color: #ffffff; border-top-right-radius: 40px; border-bottom-right-radius: 40px; position: relative; top: 20px; left: 0px; height: 80px; width: 1200px;">
-                                <h2 class="edittitle col-3" style="font-size: 60px; font-weight: 700; color: #233975;
-                                padding: 5px 0 0 20px">CPE100</h2>
-                                <h2 class="edittitle col-9" style="font-size: 30px; font-weight: 700; color: #233975;
-                                padding: 5px 0 0 20px; float: right; display: inline-block; text-align: right; position: absolute; top: 15px; right: 40px;">Computer Programming for Engineers</h2>
+                                <h2 class="edittitle col-3" id="courseID" style="font-size: 60px; font-weight: 700; color: #233975;
+                                padding: 5px 0 0 20px"></h2>
+                                <h2 class="edittitle col-9" id="courseName" style="font-size: 30px; font-weight: 700; color: #233975;
+                                padding: 5px 0 0 20px; float: right; display: inline-block; text-align: right; position: absolute; top: 15px; right: 40px;"></h2>
                             </div>
                         </div>
                         <div class="col-5" style="position: absolute; top: 110px;">
@@ -126,7 +126,7 @@ include 'nav-bar.php';
                             <div class="col-11" style="height: 460px; background-color: rgba(255, 255, 255, 0.5); border-radius: 30px; position: absolute; top: 50px; left: 30px;">
                                 <h1 style="position: absolute; top: 15px; left: 20px;">Sections</h1>
                                 <div style="position: absolute; top: 60px; height: 385px; width: 646px; border-radius: 15px; overflow-y: scroll; overflow-x: hidden;">
-                                    <div class="grid-container" style="width: 100%">
+                                    <div id="big_box_section" class="grid-container" style="width: 100%">
                                         <div>
                                             <div style="background-color: #233975; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 1</div>
                                             <div style="background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;">Capacity :
@@ -178,8 +178,10 @@ include 'nav-bar.php';
                                                 </div>
                                             </div>
                                         </div>
+
+
                                         <div>
-                                            <div style="background-color: #DB7600; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 2</div>
+                                            <div style="background-color: #DB7600; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 10</div>
                                             <div style="background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;">Capacity :
                                                 <input style="border-radius: 12px; height: 24px; width: 80px; position: relative; top: -1px; right: -3px; text-align: left; color: #000000; padding-left: 10px; border: none;">
                                             </div>
@@ -196,6 +198,12 @@ include 'nav-bar.php';
                                                         <option value="Lab">
                                                         <option value="Lecture & Lab">
                                                     </datalist>
+                                                    <!-- <select class="textinsecbox" name="cars" id="cars">
+                                                      <option value="volvo">Volvo</option>
+                                                      <option value="saab">Saab</option>
+                                                      <option value="mercedes">Mercedes</option>
+                                                      <option value="audi">Audi</option>
+                                                    </select> -->
                                                 </div>
                                                 <div class="col-12 linesecbox">
                                                     <div class="textinsecbox">On every </div>
@@ -259,6 +267,10 @@ include 'nav-bar.php';
                                             </div>
                                             <div style="background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -73px; left: 233px; text-align: left; color: #ffffff; padding-left: 10px;">Update</div>
                                         </div>
+
+
+
+
                                         <div>
                                             <div style="background-color: #DB7600; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;">SEC 2</div>
                                             <div style="background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;">Capacity :
@@ -268,6 +280,8 @@ include 'nav-bar.php';
                                             <button class="dot" style="height: 30px; width: 30px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 282px; top: -55px; border: none;">
                                                 <div style="height: 5px; width: 20px; background-color: #585858; border-radius: 3px; position: relative; left: -1px; top: 1px;"></div>
                                             </button>
+
+
                                             <div class="row" style="position: relative; top: -40px; left: 15px;">
                                                 <div class="col-12 linesecbox">
                                                     <div class="textinsecbox">Class Type: </div>
@@ -301,16 +315,23 @@ include 'nav-bar.php';
                                                     <input class="inputinsecbox">
                                                 </div>
                                             </div>
+
+
                                             <button style="border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 8px; top: -37px; overflow: hidden;">
                                                 <img src="img/plus.png" style="width: 20px; height: 20px; position: relative; top: 0px; left: 0px;">
                                             </button>
                                             <div style="background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;">Update</div>
                                         </div>
-                                        <div>
-                                            <button class="dot" style="height: 50px; width: 50px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 133.5px; top: 135px; border: none;">
+
+
+                                        <div id="last_obj_section">
+                                            <button class="dot" onclick="create_new_section(0,0,0);" style="height: 50px; width: 50px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 133.5px; top: 135px; border: none;">
                                                 <img src="img/plus.png" style="width: 30px; height: 30px; position: relative; top: 0px; left: 0px;">
                                             </button>
                                         </div>
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -326,17 +347,271 @@ include 'nav-bar.php';
 
 
 
+<script>
+    $.ajax({
+        url : "./ajax/db_queryCourseInEdit.php",
+        type: "post",
+        data :{
+          openCourseID : '<?php echo $_GET["openCourseID"];?>'
+        },
+        success: function(resp){
+            var data = JSON.parse(resp);
+            console.log(data);
+
+            document.getElementById('courseID').innerHTML = data[0][0]["courseID"];
+            document.getElementById('courseName').innerHTML = data[0][0]["courseName"];
+            // add data to left side
+
+        }
+    })
+
+    function create_new_section(isQuery,fisrtTime,secondTime){
+        // const big_box = document.getElementById('big_box_section'); 
+        if(isQuery == 1){
+            //
+        }
+        const box = document.createElement('div');
+
+            const section_display_box = document.createElement('div');
+            section_display_box.setAttribute('style','background-color: #DB7600; height: 30px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; position: relative; top: 5px; left: 5px; width: 100px; color: #ffffff; font-size: 20px; font-weight: 600; padding-left: 15px;');
+            // Must edit running sec
+            section_display_box.innerHTML = "SEC "+running_section_number();
+
+            box.appendChild(section_display_box);
+
+
+            const capacity_box = document.createElement('div');
+            capacity_box.setAttribute('style','background-color: #233975; height: 30px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; position: relative; top: -25px; left: 107px; width: 170px; color: #ffffff; font-size: 15px; font-weight: 400; padding-left: 8px; padding-top: 4px;');
+            // Must edit running sec
+            capacity_box.innerHTML = "Capacity :";
+
+
+                const capacity_input = document.createElement('input');
+                capacity_input.setAttribute('style','border-radius: 12px; height: 24px; width: 80px; position: relative; top: -1px; right: -3px; text-align: left; color: #000000; padding-left: 10px; border: none;');
+                capacity_box.appendChild(capacity_input);
+
+
+            box.appendChild(capacity_box);
+
+            const outer_delete_sec = document.createElement('button');
+            outer_delete_sec.setAttribute('class','dot');
+            outer_delete_sec.setAttribute('style','height: 30px; width: 30px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); position: relative; left: 282px; top: -55px; border: none;');
+            
+            outer_delete_sec.onclick = function(e) {
+                // Must edit
+                swal({
+                    title: "Are you sure to delete section?",
+                    text: "You will not be able to recover the section", 
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url : "./ajax/db_lecturerTeach.php",
+                            type: "post",
+                            data :{
+                                openCourseID : '<?php echo $_GET["openCourseID"];?>',
+                                section : box.children[0].innerHTML.split(' ')[1]
+                            },
+                            success: function(){
+                                box.remove();
+                            }
+                        });
+                        swal({
+                            title: "Section Deleted",
+                            icon: "success"
+                        });
+                    } 
+                });
+
+                // window.location = './courseInfo.php';
+            }
+
+                const inner_delete_sec = document.createElement('div');
+                inner_delete_sec.setAttribute('style','height: 5px; width: 20px; background-color: #585858; border-radius: 3px; position: relative; left: -1px; top: 1px;');
+                outer_delete_sec.appendChild(inner_delete_sec);
+
+            box.appendChild(outer_delete_sec);
+
+
+            const data_input = create_new_time_obj(0,0,'Upper');
+            box.appendChild(data_input);
+            
+            box.appendChild(create_add_time_button(box));
+
+
+            const update_button = document.createElement('div');
+            update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
+            update_button.innerHTML = 'Update';
+            update_button.onclick = function(e) {
+                // Must edit
+                window.location = './courseInfo.php';
+            }
+            box.appendChild(update_button);
 
 
 
+        $("#last_obj_section").before(box);
+        // console.log(obj)
+        
+    }
+
+    function create_add_time_button(box){
+        const add_time_button = document.createElement('button');
+        add_time_button.setAttribute('style','border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 8px; top: -37px; overflow: hidden;');
+        add_time_button.innerHTML = '<img src="img/plus.png" style="width: 20px; height: 20px; position: relative; top: 0px; left: 0px;">'
+        add_time_button.onclick = function(e) {
+ 
+      
+            const line = document.createElement('div');
+            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 0px; background-color: #ffffff; border-radius: 1.5px');
+
+            const del_button = document.createElement('button');
+            del_button.setAttribute('style','border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 279px; top: -37px;');
+            del_button.innerHTML = '<img src="img/greycross.png" style="width: 15px; height: 15px; position: relative; top: 0px; left: 0px;">';
+            del_button.onclick = function(e) {
+                // console.log(box.children[3].children)
+                del_button.remove()
+                box.children[4].remove();
+                box.children[3].children[4].remove(); 
+                box.children[4].setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 233px; text-align: left; color: #ffffff; padding-left: 10px;');
+                box.children[4].before(create_add_time_button(box))
+            }
+
+
+            // box.appendChild();
+            // box.children[5].attr('style.top','-73px');
+            box.children[3].appendChild(line);
+            // console.log(box.children[3]);
+            add_time_button.after(del_button);
+            // line.after(del_button);
+            del_button.after(create_new_time_obj(0,0,'Lower'));
+            add_time_button.remove();
+            box.children[6].setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -63px; left: 233px; text-align: left; color: #ffffff; padding-left: 10px;');
+            // console.log(box.children[5]);
+        }
+        return add_time_button
+    }
+
+
+    function running_section_number() {
+        const big_box = document.getElementById('big_box_section'); 
+        var all_sec_num = [];
+        for (var i = 0; i < big_box.childElementCount-1; i++) {
+            all_sec_num[i] = Number(big_box.children[i].children[0].innerHTML.split(' ')[1]);
+        }
+        all_sec_num = all_sec_num.sort(function(a, b){return a - b});
+        for (var i = 1; i < all_sec_num.length+1; i++) {
+            if(i != all_sec_num[i-1])
+                return i;
+        }
+        return all_sec_num.length+1;
+    }
+
+    function create_new_time_obj(isQuery,data,isUpper) {
+        const data_input = document.createElement('div');
+        data_input.setAttribute('class','row');
+        if(isUpper == 'Lower')
+            data_input.setAttribute('style','position: relative; top: -54px; left: 15px;');
+        else
+            data_input.setAttribute('style','position: relative; top: -40px; left: 15px;');
+
+        const outer_class_type = document.createElement('div');
+        outer_class_type.setAttribute('class','col-12 linesecbox');
+
+            const head_class_type = document.createElement('div');
+            head_class_type.setAttribute('class','textinsecbox');
+            head_class_type.innerHTML = 'Class Type: ';
+            outer_class_type.appendChild(head_class_type);
+
+            const input_class_type = document.createElement('input');
+            input_class_type.setAttribute('class','inputinsecbox');
+            input_class_type.setAttribute('list','classType');
+            input_class_type.setAttribute('name','classType');
+            outer_class_type.appendChild(input_class_type);
+
+            const datalist_class_type = document.createElement('datalist');
+            datalist_class_type.setAttribute('id','classType');
+            datalist_class_type.innerHTML = '<option value="Lecture"><option value="Lab"><option value="Lecture & Lab">';
+            outer_class_type.appendChild(datalist_class_type);
+
+        data_input.appendChild(outer_class_type);
 
 
 
+        const outer_class_day = document.createElement('div');
+        outer_class_day.setAttribute('class','col-12 linesecbox');
+
+            const head_class_day = document.createElement('div');
+            head_class_day.setAttribute('class','textinsecbox');
+            head_class_day.innerHTML = 'On every ';
+            outer_class_day.appendChild(head_class_day);
+
+            const input_class_day = document.createElement('input');
+            input_class_day.setAttribute('class','inputinsecbox');
+            input_class_day.setAttribute('list','days');
+            input_class_day.setAttribute('name','day');
+            outer_class_day.appendChild(input_class_day);
+
+            const datalist_class_day = document.createElement('datalist');
+            datalist_class_day.setAttribute('id','days');
+            datalist_class_day.innerHTML = '<option value="Monday"><option value="Tuesday"><option value="Wednesday"><option value="Thursday"><option value="Friday"><option value="Saturday">';
+            outer_class_day.appendChild(datalist_class_day);
+
+        data_input.appendChild(outer_class_day);
 
 
 
+        const outer_class_time = document.createElement('div');
+        outer_class_time.setAttribute('class','col-12 linesecbox');
+        outer_class_time.setAttribute('style','overflow: hidden;');
+
+            const head_class_start = document.createElement('div');
+            head_class_start.setAttribute('class','textinsecbox');
+            head_class_start.innerHTML = 'From ';
+            outer_class_time.appendChild(head_class_start);
+
+            const input_class_start = document.createElement('input');
+            input_class_start.setAttribute('class','inputinsecbox');
+            input_class_start.setAttribute('style','width: 90px; float: left;');
+            input_class_start.setAttribute('id','time_start');
+            outer_class_time.appendChild(input_class_start);
+
+            const head_class_end = document.createElement('div');
+            head_class_end.setAttribute('class','textinsecbox');
+            head_class_end.setAttribute('style','margin-left: 10px;');
+            head_class_end.innerHTML = 'to ';
+            outer_class_time.appendChild(head_class_end);
+
+            const input_class_end = document.createElement('input');
+            input_class_end.setAttribute('class','inputinsecbox');
+            input_class_end.setAttribute('style','width: 90px; float: left;');
+            input_class_end.setAttribute('id','time_end');
+            outer_class_time.appendChild(input_class_end);
+
+        data_input.appendChild(outer_class_time);
 
 
+        const outer_class_at = document.createElement('div');
+        outer_class_at.setAttribute('class','col-12 linesecbox');
+
+            const head_class_at = document.createElement('div');
+            head_class_at.setAttribute('class','textinsecbox');
+            head_class_at.innerHTML = 'At ';
+            outer_class_at.appendChild(head_class_at);
+
+            const input_class_at = document.createElement('input');
+            input_class_at.setAttribute('class','inputinsecbox');
+            input_class_at.setAttribute('id','room');
+            outer_class_at.appendChild(input_class_at);
+
+        data_input.appendChild(outer_class_at);
+
+        return data_input;
+    }
+</script>
 
 
 
