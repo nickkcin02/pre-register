@@ -506,7 +506,46 @@ include 'nav-bar.php';
 
         document.getElementById('courseID').innerHTML = data[0][0]["courseID"];
         document.getElementById('courseName').innerHTML = data[0][0]["courseName"];
+
             // add data to left side
+
+            // section data
+            var openCourseID = 0, section = 0;
+            var section_data = data[1];
+            var stack = 0;
+            for(var i = 0; i < section_data.length; i++) {
+                console.log(section_data[i]["openCourseID"])
+                console.log(section_data[i]["section"])
+                if (openCourseID == section_data[i]["openCourseID"] && section == section_data[i]["section"]) {
+                    stack++;
+                }
+                else {
+                    if (stack == 1) {
+                        
+                        create_new_section(2,section_data[i-2],section_data[i-1])
+                        stack = 0;
+                    }
+                    else {
+                        if (openCourseID != 0 && section != 0) {    
+                            create_new_section(1,section_data[i-1],0)
+                        }
+                    }
+                    openCourseID = section_data[i]["openCourseID"];
+                    section = section_data[i]["section"];
+                }
+            }
+            if (stack == 1) {
+                console.log("11111");
+                create_new_section(2,section_data[section_data.length-2],section_data[section_data.length-1])
+                stack = 0;
+            }
+            else {
+                console.log("22222");
+                if (openCourseID != 0 && section != 0) {
+                    create_new_section(1,section_data[section_data.length-1],0)
+                }
+            }
+
 
         }
     })
@@ -516,9 +555,6 @@ include 'nav-bar.php';
     function create_new_section(isQuery,fisrtTime,secondTime){
         // const big_box = document.getElementById('big_box_section'); 
 
-        if(isQuery == 1){
-            //
-        }
         const box = document.createElement('div');
 
         const section_display_box = document.createElement('div');
@@ -584,42 +620,58 @@ include 'nav-bar.php';
 
             box.appendChild(outer_delete_sec);
 
-
-            const data_input = create_new_time_obj(0,0,'Upper');
-            box.appendChild(data_input);
-            
-            box.appendChild(create_add_time_button(box));
-
-
-            const update_button = document.createElement('div');
-            update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
-            update_button.innerHTML = 'Update';
-            update_button.onclick = function(e) {
-                // console.log(box.getElementsByTagName('input'))
-                var input_data = box.getElementsByTagName('input'); 
-                for(const i in input_data) {
-
-                }
-
-                var input_data = box.getElementsByTagName('select'); 
-                for (const i in input_data) {
-                    console.log(input_data[i].value)
-                }
-                // console.log(box.getElementsByTagName('select'))
-                
-                // window.location = './courseInfo.php';
+            var data_input;
+            if(isQuery == 1) {
+                console.log("here1");
+                data_input = create_new_time_obj(1,fisrtTime,'Upper');
+                box.appendChild(data_input);
+                box.appendChild(create_add_time_button(box));
             }
-            box.appendChild(update_button);
-            // $('.timepicker' + timeid).timepicker({
-            //     uiLibrary: 'bootstrap4'
-            // });
-            // $('.timepicker' + (timeid + 1)).timepicker({
-            //     uiLibrary: 'bootstrap4'
-            // });
-            // timeid = timeid + 2;
+            else if (isQuery == 2){
+                console.log("here2");
+                data_input = create_new_time_obj(2,fisrtTime,'Upper');
+                box.appendChild(data_input);
+                box.appendChild(create_del_time_button(box));
+                data_input = create_new_time_obj(1,secondTime,'Lower');
+                box.appendChild(data_input);
+            }
+            else {
+                data_input = create_new_time_obj(0,0,'Upper');
+                box.appendChild(data_input);
+                box.appendChild(create_add_time_button(box));
+            }
+            
+            
+            
+            
+
+
+            // const update_button = document.createElement('div');
+            // update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
+            // update_button.innerHTML = 'Update';
+            // update_button.onclick = function(e) {
+            //     // console.log(box.getElementsByTagName('input'))
+            //     var input_data = box.getElementsByTagName('input'); 
+            //     for(const i in input_data) {
+
+            //     }
+
+            //     var input_data = box.getElementsByTagName('select'); 
+            //     for (const i in input_data) {
+            //         console.log(input_data[i].value)
+            //     }
+            //     // console.log(box.getElementsByTagName('select'))
+                
+
+            //     // window.location = './courseInfo.php';
+            // }
+            box.appendChild(create_update_button(box,isQuery));
 
             $("#last_obj_section").before(box);
-            check_drop_down();
+
+            return box;
+
+
         // console.log(obj)
         
     }
@@ -634,18 +686,7 @@ include 'nav-bar.php';
             const line = document.createElement('div');
             line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 0px; background-color: #ffffff; border-radius: 1.5px');
 
-            const del_button = document.createElement('button');
-            del_button.setAttribute('style','border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 279px; top: -37px;');
-            del_button.innerHTML = '<img src="img/greycross.png" style="width: 15px; height: 15px; position: relative; top: 0px; left: 0px;">';
-            del_button.onclick = function(e) {
-                // console.log(box.children[3].children)
-                del_button.remove()
-                box.children[4].remove();
-                box.children[3].children[4].remove(); 
-                box.children[4].setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 233px; text-align: left; color: #ffffff; padding-left: 10px;');
-                box.children[4].before(create_add_time_button(box))
-            }
-
+            const del_button = create_del_time_button(box);
 
             // box.appendChild();
             // box.children[5].attr('style.top','-73px');
@@ -659,6 +700,46 @@ include 'nav-bar.php';
             // console.log(box.children[5]);
         }
         return add_time_button
+    }
+
+    function create_update_button(box,time_num) {
+        const update_button = document.createElement('div');
+        if (time_num  == 1)
+            update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
+        else
+            update_button.setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: -66px; left: 232px; text-align: left; color: #ffffff; padding-left: 10px;');
+        update_button.innerHTML = 'Update';
+        update_button.onclick = function(e) {
+            // console.log(box.getElementsByTagName('input'))
+            var input_data = box.getElementsByTagName('input'); 
+            for(const i in input_data) {
+
+            }
+
+            var input_data = box.getElementsByTagName('select'); 
+            for (const i in input_data) {
+                console.log(input_data[i].value)
+            }
+            // console.log(box.getElementsByTagName('select'))
+            
+            // window.location = './courseInfo.php';
+        }
+        return update_button;
+    }
+
+    function create_del_time_button(box) {
+        const del_button = document.createElement('button');
+        del_button.setAttribute('style','border: none; background-color: rgba(255, 255, 255, 0); width: 30px; height: 30px; position: relative; left: 279px; top: -37px;');
+        del_button.innerHTML = '<img src="img/greycross.png" style="width: 15px; height: 15px; position: relative; top: 0px; left: 0px;">';
+        del_button.onclick = function(e) {
+            // console.log(box.children[3].children)
+            del_button.remove()
+            box.children[4].remove();
+            box.children[3].children[4].remove(); 
+            box.children[4].setAttribute('style','background-color: #1A9776; border-radius: 12px; height: 24px; width: 80px; position: relative; top: 56px; left: 233px; text-align: left; color: #ffffff; padding-left: 10px;');
+            box.children[4].before(create_add_time_button(box))
+        }
+        return del_button;
     }
 
 
@@ -678,6 +759,7 @@ include 'nav-bar.php';
 
     function create_new_time_obj(isQuery,data,isUpper) {
         const data_input = document.createElement('div');
+        // console.log(data)
         data_input.setAttribute('class','row');
         if(isUpper == 'Lower')
             data_input.setAttribute('style','position: relative; top: -54px; left: 15px;');
@@ -696,12 +778,20 @@ include 'nav-bar.php';
             const box_select_class_type = document.createElement('div');
             box_select_class_type.setAttribute('class','custom-select')
 
-            const input_class_type = document.createElement('select');
-            input_class_type.setAttribute('class','inputinsecbox');
-            input_class_type.setAttribute('id','classType');
-            input_class_type.setAttribute('name','classType');
-            input_class_type.innerHTML = '<option value="Lecture">Lecture</option><option value="Lab">Lab</option><option value="Lecture & Lab">Lecture & Lab</option>';
-            box_select_class_type.appendChild(input_class_type);
+
+                const input_class_type = document.createElement('select');
+                input_class_type.setAttribute('class','inputinsecbox');
+                input_class_type.setAttribute('id','classType');
+                // input_class_type.setAttribute('value',data["classType"]);
+                input_class_type.setAttribute('name','classType');
+                if (isQuery != 0) {
+                    input_class_type.innerHTML = classTypeConv(data["classType"]);
+                }
+                else {
+                    input_class_type.innerHTML = classTypeConv("");
+                }
+                box_select_class_type.appendChild(input_class_type);
+
 
             check_drop_down(box_select_class_type);
             outer_class_type.appendChild(box_select_class_type);
@@ -720,13 +810,20 @@ include 'nav-bar.php';
             const box_select_class_day = document.createElement('div');
             box_select_class_day.setAttribute('class','custom-select')
 
-            const input_class_day = document.createElement('select');
-            input_class_day.setAttribute('class','inputinsecbox');
-            input_class_day.setAttribute('id','classDay');
-            input_class_day.setAttribute('name','classDay');
-            input_class_day.innerHTML = '<option value="Monday">Monday</option><option value="Tuesday">Tuesday</option><option value="Wednesday">Wednesday</option><option value="Thursday">Thursday</option><option value="Friday">Friday</option><option value="Saturday">Saturday</option>';
-            box_select_class_day.appendChild(input_class_day);
+                const input_class_day = document.createElement('select');
+                input_class_day.setAttribute('class','inputinsecbox');
+                input_class_day.setAttribute('id','classDay');
+                input_class_day.setAttribute('name','classDay');
+                if (isQuery != 0) {
+                    input_class_day.innerHTML = classDayConv(data["classDay"]);
+                }
+                else {
+                    input_class_day.innerHTML = classDayConv("");
+                }
+                box_select_class_day.appendChild(input_class_day);
 
+
+            console.log(box_select_class_day)
             check_drop_down(box_select_class_day);
             outer_class_day.appendChild(box_select_class_day);
 
@@ -739,40 +836,35 @@ include 'nav-bar.php';
             outer_class_time.setAttribute('style','overflow: hidden;');
 
         // outer_class_time.innerHTML = '<div class="textinsecbox">From </div><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px; padding-right: 0px;"><div class="textinsecbox" style="margin-left: 10px; position: relative; top: -24px; left: 145px;">to </div><div style="position: relative; top: -24px; left: 145px;"><input class="inputinsecbox timepicker" width="90" style="float: left; height: 24px;"></div>'
-        const head_class_start = document.createElement('div');
-        head_class_start.setAttribute('class','textinsecbox');
-        head_class_start.innerHTML = 'From ';
-        outer_class_time.appendChild(head_class_start);
 
-        const input_class_start = document.createElement('input');
-        input_class_start.setAttribute('class','inputinsecbox timepicker' + timeid);
-        input_class_start.setAttribute('width','90');
-        input_class_start.setAttribute('style','float: left; height: 24px;');
-        input_class_start.setAttribute('id','time_start');
-        outer_class_time.appendChild(input_class_start);
-        $('.timepicker' + timeid).timepicker({
-            uiLibrary: 'bootstrap4'
-        });
+            const head_class_start = document.createElement('div');
+            head_class_start.setAttribute('class','textinsecbox');
+            head_class_start.innerHTML = 'From ';
+            outer_class_time.appendChild(head_class_start);
 
-        const head_class_end = document.createElement('div');
-        head_class_end.setAttribute('class','textinsecbox');
-        head_class_end.setAttribute('style','margin-left: 10px;');
-        head_class_end.innerHTML = 'to ';
-        outer_class_time.appendChild(head_class_end);
+            const input_class_start = document.createElement('input');
+            input_class_start.setAttribute('class','inputinsecbox timepicker');
+            input_class_start.setAttribute('width','90');
+            input_class_start.setAttribute('style','float: left; height: 24px;');
+            input_class_start.setAttribute('id','time_start');
+            if( isQuery != 0)
+                input_class_start.setAttribute('value',data["classStartTime"]);
+            outer_class_time.appendChild(input_class_start);
 
-        const input_class_end = document.createElement('input');
-        input_class_end.setAttribute('class','inputinsecbox timepicker' + (timeid + 1));
-        input_class_end.setAttribute('width','90');
-        input_class_end.setAttribute('style','float: left; height: 24px;');
-        input_class_end.setAttribute('id','time_end');
-        outer_class_time.appendChild(input_class_end);
-        $('.timepicker' + (timeid + 1)).timepicker({
-            uiLibrary: 'bootstrap4'
-        });
+            const head_class_end = document.createElement('div');
+            head_class_end.setAttribute('class','textinsecbox');
+            head_class_end.setAttribute('style','margin-left: 10px;');
+            head_class_end.innerHTML = 'to ';
+            outer_class_time.appendChild(head_class_end);
 
-
-
-
+            const input_class_end = document.createElement('input');
+            input_class_end.setAttribute('class','inputinsecbox timepicker');
+            input_class_end.setAttribute('width','90');
+            input_class_end.setAttribute('style','float: left; height: 24px;');
+            if( isQuery != 0)
+                input_class_end.setAttribute('value',data["classEndTime"]);
+            input_class_end.setAttribute('id','time_end');
+            outer_class_time.appendChild(input_class_end);
 
 
         data_input.appendChild(outer_class_time);
@@ -786,13 +878,23 @@ include 'nav-bar.php';
         head_class_at.innerHTML = 'At ';
         outer_class_at.appendChild(head_class_at);
 
-        const input_class_at = document.createElement('input');
-        input_class_at.setAttribute('class','inputinsecbox');
-        input_class_at.setAttribute('id','room');
-        outer_class_at.appendChild(input_class_at);
+
+            const input_class_at = document.createElement('input');
+            input_class_at.setAttribute('class','inputinsecbox');
+            input_class_at.setAttribute('id','room');
+            if( isQuery != 0)
+                input_class_at.setAttribute('value',data["room"]);
+            outer_class_at.appendChild(input_class_at);
+
 
         data_input.appendChild(outer_class_at);
 
+        if (isQuery == 2) {
+            const line = document.createElement('div');
+            line.setAttribute('style','height: 3px; width: 287px; margin-left: 15px; margin-top: 0px; background-color: #ffffff; border-radius: 1.5px');
+            data_input.appendChild(line);
+        }
+        // console.log(data_input)
         return data_input;
     }
 
@@ -853,6 +955,29 @@ include 'nav-bar.php';
         
     }
 
+    function classDayConv(day) {
+        var string = "";
+        const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        for(const i in days) {
+            if(day == days[i])
+                string += '<option value="'+ days[i] +'" selected>'+ days[i] +'</option>';
+            else 
+                string += '<option value="'+ days[i] +'">'+ days[i] +'</option>';
+        }
+        return string;
+    }
+
+    function classTypeConv(type) {
+        var string = "";
+        const types = ['Lab','Lecture','Lecture & Lab'];
+        for(const i in types) {
+            if(type == types[i])
+                string += '<option value="'+ types[i] +'" selected>'+ types[i] +'</option>';
+            else 
+                string += '<option value="'+ types[i] +'">'+ types[i] +'</option>';
+        }
+        return string;
+    }
 
     function closeAllSelect(elmnt) {
       /*a function that will close all select boxes in the document,
