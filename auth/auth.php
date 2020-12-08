@@ -15,7 +15,7 @@
  //  		$res[] =  "Connection failed: " . $e->getMessage();
 	// }
 function db(){
-	$servername = "35.240.178.237";
+	$servername = "hub.aomwara.me";
 	$username = "root";
 	$password = "cpe327db";
 	$database = "Prayuth_DB";
